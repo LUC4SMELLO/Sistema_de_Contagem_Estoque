@@ -2,7 +2,7 @@ from backend.models.usuarios import Usuario
 
 def validar_cadastro(nome_completo, senha):
 
-    resultado = Usuario.buscar_usuario(nome_completo, senha)
+    resultado = Usuario.buscar_usuarios(nome_completo, senha)
     if resultado:
         return False, "Nome de Usuário Já Encontrado."
 
