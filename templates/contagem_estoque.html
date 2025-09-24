@@ -22,12 +22,17 @@
 </head>
 
 <body class="p-3">
-
-  <h2>Contagem de Estoque</h2>
+  
+  <header>
+    <h1>Contagem de Estoque</h1>
+    <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+  </header>
 
   <!-- Campo de pesquisa -->
   <input type="text" id="pesquisa" class="form-control mb-3" 
          placeholder="Pesquisar produto..." onkeyup="filtrarProdutos()">
+
+  <br><br>
 
   <!-- Formulário de contagem -->
   <form method="POST" action="/salvar_contagem">
