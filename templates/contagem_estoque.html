@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Contagem de Estoque</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contagem_estoque.css') }}">
+
+  <script>
+    function filtrarProdutos() {
+      let input = document.getElementById("pesquisa").value.toLowerCase();
+      let linhas = document.querySelectorAll("#tabelaProdutos tr");
+
+      linhas.forEach(linha => {
+        let nome = linha.querySelector("td").innerText.toLowerCase();
+        linha.style.display = nome.includes(input) ? "" : "none";
+      });
+    }
+  </script>
+
+</head>
+
+<body class="p-3">
+
+  <h2>Contagem de Estoque</h2>
+
+  <!-- Campo de pesquisa -->
+  <input type="text" id="pesquisa" class="form-control mb-3" 
+         placeholder="Pesquisar produto..." onkeyup="filtrarProdutos()">
+
+  <!-- Formulário de contagem -->
+  <form method="POST" action="/salvar_contagem">
+
+    <table class="table table-bordered">
+
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Quantidade Contada</th>
+        </tr>
+      </thead>
+
+      <tbody id="tabelaProdutos">
+
+        {% for produto in produtos %}
+        <tr>
+          <td>{{ produto.nome }}</td>
+          <td>
+            <input type="number" name="produto_{{ produto.id }}" class="form-control">
+          </td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+
+    </table>
+
+    <button type="submit" class="btn btn-primary">Salvar Contagem</button>
+
+  </form>
+
+</body>
+</html>

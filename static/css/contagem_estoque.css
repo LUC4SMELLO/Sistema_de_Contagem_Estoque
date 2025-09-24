@@ -1,0 +1,84 @@
+/* =========================
+   Estilo geral
+========================= */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f6fa;
+  color: #2f3640;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cabeçalho */
+h2 {
+  color: #273c75;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Campo de pesquisa */
+#pesquisa {
+  border: 2px solid #718093;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 16px;
+  width: 100%;
+  transition: 0.3s;
+}
+
+#pesquisa:focus {
+  border-color: #0097e6;
+  outline: none;
+  box-shadow: 0 0 5px #0097e6;
+}
+
+/* Tabela */
+table {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+table th {
+  background: #273c75;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+table td {
+  padding: 10px;
+  vertical-align: middle;
+}
+
+/* Inputs de quantidade */
+input[type="number"] {
+  width: 100px;
+  border: 1px solid #dcdde1;
+  border-radius: 6px;
+  padding: 5px;
+  text-align: center;
+}
+
+input[type="number"]:focus {
+  border-color: #0097e6;
+  outline: none;
+}
+
+/* Botão principal */
+button {
+  background-color: #0097e6;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #40739e;
+}
