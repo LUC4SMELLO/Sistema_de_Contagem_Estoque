@@ -27,7 +27,7 @@ def cadastro():
 
             novo_usuario.inserir_usuario()
 
-            return redirect(url_for(""))
+            return redirect(url_for("contagem_estoque.contagem_estoque"))
 
 
 

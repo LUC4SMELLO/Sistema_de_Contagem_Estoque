@@ -19,7 +19,7 @@ def login():
             return render_template("login.html")
         
         else:
-            return redirect(url_for(""))
+            return redirect(url_for("contagem_estoque.contagem_estoque"))
         
 
     
