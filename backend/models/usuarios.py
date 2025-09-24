@@ -12,10 +12,8 @@ class Usuario:
 
         cursor.execute(
         """
-        INSERT INTO TabelaUsuarios (
-        nome_completo,
-        senha
-        )
+        INSERT INTO TabelaUsuarios (nome_completo, senha)
+        VALUES (?, ?)
         """, (self.nome_completo, self.senha)
         )
 
