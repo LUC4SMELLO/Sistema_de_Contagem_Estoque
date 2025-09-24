@@ -49,9 +49,9 @@ class Usuario:
         """, (nome_completo, senha)
         )
 
+        resultado = cursor.fetchone()
+
         conexao.commit()
         conexao.close()
-
-        resultado = cursor.fetchone()
 
         return resultado
