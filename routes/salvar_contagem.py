@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request
 
-from routes.contagem_estoque import produtos
+from arquivos.produtos import produtos
 
 salvar_contagem_bp = Blueprint("salvar_contagem", __name__)
 

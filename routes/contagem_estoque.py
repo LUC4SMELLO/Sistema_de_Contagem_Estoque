@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-from data_files.produtos import produtos
+from arquivos.produtos import produtos
 
 contagem_estoque_bp = Blueprint("contagem_estoque", __name__)
 
