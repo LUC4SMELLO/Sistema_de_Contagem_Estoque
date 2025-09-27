@@ -7,6 +7,7 @@ arquivo_parametros = pd.read_csv(
     encoding="ISO-8859-1",
     index_col=False
     )
+
 arquivo_parametros.drop(columns=['Complemento', 'UN', 'Grupo',
        'Categoria', 'Marca', 'Custo G', 'Custo C', 'Custo UE',
        'Data UE', 'Fat.GN', 'Peso Bruto', 'Peso Líquido', 'Vol Embalagem',
@@ -24,3 +25,9 @@ arquivo_parametros["Saldo Atual"] = arquivo_parametros["Saldo Atual"].fillna(0).
 arquivo_parametros["Cod. CIA"] = arquivo_parametros["Cod. CIA"].str.lstrip("0")
 
 arquivo_parametros.rename(columns={"Descrição": "Descricao"}, inplace=True)
+
+
+lista_produtos = [
+    {"id": row["Codigo"], "nome": row["Descricao"]}
+    for _, row in arquivo_parametros.iterrows()
+]
