@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request
 
 from scripts.processar_arquivo_parametro import lista_produtos
+from scripts.salvar_arquivo_contagem import salvar_arquivo_contagem_estoque
 
 salvar_contagem_bp = Blueprint("salvar_contagem", __name__)
 
@@ -14,8 +15,6 @@ def salvar_contagem():
 
         quantidade = request.form.get(campo)  # PEGA O VALOR DO FORMULÁRIO
 
-        print(quantidade)
-
         if quantidade:
             contagens[produto["id"]] = int(quantidade)
 
@@ -24,6 +23,9 @@ def salvar_contagem():
         
 
     print("Valores recebidos:", contagens) 
+
+    salvar_arquivo_contagem_estoque(contagens)
+
     # SALVAR NO BANCO DE DADOS
 
     return "Contagem recebida com sucesso!"
