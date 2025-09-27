@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request
 
 from scripts.processar_arquivo_parametro import lista_produtos
-from scripts.salvar_arquivo_contagem import salvar_arquivo_contagem_estoque
+from scripts.salvar_arquivo_contagem_estoque import salvar_arquivo_contagem_estoque
 
 salvar_contagem_bp = Blueprint("salvar_contagem", __name__)
 
