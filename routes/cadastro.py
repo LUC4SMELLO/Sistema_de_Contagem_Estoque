@@ -1,4 +1,4 @@
-from flask import Blueprint, request, flash, redirect, url_for, render_template
+from flask import Blueprint, request, flash, redirect, url_for, render_template, session
 
 from backend.models.usuarios import Usuario
 
@@ -27,6 +27,7 @@ def cadastro():
 
             novo_usuario.inserir_usuario()
 
+            session["username"] = nome_completo
             return redirect(url_for("contagem_estoque.contagem_estoque"))
 
 

@@ -1,4 +1,4 @@
-from flask import Blueprint, request, flash, redirect, url_for, render_template
+from flask import Blueprint, request, flash, redirect, url_for, render_template, session
 
 from backend.validadores.validar_login import validar_login
 
@@ -19,6 +19,7 @@ def login():
             return render_template("login.html")
         
         else:
+            session["username"] = nome_completo
             return redirect(url_for("contagem_estoque.contagem_estoque"))
         
 

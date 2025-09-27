@@ -30,13 +30,18 @@
     <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
   </header>
 
-  <!-- Campo de pesquisa -->
+  <!-- EXIBE NOME DO USUÁRIO -->
+  {% if session['username'] %}
+    <p>Bem-vindo, {{ session['username'] }}!</p>
+  {% endif %}
+
+  <!-- CAMPO DE PESQUISA -->
   <input type="text" id="pesquisa" class="form-control mb-3" 
          placeholder="Pesquisar produto..." onkeyup="filtrarProdutos()">
 
   <br><br>
 
-  <!-- Formulário de contagem -->
+  <!-- FORMULÁRIO DE CONTAGEM -->
   <form method="POST" action="/salvar_contagem">
 
     <table class="table table-bordered">
