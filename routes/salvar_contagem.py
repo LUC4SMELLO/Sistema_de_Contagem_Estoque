@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request
 
-from arquivos.produtos import produtos
+from scripts.processar_arquivo_parametro import lista_produtos
 
 salvar_contagem_bp = Blueprint("salvar_contagem", __name__)
 
@@ -9,7 +9,7 @@ def salvar_contagem():
 
     contagens = {}
 
-    for produto in produtos:
+    for produto in lista_produtos:
         campo = f"produto_{produto['id']}"  # EXEMPLO: "produto_1"
 
         quantidade = request.form.get(campo)  # PEGA O VALOR DO FORMULÁRIO
