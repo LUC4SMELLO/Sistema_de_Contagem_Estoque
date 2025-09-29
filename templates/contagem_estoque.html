@@ -32,8 +32,10 @@
 
   <!-- EXIBE NOME DO USUÁRIO -->
   {% if session['username'] %}
-    <p>Bem-vindo, {{ session['username'] }}!</p>
+    <h4>Bem-vindo, {{ session['username'] }}!</h4>
   {% endif %}
+
+  <hr> <br>
 
   <!-- CAMPO DE PESQUISA -->
   <input type="text" id="pesquisa" class="form-control mb-3" 

@@ -96,3 +96,7 @@ button {
 button:hover {
     background-color: #505050;
 }
+
+hr{
+    border: 2px solid silver;
+}
