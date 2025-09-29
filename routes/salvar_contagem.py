@@ -20,12 +20,9 @@ def salvar_contagem():
 
         else:
             contagens[produto["id"]] = int(0)
-        
-
-    print("Valores recebidos:", contagens) 
 
     salvar_arquivo_contagem_estoque(contagens)
 
     # SALVAR NO BANCO DE DADOS
 
-    return "Contagem recebida com sucesso!"
+    return render_template("salvar_contagem.html")
