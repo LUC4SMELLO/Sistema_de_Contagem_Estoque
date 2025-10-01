@@ -10,8 +10,8 @@ def login():
 
     if request.method == "POST":
 
-        nome_completo = request.form.get("nome_completo")
-        senha = request.form.get("senha")
+        nome_completo = str(request.form.get("nome_completo")).rstrip()
+        senha = str(request.form.get("senha")).rstrip()
 
         valido, mensagem = validar_login(nome_completo, senha)
         if not valido:

@@ -10,8 +10,8 @@ cadastro_bp = Blueprint("cadastro", __name__)
 @cadastro_bp.route("/cadastro", methods=["GET", "POST"])
 def cadastro():
 
-    nome_completo = request.form.get("nome_completo")
-    senha = request.form.get("senha")
+    nome_completo = str(request.form.get("nome_completo")).rstrip()
+    senha = str(request.form.get("senha")).rstrip()
 
     if request.method == "POST":
 
