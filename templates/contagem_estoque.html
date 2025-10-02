@@ -44,7 +44,7 @@
   <br><br>
 
   <!-- FORMULÁRIO DE CONTAGEM -->
-  <form method="POST" action="/salvar_contagem">
+  <form id="formulario-contagem" method="POST" action="/salvar_contagem">
 
     <table class="table table-bordered">
 
@@ -75,6 +75,15 @@
     <br><br><br>
 
   </form>
+
+  <!-- TRECHO PARA NÃO ENVIAR FORMUÇÁRIO NO ENTER -->
+  <script>
+    document.getElementById('formulario-contagem').addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+      }
+    });
+  </script>
 
 </body>
 </html>
