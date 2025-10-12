@@ -8,18 +8,20 @@ salvar_contagem_bp = Blueprint("salvar_contagem", __name__)
 @salvar_contagem_bp.route("/salvar_contagem", methods=["POST"])
 def salvar_contagem():
 
-    contagens = {}
+    contagens = []
 
     for produto in lista_produtos:
-        campo = f"produto_{produto['id']}"  # EXEMPLO: "produto_1"
+        campo = f"produto_{produto['id']}"
+        quantidade = request.form.get(campo)
 
-        quantidade = request.form.get(campo)  # PEGA O VALOR DO FORMULÁRIO
+        if not quantidade:
+            quantidade = 0
 
-        if quantidade:
-            contagens[produto["id"]] = int(quantidade)
-
-        else:
-            contagens[produto["id"]] = int(0)
+        contagens.append({
+            "codigo": produto["id"],
+            "nome": produto["nome"],
+            "quantidade": int(quantidade)
+        })
 
     salvar_arquivo_contagem_estoque(contagens)
 
