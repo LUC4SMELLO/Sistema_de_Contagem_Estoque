@@ -85,5 +85,40 @@
     });
   </script>
 
+  <script>
+    // 🔹 Carregar contagens salvas do banco
+  document.addEventListener("DOMContentLoaded", () => {
+    fetch("/carregar_contagens")
+      .then(res => res.json())
+      .then(dados => {
+        dados.forEach(item => {
+          const campo = document.getElementById(`produto_${item.produto_id}`);
+          if (campo) campo.value = item.quantidade;
+        });
+      });
+  });
+
+  let timeout;
+
+  document.addEventListener("input", e => {
+  if (e.target.type === "number") {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      const produto_id = e.target.id.split("_")[1];
+      const quantidade = e.target.value;
+
+      const formData = new FormData();
+      formData.append("produto_id", produto_id);
+      formData.append("quantidade", quantidade);
+
+      fetch("/salvar_contagem_temporaria", {
+        method: "POST",
+        body: formData
+      });
+    }, 1000);
+  }
+});
+  </script>
+
 </body>
 </html>
