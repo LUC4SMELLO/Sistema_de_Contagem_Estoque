@@ -45,7 +45,7 @@ class Usuario:
 
         cursor.execute(
         """
-        SELECT 1 FROM TabelaUsuarios
+        SELECT * FROM TabelaUsuarios
         WHERE nome_completo = ? AND senha = ?
         """, (nome_completo, senha)
         )
@@ -55,4 +55,4 @@ class Usuario:
         conexao.commit()
         conexao.close()
 
-        return resultado
+        return Usuario(*resultado)
