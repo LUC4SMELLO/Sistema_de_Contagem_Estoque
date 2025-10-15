@@ -28,7 +28,7 @@ class Contagem:
         conexao.close()
 
     @staticmethod
-    def excluir_contagem(usuario_id):
+    def excluir_contagem(usuario_id, data):
 
         conexao = conectar_banco_dados_contagem()
         cursor = conexao.cursor()
@@ -36,8 +36,8 @@ class Contagem:
         cursor.execute(
         """
         DELETE FROM TabelaContagem
-        WHERE usuario_id = ?
-        """, (usuario_id,)
+        WHERE usuario_id = ? AND data = ?
+        """, (usuario_id, data)
         )
 
         conexao.commit()
