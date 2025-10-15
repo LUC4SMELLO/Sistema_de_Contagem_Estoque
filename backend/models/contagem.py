@@ -44,7 +44,7 @@ class Contagem:
         conexao.close()
 
     @staticmethod
-    def carregar_contagem(usuario_id):
+    def carregar_contagem(usuario_id, data):
 
         conexao = conectar_banco_dados_contagem()
         cursor = conexao.cursor()
@@ -52,13 +52,14 @@ class Contagem:
         cursor.execute(
         """
         SELECT * FROM TabelaContagem
-        WHERE usuario_id = ?
-        """, (usuario_id,)
+        WHERE usuario_id = ? AND data = ?
+        """, (usuario_id, data)
         )
 
         resultado = cursor.fetchall()
 
-        conexao.commit()
         conexao.close()
 
-        return Contagem(*resultado)
+        contagens = [{"produto_id": linha[2], "quantidade": linha[3]} for linha in resultado]
+
+        return contagens
