@@ -56,15 +56,17 @@
       </thead>
 
       <tbody id="tabelaProdutos">
-
-        {% for produto in produtos %}
-        <tr>
-          <td>{{ produto.nome }}</td>
-          <td>
-            <input type="number" name="produto_{{ produto.id }}" class="form-control">
-          </td>
-        </tr>
-        {% endfor %}
+      {% for produto in produtos %}
+      <tr>
+        <td>{{ produto.nome }}</td>
+        <td>
+          <input type="number" 
+                id="produto_{{ produto.id }}" 
+                name="produto_{{ produto.id }}" 
+                class="form-control">
+        </td>
+      </tr>
+      {% endfor %}
 
       </tbody>
 
@@ -88,7 +90,7 @@
   <script>
     // 🔹 Carregar contagens salvas do banco
   document.addEventListener("DOMContentLoaded", () => {
-    fetch("/carregar_contagens")
+    fetch("/carregar_contagem_temporaria")
       .then(res => res.json())
       .then(dados => {
         dados.forEach(item => {
@@ -115,9 +117,9 @@
         method: "POST",
         body: formData
       });
-    }, 1000);
+    }, 500);
   }
-});
+  });
   </script>
 
 </body>
