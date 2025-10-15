@@ -6,6 +6,7 @@ from routes.login import login_bp
 from routes.contagem_estoque import contagem_estoque_bp
 from routes.salvar_contagem import salvar_contagem_bp
 from routes.salvar_contagem_temporaria import salvar_contagem_temporaria_bp
+from routes.carregar_contagem_temporaria import carregar_contagem_temporaria_bp
 
 app = Flask(__name__)
 app.secret_key = "secret_key"
@@ -17,6 +18,7 @@ app.register_blueprint(login_bp)
 app.register_blueprint(contagem_estoque_bp)
 app.register_blueprint(salvar_contagem_bp)
 app.register_blueprint(salvar_contagem_temporaria_bp)
+app.register_blueprint(carregar_contagem_temporaria_bp)
 
 
 if __name__ == "__main__":
