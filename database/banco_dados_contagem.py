@@ -12,7 +12,7 @@ def criar_banco_dados_contagem():
     """
     CREATE TABLE IF NOT EXISTS TabelaContagem (
     data VARCHAR(10),
-    usuario VARCHAR(50),
+    usuario_id VARCHAR(50),
     codigo_produto VARCHAR(10),
     quantidade_contada INT(8)
     )
