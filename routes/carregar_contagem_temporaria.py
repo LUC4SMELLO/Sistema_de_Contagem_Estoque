@@ -11,10 +11,10 @@ carregar_contagem_temporaria_bp = Blueprint("carregar_contagem_temporaria", __na
 @carregar_contagem_temporaria_bp.route("/carregar_contagem_temporaria")
 def carregar_contagem_temporaria():
 
-    usuario_id = session.get("usuario_id")
-
     data_atual = date.today()
     data_atual_formatada = data_atual.strftime("%d/%m/%Y")
+
+    usuario_id = session.get("usuario_id")
 
     if not usuario_id or not data_atual_formatada:
         return jsonify([])
