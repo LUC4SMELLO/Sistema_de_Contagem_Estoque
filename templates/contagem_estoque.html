@@ -87,9 +87,9 @@
     });
   </script>
 
-  <script>
-    // 🔹 Carregar contagens salvas do banco
-  document.addEventListener("DOMContentLoaded", () => {
+  <!-- TRECHO PARA CARREGAR CONTAGENS TEMPORÁRIAS -->
+  <script>  
+    document.addEventListener("DOMContentLoaded", () => {
     fetch("/carregar_contagem_temporaria")
       .then(res => res.json())
       .then(dados => {
@@ -98,8 +98,11 @@
           if (campo) campo.value = item.quantidade;
         });
       });
-  });
-
+    });
+  </script>
+  
+  <!-- TRECHO PARA SALVAR CONTAGEM TEMPORÁRIAS -->
+  <script>
   let timeout;
 
   document.addEventListener("input", e => {
@@ -116,10 +119,10 @@
       fetch("/salvar_contagem_temporaria", {
         method: "POST",
         body: formData
-      });
-    }, 500);
-  }
-  });
+        });
+      }, 500);
+      }
+    });
   </script>
 
 </body>
