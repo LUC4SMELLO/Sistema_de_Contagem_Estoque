@@ -1,8 +1,10 @@
 import sqlite3
 
+from backend.constantes.bancos_dados import BANCO_DADOS_USUARIOS, TABELA_USUARIOS
+
 def conectar_banco_dados_usuarios():
 
-    return sqlite3.connect("TabelaUsuarios.db")
+    return sqlite3.connect(BANCO_DADOS_USUARIOS)
 
 def criar_banco_dados_usuarios():
 
@@ -10,8 +12,8 @@ def criar_banco_dados_usuarios():
     cursor = conexao.cursor()
 
     cursor.execute(
-    """
-    CREATE TABLE IF NOT EXISTS TabelaUsuarios (
+    f"""
+    CREATE TABLE IF NOT EXISTS {TABELA_USUARIOS} (
     usuario_id VARCHAR(10),
     nome_completo VARCHAR(50),
     senha VARCHAR(50)
