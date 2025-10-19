@@ -1,5 +1,8 @@
 from database.banco_dados_produtos import conectar_banco_dados_produtos
 
+from backend.constantes.bancos_dados import TABELA_PRODUTOS
+
+
 class Produto:
     def __init__(self, codigo_produto, descricao, quantidade):
         self.codigo_produto = codigo_produto
@@ -12,8 +15,8 @@ class Produto:
         cursor = conexao.cursor()
 
         cursor.execute(
-        """
-        INSERT INTO TabelaProdutos (
+        f"""
+        INSERT INTO {TABELA_PRODUTOS} (
         codigo_produto,
         descricao,
         quantidade
@@ -32,8 +35,8 @@ class Produto:
         cursor = conexao.cursor()
 
         cursor.execute(
-        """
-        DELETE FROM TabelaProdutos
+        f"""
+        DELETE FROM {TABELA_PRODUTOS}
         WHERE codigo_produto = ?
         """, (codigo_produto,)
         )
@@ -48,8 +51,8 @@ class Produto:
         cursor = conexao.cursor()
 
         cursor.execute(
-        """
-        SELECT * FROM TabelaProdutos
+        f"""
+        SELECT * FROM {TABELA_PRODUTOS}
         WHERE codigo_produto = ?
         """, (codigo_produto,)
         )
