@@ -1,5 +1,7 @@
 from database.banco_dados_contagem import conectar_banco_dados_contagem
 
+from backend.constantes.bancos_dados import TABELA_CONTAGENS_TEMPORARIAS
+
 class Contagem:
     def __init__(self, data, usuario_id, codigo_produto, quantidade_contada):
         self.data = data
@@ -13,8 +15,8 @@ class Contagem:
         cursor = conexao.cursor()
 
         cursor.execute(
-        """
-        INSERT INTO TabelaContagem (
+        f"""
+        INSERT INTO {TABELA_CONTAGENS_TEMPORARIAS} (
         data,
         usuario_id,
         codigo_produto,
@@ -34,8 +36,8 @@ class Contagem:
         cursor = conexao.cursor()
 
         cursor.execute(
-        """
-        DELETE FROM TabelaContagem
+        f"""
+        DELETE FROM {TABELA_CONTAGENS_TEMPORARIAS}
         WHERE usuario_id = ? AND data = ?
         """, (usuario_id, data)
         )
@@ -50,8 +52,8 @@ class Contagem:
         cursor = conexao.cursor()
 
         cursor.execute(
-        """
-        SELECT * FROM TabelaContagem
+        f"""
+        SELECT * FROM {TABELA_CONTAGENS_TEMPORARIAS}
         WHERE usuario_id = ? AND data = ?
         """, (usuario_id, data)
         )
