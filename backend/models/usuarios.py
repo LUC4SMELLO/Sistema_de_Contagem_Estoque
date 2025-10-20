@@ -1,6 +1,6 @@
 from database.banco_dados_usuarios import conectar_banco_dados_usuarios
 
-from backend.constantes.bancos_dados import BANCO_DADOS_USUARIOS, TABELA_USUARIOS
+from backend.constantes.bancos_dados import TABELA_USUARIOS
 
 
 class Usuario:
