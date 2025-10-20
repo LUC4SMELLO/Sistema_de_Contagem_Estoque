@@ -1,27 +1,50 @@
 # **Contagem Estoque**
 
-Este software foi desenvolvido para ajudar a ter o controle do estoque de uma empresa de forma mais simples, centralizada e eficaz. Para isso ele conta com diversas funcionalidades para ajudar.
+Este software foi desenvolvido para ajudar a ter o controle do estoque de uma empresa de forma mais simples, centralizada e eficaz. <br>
+Ele disponibiliza uma forma de contar o estoque e depois posteriormente usá-lo em outro sistema.
 
 ## **Funcionalidades Principais:**
 
-### 
-* **`FUNCIONALIDADE`**: 
+* **`Contar Estoque`**: Permite o usuário contar o estoque e enviar a quantidade contada por meio de um arquivo csv.
+
+## **Estrutura do Arquivo CSV**
+
+* `codigo` - Armazena o Código do Produto.
+* `nome` - Armazena o Nome do Produto.
+* `quantidade` - Contém a quantidade contada pelo usuário.
+
+
 
 ## **Tecnologias Utilizadas**
 
 - **Python 3.11.4+**
-- **Tkinter 8.4+**
+- **HTML5 e CSS3**
 - **Sqlite3 3.45.3+**
+
+## **Framework Utilizado**
+
+- **Flask**
 
 ## **Banco de Dados**
 
-- **`PRODUTOS`** - 
+- **`produtos.db`** - Usado para armazenar todos os dados dos produtos da empresa.
+
+<br>
+
+- **`contagem_temporarias.db`** - Ele armazena as contagens temporárias do usuário, como uma forma de backup da contagem feita por ele, caso ocorra algum problema de conexão.
+
+<br>
+
+- **`usuarios.db`** - Armazena todos os usuários cadastrados na aplicação.
+
+<br>
+
 ## **Estrutura do Projeto**
 
 ```
 
 ├── app.py
-
+|
 ├── arquivos/
 |   ├── contagem_estoque.py
 |   ├── PRODUTOS.CSV.py
@@ -54,6 +77,8 @@ Este software foi desenvolvido para ajudar a ter o controle do estoque de uma em
 |   ├── homepage.py
 |   ├── login.py
 |   ├── salvar_contagem.py
+|   ├── salvar_contagem_temporaria.py
+|   ├── carregar_contagem_temporaria.py
 |
 ├── scripts/
 |   ├── __init__.py
@@ -82,6 +107,7 @@ Este software foi desenvolvido para ajudar a ter o controle do estoque de uma em
 │   
 ├── .gitignore
 ├── README.md
+
 ```
 
 ## **Como Executar**
@@ -89,7 +115,7 @@ Este software foi desenvolvido para ajudar a ter o controle do estoque de uma em
 
 1. Execute o `app.py`.
    ```bash
-   python main.py
+   python app.py
    ```
 
 ## **Autoria**
