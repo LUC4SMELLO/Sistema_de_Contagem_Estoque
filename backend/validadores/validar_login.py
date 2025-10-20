@@ -1,6 +1,23 @@
 from backend.models.usuarios import Usuario
 
 def validar_login(nome_completo, senha):
+    """
+    Valida as informações do login do usuário.
+
+    Parameters
+    ----------
+        nome_completo
+            O nome completo do usuário.
+        senha
+            A senha do usuário.
+
+    Returns
+    ----------
+        bool
+            True se válido, False caso contrário.
+        mensagem
+            Explicando o motivo do valor booleano.
+    """
 
     resultado = Usuario.buscar_usuarios(nome_completo, senha)
     if not resultado:
