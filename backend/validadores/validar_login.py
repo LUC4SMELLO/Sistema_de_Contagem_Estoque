@@ -1,6 +1,6 @@
 from backend.models.usuarios import Usuario
 
-def validar_login(nome_completo, senha):
+def validar_login(nome_completo, senha) -> bool:
     """
     Valida as informações do login do usuário.
 
