@@ -8,13 +8,13 @@ class Contagem:
 
     Attributes
     ----------
-        data:
+        data
             Data da contagem.
-        usuario_id:
+        usuario_id
             Id do usuário.
-        codigo_produto:
+        codigo_produto
             Código produto.
-        quantidade_contada:
+        quantidade_contada
             Quantidade Contada.
     """
 
@@ -66,6 +66,13 @@ class Contagem:
     def excluir_contagem(usuario_id, data):
         """
         Exclui a contagem temporária do banco de dados.
+
+        Parameters
+        ----------
+            usuario_id
+                O id do usuário.
+            data
+                A data da contagem temporária.
         """
 
         conexao = conectar_banco_dados_contagem()
@@ -85,6 +92,17 @@ class Contagem:
     def carregar_contagem(usuario_id, data):
         """
         Carrega a contagem temporária do banco de dados.
+
+        Parameters
+        ----------
+            usuario_id
+                O id do usuário.
+            data
+                A data da contagem temporária.
+
+        Returns
+        -------
+            Uma lista de tuplas.
         """
 
         conexao = conectar_banco_dados_contagem()
