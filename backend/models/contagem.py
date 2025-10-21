@@ -3,13 +3,46 @@ from database.banco_dados_contagem import conectar_banco_dados_contagem
 from backend.constantes.bancos_dados import TABELA_CONTAGENS_TEMPORARIAS
 
 class Contagem:
+    """
+    Representa a contagem temporária feita pelo usuário.
+
+    Attributes
+    ----------
+        data:
+            Data da contagem.
+        usuario_id:
+            Id do usuário.
+        codigo_produto:
+            Código produto.
+        quantidade_contada:
+            Quantidade Contada.
+    """
+
     def __init__(self, data, usuario_id, codigo_produto, quantidade_contada):
+        """
+        Inicializa uma nova contagem temporária.
+
+        Parameters
+        ----------
+            data
+                A data da contagem.
+            usuario_id
+                O id do usuário.
+            codigo_produto
+                O código do produto.
+            quantidade_contada
+                A quantidade contada.
+        """
+
         self.data = data
         self.usuario_id = usuario_id
         self.codigo_produto = codigo_produto
         self.quantidade_contada = quantidade_contada
 
     def inserir_contagem(self):
+        """
+        Insere uma nova contagem temporária no banco de dados.
+        """
 
         conexao = conectar_banco_dados_contagem()
         cursor = conexao.cursor()
@@ -31,6 +64,9 @@ class Contagem:
 
     @staticmethod
     def excluir_contagem(usuario_id, data):
+        """
+        Exclui a contagem temporária do banco de dados.
+        """
 
         conexao = conectar_banco_dados_contagem()
         cursor = conexao.cursor()
@@ -47,6 +83,9 @@ class Contagem:
 
     @staticmethod
     def carregar_contagem(usuario_id, data):
+        """
+        Carrega a contagem temporária do banco de dados.
+        """
 
         conexao = conectar_banco_dados_contagem()
         cursor = conexao.cursor()
