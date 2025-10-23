@@ -111,4 +111,4 @@ class Usuario:
         conexao.commit()
         conexao.close()
 
-        return Usuario(*resultado)
+        return resultado
