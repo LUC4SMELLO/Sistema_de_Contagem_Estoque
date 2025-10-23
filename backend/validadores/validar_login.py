@@ -19,14 +19,15 @@ def validar_login(nome_completo, senha) -> bool:
             Explicando o motivo do valor booleano.
     """
 
-    resultado = Usuario.buscar_usuarios(nome_completo, senha)
-    if not resultado:
-        return False, "Usuário Não Encontrado."
 
     if not nome_completo or not senha:
         return False, "Todos os Campos Devem ser Preechidos."
-    
+
     if len(senha) < 8:
         return False, "Tamanho da Senha Inválido."
+    
+    resultado = Usuario.buscar_usuarios(nome_completo, senha)
+    if not resultado:
+        return False, "Usuário Não Encontrado."
     
     return True, "Login Bem Sucedido!"
