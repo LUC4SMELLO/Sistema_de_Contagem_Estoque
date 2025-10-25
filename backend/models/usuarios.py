@@ -9,77 +9,74 @@ class Usuario:
 
     Attributes
     ----------
-        usuario_id
-            O id do usuário.
-        nome_completo
+        usuario_id : int | None
+            O ID do usuário (gerado automaticamente pelo banco).
+        nome_completo : str
             O nome completo do usuário.
-        senha
+        senha : str
             A senha do usuário.
     """
 
-    def __init__(self, usuario_id, nome_completo, senha):
+
+    def __init__(self, nome_completo: str, senha: str, usuario_id=None):
         """
         Inicializa um novo objeto usuário.
 
         Parameters
         ----------
-            usuario_id
-                O id do usuário.
-            nome_completo
+            nome_completo : str
                 O nome completo do usuário.
-            senha
+            senha : str
                 A senha do usuário.
+            usuario_id : int, opcional
+                O ID do usuário (usado apenas ao buscar do banco).
         """
-
         self.usuario_id = usuario_id
         self.nome_completo = nome_completo
         self.senha = senha
 
+
     def inserir_usuario(self):
-        """Insere um usuário no banco de dados."""
+        """Insere um novo usuário no banco de dados e atualiza o ID no objeto."""
 
         conexao = conectar_banco_dados_usuarios()
         cursor = conexao.cursor()
 
         cursor.execute(
-        f"""
-        INSERT INTO {TABELA_USUARIOS} (usuario_id, nome_completo, senha)
-        VALUES (?, ?, ?)
-        """, (self.usuario_id, self.nome_completo, self.senha)
+            f"""
+            INSERT INTO {TABELA_USUARIOS} (nome_completo, senha)
+            VALUES (?, ?)
+            """,
+            (self.nome_completo, self.senha),
         )
+
+        self.usuario_id = cursor.lastrowid
 
         conexao.commit()
         conexao.close()
 
+
     @staticmethod
-    def excluir_usuario(usuario_id, nome_completo, senha):
+    def excluir_usuario(usuario_id: int):
         """
         Exclui um usuário do banco de dados.
 
         Parameters
         ----------
-            usuario_id
-                O id do usuário.
-            nome_completo
-                O nome completo do usuário.
-            senha
-                A senha do usuário.
+            usuario_id : int
+                O ID do usuário a ser excluído.
         """
-
-        
         conexao = conectar_banco_dados_usuarios()
         cursor = conexao.cursor()
 
         cursor.execute(
-        f"""
-        DELETE FROM {TABELA_USUARIOS}
-        WHERE usuario_id = ? AND nome_completo = ? AND senha = ? 
-        """, (usuario_id, nome_completo, senha)
+            f"DELETE FROM {TABELA_USUARIOS} WHERE usuario_id = ?", (usuario_id,)
         )
 
         conexao.commit()
         conexao.close()
     
+
     @staticmethod
     def buscar_usuarios(nome_completo, senha):
         """
