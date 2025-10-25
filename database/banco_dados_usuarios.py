@@ -14,7 +14,7 @@ def criar_banco_dados_usuarios():
     cursor.execute(
     f"""
     CREATE TABLE IF NOT EXISTS {TABELA_USUARIOS} (
-    usuario_id VARCHAR(10),
+    usuario_id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome_completo VARCHAR(50),
     senha VARCHAR(50)
     )
