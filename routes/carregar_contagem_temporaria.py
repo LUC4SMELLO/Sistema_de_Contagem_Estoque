@@ -4,7 +4,7 @@ from datetime import date
 
 from scripts.processar_arquivo_parametro import lista_produtos
 
-from backend.models.contagem import Contagem
+from backend.models.contagem_temporaria import ContagemTemporaria
 
 carregar_contagem_temporaria_bp = Blueprint("carregar_contagem_temporaria", __name__)
 
@@ -19,6 +19,6 @@ def carregar_contagem_temporaria():
     if not usuario_id or not data_atual_formatada:
         return jsonify([])
 
-    dados = Contagem.carregar_contagem(usuario_id, data_atual_formatada)
+    dados = ContagemTemporaria.carregar_contagem(usuario_id, data_atual_formatada)
 
     return jsonify(dados)

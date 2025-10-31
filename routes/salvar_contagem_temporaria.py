@@ -4,7 +4,7 @@ from datetime import date
 
 from scripts.processar_arquivo_parametro import lista_produtos
 
-from backend.models.contagem import Contagem
+from backend.models.contagem_temporaria import ContagemTemporaria
 
 
 salvar_contagem_temporaria_bp = Blueprint("contagem_temporaria", __name__)
@@ -24,7 +24,7 @@ def salvar_contagem_temporaria():
     if not quantidade:
         quantidade = 0
 
-    nova_contagem = Contagem(
+    nova_contagem = ContagemTemporaria(
         data_atual_formatada,
         usuario_id,
         codigo_produto,

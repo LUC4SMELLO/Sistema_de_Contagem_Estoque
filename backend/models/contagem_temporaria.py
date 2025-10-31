@@ -2,7 +2,7 @@ from database.banco_dados_contagem import conectar_banco_dados_contagem
 
 from backend.constantes.bancos_dados import TABELA_CONTAGENS_TEMPORARIAS
 
-class Contagem:
+class ContagemTemporaria:
     """
     Representa a contagem temporária feita pelo usuário.
 
