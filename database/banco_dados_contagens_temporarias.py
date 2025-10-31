@@ -2,12 +2,12 @@ import sqlite3
 
 from backend.constantes.bancos_dados import BANCO_DADOS_CONTAGENS_TEMPORARIAS, TABELA_CONTAGENS_TEMPORARIAS
 
-def conectar_banco_dados_contagem():
+def conectar_banco_dados_contagens_temporaria():
     return sqlite3.connect(BANCO_DADOS_CONTAGENS_TEMPORARIAS)
 
-def criar_banco_dados_contagem():
+def criar_banco_dados_contagens_temporarias():
 
-    conexao = conectar_banco_dados_contagem()
+    conexao = conectar_banco_dados_contagens_temporaria()
     cursor = conexao.cursor()
 
     cursor.execute(

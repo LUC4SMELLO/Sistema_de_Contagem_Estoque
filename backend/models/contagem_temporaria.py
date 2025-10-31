@@ -1,4 +1,4 @@
-from database.banco_dados_contagem import conectar_banco_dados_contagem
+from database.banco_dados_contagens_temporarias import conectar_banco_dados_contagens_temporaria
 
 from backend.constantes.bancos_dados import TABELA_CONTAGENS_TEMPORARIAS
 
@@ -44,7 +44,7 @@ class ContagemTemporaria:
         Insere uma nova contagem temporária no banco de dados.
         """
 
-        conexao = conectar_banco_dados_contagem()
+        conexao = conectar_banco_dados_contagens_temporaria()
         cursor = conexao.cursor()
 
         cursor.execute(
@@ -75,7 +75,7 @@ class ContagemTemporaria:
                 A data da contagem temporária.
         """
 
-        conexao = conectar_banco_dados_contagem()
+        conexao = conectar_banco_dados_contagens_temporaria()
         cursor = conexao.cursor()
 
         cursor.execute(
@@ -105,7 +105,7 @@ class ContagemTemporaria:
             Uma lista de tuplas.
         """
 
-        conexao = conectar_banco_dados_contagem()
+        conexao = conectar_banco_dados_contagens_temporaria()
         cursor = conexao.cursor()
 
         cursor.execute(
