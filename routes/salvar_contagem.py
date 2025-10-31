@@ -5,6 +5,8 @@ from scripts.salvar_arquivo_contagem_estoque import salvar_arquivo_contagem_esto
 
 from backend.models.contagem_temporaria import ContagemTemporaria
 
+from backend.models.contagens import Contagens
+
 from datetime import date
 
 
@@ -17,10 +19,7 @@ def salvar_contagem():
     data_atual_formatada = data_atual.strftime("%d/%m/%Y")
 
     usuario_id = session.get("usuario_id")
-
-    ContagemTemporaria.excluir_contagem(usuario_id, data_atual_formatada)
-
-
+    
 
     contagens = []
 
@@ -37,8 +36,12 @@ def salvar_contagem():
             "quantidade": int(quantidade)
         })
 
+        
     salvar_arquivo_contagem_estoque(contagens)
 
-    # SALVAR NO BANCO DE DADOS
+    Contagens.inserir_contagens(usuario_id, contagens)
+    
+    ContagemTemporaria.excluir_contagem(usuario_id, data_atual_formatada)
+
 
     return render_template("salvar_contagem.html")
