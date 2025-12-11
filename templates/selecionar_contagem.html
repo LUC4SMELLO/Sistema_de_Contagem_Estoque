@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecionar Contagem</title>
+    
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/selecionar_contagem.css') }}">
+
+</head>
+<body>
+
+    <header>
+        <h1>Contagem Estoque</h1>
+        <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+    </header>
+
+    <hr>
+
+    <main>
+        <p>Selecione uma contagem.</p> <br>
+
+        <a href="{{ url_for('contagem_estoque.contagem_estoque')}}">
+            <button class="botao_contagem_estoque">Contagem Bebidas</button> <br><br>
+        </a>
+
+        <a href="{{ url_for('contagem_geladeira.contagem_geladeira')}}">
+            <button class="botao_contagem_geladeiras">Contagem Geladeira</button> <br><br>
+        </a>
+
+
+    </main>
+    
+</body>
+</html>
