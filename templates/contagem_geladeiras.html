@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contagem de Estoque - Geladeiras</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contagem_geladeira.css') }}">
+
+</head>
+<body>
+    <h2>Contagem de Estoque - Geladeiras</h2>
+
+    <input id="codigo" type="text" placeholder="Digite o código da geladeira" />
+    <button onclick="addItem()">+</button>
+
+    <ul id="lista"></ul>
+
+    <button onclick="salvarContagem()" style="margin-top:15px; background:#4CAF50; color:white;">Salvar Contagem</button>
+
+    <p id="msg"></p>
+
+    <script>
+        let itens = [];
+
+        function addItem() {
+            const codigo = document.getElementById("codigo").value.trim();
+            if (codigo === "") return;
+
+            itens.push(codigo);
+            atualizarLista();
+            document.getElementById("codigo").value = "";
+            document.getElementById("codigo").focus();
+        }
+
+        function atualizarLista() {
+            const lista = document.getElementById("lista");
+            lista.innerHTML = "";
+            itens.forEach((item) => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                lista.appendChild(li);
+            });
+        }
+
+        async function salvarContagem() {
+            if (itens.length === 0) {
+                alert("Nenhuma geladeira adicionada!");
+                return;
+            }
+
+            const resposta = await fetch('/salvar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ itens })
+            });
+
+            const resultado = await resposta.json();
+
+            const msg = document.getElementById('msg');
+            if (resultado.status === 'ok') {
+                msg.textContent = 'Contagem salva com sucesso! Arquivo: ' + resultado.arquivo;
+                msg.style.color = 'green';
+                itens = [];
+                atualizarLista();
+            } else {
+                msg.textContent = 'Erro ao salvar: ' + resultado.mensagem;
+                msg.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
