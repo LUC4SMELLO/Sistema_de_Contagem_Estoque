@@ -1,0 +1,102 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f5f6fa;
+    color: #2f3640;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabeçalho */
+h1 {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+header img {
+    height: 70px;
+}
+
+/* Campo de pesquisa */
+#pesquisa {
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+    width: 75%;
+}
+
+#pesquisa:focus {
+    border-color: #000000;
+    outline: none;
+    box-shadow: 0 0 5px rgb(119, 119, 119);
+}
+
+/* Tabela */
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+table th {
+    background: black;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+table td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+/* Inputs de quantidade */
+input[type="number"] {
+    width: 100px;
+    border: 1px solid #505050;
+    border-radius: 6px;
+    padding: 5px;
+    text-align: center;
+}
+
+input[type="number"]:focus {
+    border-color: #000000;
+    outline: none;
+}
+
+/* Botão principal */
+button {
+    background-color: rgb(0, 0, 0);
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #505050;
+}
+
+hr{
+    border: 2px solid silver;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Contagem Doces</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contagem_doces.css') }}">
+
+  <script>
+    function filtrarProdutos() {
+      let input = document.getElementById("pesquisa").value.toLowerCase();
+      let linhas = document.querySelectorAll("#tabelaProdutos tr");
+
+      linhas.forEach(linha => {
+        let nome = linha.querySelector("td").innerText.toLowerCase();
+        linha.style.display = nome.includes(input) ? "" : "none";
+      });
+    }
+  </script>
+
+</head>
+
+<body class="p-3">
+  
+  <header>
+    <h1>Contagem Doces</h1>
+    <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+  </header>
+
+  <!-- EXIBE NOME DO USUÁRIO -->
+  {% if session['username'] %}
+    <h4>Bem-vindo, {{ session['username'] }}!</h4>
+  {% endif %}
+
+  <hr> <br>
+
+  <!-- CAMPO DE PESQUISA -->
+  <input type="text" id="pesquisa" class="form-control mb-3" 
+         placeholder="Pesquisar produto..." onkeyup="filtrarProdutos()">
+
+  <br><br>
+
+  <!-- FORMULÁRIO DE CONTAGEM -->
+  <form id="formulario-contagem" method="POST" action="/salvar_contagem_doces">
+
+    <table class="table table-bordered">
+
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Quantidade Contada</th>
+        </tr>
+      </thead>
+
+      <tbody id="tabelaProdutos">
+      {% for produto in produtos %}
+      <tr>
+        <td>{{ produto.nome }}</td>
+        <td>
+          <input type="number" 
+                id="produto_{{ produto.id }}" 
+                name="produto_{{ produto.id }}" 
+                class="form-control">
+        </td>
+      </tr>
+      {% endfor %}
+
+      </tbody>
+
+    </table>
+
+    <button type="submit" class="btn btn-primary">Salvar Contagem</button>
+
+    <br><br><br>
+
+  </form>
+
+  <!-- TRECHO PARA NÃO ENVIAR FORMUÇÁRIO NO ENTER -->
+  <script>
+    document.getElementById('formulario-contagem').addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+      }
+    });
+  </script>
+
+  <!-- TRECHO PARA CARREGAR CONTAGENS TEMPORÁRIAS -->
+  <script>  
+    document.addEventListener("DOMContentLoaded", () => {
+    fetch("/carregar_contagem_temporaria_doces")
+      .then(res => res.json())
+      .then(dados => {
+        dados.forEach(item => {
+          const campo = document.getElementById(`produto_${item.produto_id}`);
+          if (campo) campo.value = item.quantidade;
+        });
+      });
+    });
+  </script>
+  
+  <!-- TRECHO PARA SALVAR CONTAGEM TEMPORÁRIAS -->
+  <script>
+  let timeout;
+
+  document.addEventListener("input", e => {
+  if (e.target.type === "number") {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      const produto_id = e.target.id.split("_")[1];
+      const quantidade = e.target.value;
+
+      const formData = new FormData();
+      formData.append("produto_id", produto_id);
+      formData.append("quantidade", quantidade);
+
+      fetch("/salvar_contagem_temporaria_doces", {
+        method: "POST",
+        body: formData
+        });
+      }, 500);
+      }
+    });
+  </script>
+
+</body>
+</html>
