@@ -21,11 +21,19 @@ header img {
 .botao_contagem_estoque {
     font-weight: bold;
     padding: 5px 42px;
+    width: 210px;
+}
+
+.botao_contagem_doces {
+    font-weight: bold;
+    padding: 5px 30px;
+    width: 210px;
 }
 
 .botao_contagem_geladeiras {
     font-weight: bold;
     padding: 5px 30px;
+    width: 210px;
 }
 
 hr{
