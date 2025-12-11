@@ -39,7 +39,7 @@
 
   <!-- CAMPO DE PESQUISA -->
   <input type="text" id="pesquisa" class="form-control mb-3" 
-         placeholder="Pesquisar produto..." onkeyup="filtrarProdutos()">
+         placeholder="Pesquisar doce..." onkeyup="filtrarProdutos()">
 
   <br><br>
 
@@ -90,7 +90,7 @@
   <!-- TRECHO PARA CARREGAR CONTAGENS TEMPORÁRIAS -->
   <script>  
     document.addEventListener("DOMContentLoaded", () => {
-    fetch("/carregar_contagem_temporaria_doces")
+    fetch("/carregar_contagem_temporaria")
       .then(res => res.json())
       .then(dados => {
         dados.forEach(item => {
@@ -116,7 +116,7 @@
       formData.append("produto_id", produto_id);
       formData.append("quantidade", quantidade);
 
-      fetch("/salvar_contagem_temporaria_doces", {
+      fetch("/salvar_contagem_temporaria", {
         method: "POST",
         body: formData
         });
