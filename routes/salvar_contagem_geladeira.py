@@ -3,16 +3,18 @@ from flask import Blueprint, render_template, request, session, jsonify
 from datetime import date
 import csv
 import os
+import pandas as pd
 
-contagem_geladeiras_bp = Blueprint("contagem_geladeiras", __name__)
 
-PASTA_SAIDA = "arquivos"
-os.makedirs(PASTA_SAIDA, exist_ok=True)
+salvar_contagem_geladeiras_bp = Blueprint("salvar_contagem_geladeiras", __name__)
 
-@contagem_geladeiras_bp.route("/salvar_geladeiras", methods=["POST"])
-def salvar_geladeiras():
+
+
+@salvar_contagem_geladeiras_bp.route("/salvar_contagem_geladeiras", methods=["POST"])
+def salvar_contagem_geladeiras():
+
     data_atual = date.today()
-    data_formatada = data_atual.strftime("%d-%m-%Y")
+    data_formatada = data_atual.strftime("%d/%m/%Y")
 
     usuario_id = session.get("usuario_id", "desconhecido")
 
@@ -32,13 +34,10 @@ def salvar_geladeiras():
 
 
     nome_arquivo = f"contagem_geladeiras_{data_formatada}_{usuario_id}.csv"
-    caminho_arquivo = os.path.join(PASTA_SAIDA, nome_arquivo)
 
-    with open(caminho_arquivo, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(["codigo", "quantidade"])
-        for item in contagens:
-            writer.writerow([item["codigo"], item["quantidade"]])
 
+    contagem_estoque = pd.DataFrame(contagens)
+
+    contagem_estoque.to_csv(f"arquivos/contagem_geladeiras.csv", index=False)
 
     return jsonify({"status": "ok", "arquivo": nome_arquivo})
