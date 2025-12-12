@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contagem de Estoque - Geladeiras</title>
+    <title>Contagem Geladeiras</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/contagem_geladeira.css') }}">
 
 </head>
-<body>
-    <h2>Contagem de Estoque - Geladeiras</h2>
+<body class="p-3">
+
+    <header>
+        <h1>Contagem Geladeiras</h1>
+        <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+    </header>
+
+    <!-- EXIBE NOME DO USUÁRIO -->
+    {% if session['username'] %}
+        <h4>Bem-vindo, {{ session['username'] }}!</h4>
+    {% endif %}
+
+    <br>
 
     <input id="codigo" type="text" placeholder="Digite o código da geladeira" />
     <button onclick="addItem()">+</button>
 
     <ul id="lista"></ul>
 
-    <button onclick="salvarContagem()" style="margin-top:15px; background:#4CAF50; color:white;">Salvar Contagem</button>
+    <button onclick="salvarContagem()" class="btn btn-primary">Salvar Contagem</button>
 
     <p id="msg"></p>
 
