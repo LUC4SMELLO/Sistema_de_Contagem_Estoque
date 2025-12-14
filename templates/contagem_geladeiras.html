@@ -40,8 +40,26 @@
 
             itens.push(codigo);
             atualizarLista();
+
+            salvarContagemTemporaria(codigo);
+
             document.getElementById("codigo").value = "";
             document.getElementById("codigo").focus();
+        }
+
+        async function salvarContagemTemporaria(codigoProduto) {
+            const formData = new FormData();
+            formData.append("produto_id", codigoProduto);
+            formData.append("quantidade", 1); // sempre 1 geladeira por registro
+
+            try {
+                await fetch("/salvar_contagem_temporaria", {
+                    method: "POST",
+                    body: formData
+                });
+            } catch (erro) {
+                console.error("Erro ao salvar contagem temporária:", erro);
+                }
         }
 
         function atualizarLista() {
@@ -72,7 +90,7 @@
 
             const msg = document.getElementById('msg');
             if (resultado.status === 'ok') {
-                msg.textContent = 'Contagem salva com sucesso! Arquivo: ' + resultado.arquivo;
+                msg.textContent = 'Contagem salva com sucesso!'
                 msg.style.color = 'green';
                 itens = [];
                 atualizarLista();
@@ -81,6 +99,38 @@
                 msg.style.color = 'red';
             }
         }
+
+        async function carregarContagemTemporaria() {
+            try {
+                const resposta = await fetch("/carregar_contagem_temporaria");
+                const dados = await resposta.json();
+
+                if (!Array.isArray(dados)) return;
+
+                itens = [];
+
+                dados.forEach(item => {
+                    // CASO 1: se o backend retornar apenas strings
+                    if (typeof item === "string") {
+                        itens.push(item);
+                    }
+
+                    // CASO 2: se retornar objeto (ex: { codigo_produto: "GEL123" })
+                    else if (item.produto_id) {
+                        itens.push(item.produto_id);
+                    }
+                });
+
+                atualizarLista();
+                } catch (erro) {
+                    console.error("Erro ao carregar contagem temporária:", erro);
+                }
+            }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            carregarContagemTemporaria();
+            });
+
     </script>
 </body>
 </html>

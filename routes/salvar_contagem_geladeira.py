@@ -1,17 +1,15 @@
-# backend_geladeira.py
-from flask import Blueprint, render_template, request, session, jsonify
+from flask import Blueprint, request, session, jsonify
 from datetime import date
-import csv
-import os
 import pandas as pd
 
+from backend.models.contagem_temporaria import ContagemTemporaria
 
 salvar_contagem_geladeiras_bp = Blueprint("salvar_contagem_geladeiras", __name__)
 
 
-
-@salvar_contagem_geladeiras_bp.route("/salvar_contagem_geladeiras", methods=["POST"])
+@salvar_contagem_geladeiras_bp.route("/salvar_contagem_geladeiras", methods=["GET", "POST"])
 def salvar_contagem_geladeiras():
+
 
     data_atual = date.today()
     data_formatada = data_atual.strftime("%d/%m/%Y")
@@ -32,12 +30,11 @@ def salvar_contagem_geladeiras():
             "quantidade": 1
         })
 
-
-    nome_arquivo = f"contagem_geladeiras_{data_formatada}_{usuario_id}.csv"
-
-
     contagem_estoque = pd.DataFrame(contagens)
 
     contagem_estoque.to_csv(f"arquivos/contagem_geladeiras.csv", index=False)
 
-    return jsonify({"status": "ok", "arquivo": nome_arquivo})
+    ContagemTemporaria.excluir_contagem(usuario_id, data_formatada)
+
+
+    return jsonify({"status": "ok"})
