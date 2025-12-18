@@ -1,10 +1,8 @@
 from reportlab.pdfgen import canvas
-from reportlab.lib import colors
 from reportlab.lib.utils import ImageReader
 
 from reportlab.lib.pagesizes import A4
-from reportlab.lib.units import inch
-from reportlab.lib.units import cm
+from datetime import datetime
 
 CAMINHO_SAIDA_ARQUIVO = "arquivos/contagem_geladeira.pdf"
 
@@ -28,8 +26,12 @@ lista_equipamentos = [
     "GESP159753", "GESP654321", "GESP123789", "GESP456321", 
     "GESP963852", "GESP741852", "GESP852963", "GESP123456", 
     "GESP369258", "GESP258147", "GESP951753", "GESP123789",
+    "GESP258963", "GESP321987", "GESP654321", "GESP789456",
+    "GESP963852", "GESP741852", "GESP852963", "GESP123456", 
+    "GESP369258", "GESP258147", "GESP951753", "GESP123789",
     "GESP258963", "GESP321987", "GESP654321", "GESP789456", 
 ]
+
 
 
 def desenhar_equipamentos(c, lista_equipamentos):
@@ -83,18 +85,28 @@ def desenhar_equipamentos(c, lista_equipamentos):
             posicao_y -= 20
         
 
-def gerar_relatorio_geladeiras_pdf(lista_equipamentos):
+def gerar_relatorio_geladeiras_pdf(lista_equipamentos, nome_usuario):
 
-    c = canvas.Canvas(CAMINHO_SAIDA_ARQUIVO, pagesize=A4)  # A4 pagesize
+    data_atual = datetime.now()
+    data_formatada = data_atual.strftime("%d/%m/%Y - %H:%M")
+
+
+    c = canvas.Canvas(CAMINHO_SAIDA_ARQUIVO, pagesize=A4)  # A4
     
 
     img = ImageReader("static/images/cabeçalho.png")
     img_width, img_height = img.getSize()
-    c.drawImage(img, 0, 780, img_width, img_height)
+    c.drawImage(img, 0, 770, img_width, img_height)
 
 
     c.setFont("Helvetica-Bold", 20)
-    c.drawString(150, 805, "Relatório Equipamentos")
+    c.drawString(135, 805, "Relatório Equipamentos")
+
+    c.setFont("Helvetica-Bold", 14)
+    c.drawString(415, 805, "Usuário: " + str(nome_usuario))
+
+    c.setFont("Helvetica", 10)
+    c.drawString(415, 790, str(data_formatada))
 
     c.setFont("Helvetica-Bold", 18)
     c.drawString(10, 752, "Patrimônios:")
@@ -117,6 +129,3 @@ def gerar_relatorio_geladeiras_pdf(lista_equipamentos):
 
     # SALVANDO O PDF
     c.save()
-
-
-gerar_relatorio_geladeiras_pdf(lista_equipamentos)
