@@ -18,6 +18,16 @@ lista_equipamentos = [
     "GESP159753", "GESP654321", "GESP123789", "GESP456321", 
     "GESP963852", "GESP741852", "GESP852963", "GESP123456", 
     "GESP369258", "GESP258147", "GESP951753", "GESP123789",
+    "GESP258963", "GESP321987", "GESP654321", "GESP789456",
+    "GESP785511", "GESP747741", "GESP965511", "GESP362514", 
+    "GESP488221", "GESP912547", "GESP332122", "GESP748559", 
+    "GESP523344", "GESP980123", "GESP741852", "GESP963214", 
+    "GESP123465", "GESP741963", "GESP852741", "GESP369258", 
+    "GESP741258", "GESP987654", "GESP654987", "GESP159753", 
+    "GESP753159", "GESP456789", "GESP321654", "GESP852369", 
+    "GESP159753", "GESP654321", "GESP123789", "GESP456321", 
+    "GESP963852", "GESP741852", "GESP852963", "GESP123456", 
+    "GESP369258", "GESP258147", "GESP951753", "GESP123789",
     "GESP258963", "GESP321987", "GESP654321", "GESP789456", 
 ]
 
@@ -69,7 +79,7 @@ def desenhar_equipamentos(c, lista_equipamentos):
         posicao_y = 720
 
         for i in lista_equipamentos[72:108]:
-            c.drawString(posicao_x + 470, posicao_y, i)
+            c.drawString(posicao_x + 480, posicao_y, i)
             posicao_y -= 20
         
 
@@ -87,13 +97,15 @@ def gerar_relatorio_geladeiras_pdf(lista_equipamentos):
     c.drawString(150, 805, "Relatório Equipamentos")
 
     c.setFont("Helvetica-Bold", 18)
-    c.drawString(10, 752, "Equipamentos:")
+    c.drawString(10, 752, "Patrimônios:")
 
 
     c.setStrokeColorRGB(0.0, 0.0, 0.0) # COR PRETA 
     c.setLineWidth(2) # LARGURA DA LINHA EM PONTOS
 
-    c.line(0, 745, 800, 745)
+
+    c.line(180, 730, 180, 20)
+    c.line(410, 730, 410, 20)
         
 
 
