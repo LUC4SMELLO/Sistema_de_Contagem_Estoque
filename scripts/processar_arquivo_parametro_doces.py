@@ -9,7 +9,7 @@ arquivo_parametro = pd.read_csv(
     )
 
 arquivo_parametro.rename(columns={
-    "Descriï¿½ï¿½o": "Descricao",
+    "Descricao": "Descricao",
     "Situaï¿½ï¿½o": "Situação",
     "Peso Lï¿½quido": "Peso Líquido",
     }, inplace=True
