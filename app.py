@@ -41,4 +41,4 @@ app.register_blueprint(contagem_geladeira_bp)
 app.register_blueprint(salvar_contagem_geladeiras_bp)
 
 if __name__ == "__main__":
-    app.run(port=5000, debug=True)
+    app.run(port=5000, debug=True, use_reloader=False)
