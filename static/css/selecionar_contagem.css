@@ -36,6 +36,12 @@ header img {
     width: 210px;
 }
 
+.botao_contagem_datas {
+    font-weight: bold;
+    padding: 5px 30px;
+    width: 210px;
+}
+
 hr{
     border: 2px solid silver;
 }
