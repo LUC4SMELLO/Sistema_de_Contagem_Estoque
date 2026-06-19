@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Contagem Datas</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contagem_datas.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Contagem Datas</h1>
+        <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+    </header>
+
+    <!-- EXIBE NOME DO USUÁRIO -->
+    {% if session['username'] %}
+        <h4>Bem-vindo, {{ session['username'] }}!</h4>
+    {% endif %}
+
+    <hr> <br>
+
+
+    <!-- FORMULÁRIO DE CONTAGEM -->
+    <form id="formulario-contagem" method="POST" action="/salvar_contagem_datas">
+        <div class="table-container"> 
+            <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Rua</th>
+                    <th>Bloco</th>
+                    <th>Coluna</th>
+                    <th>Nível</th>
+                    <th>Produto</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+
+            <tbody id="tabelaProdutos">
+            {% for layout in layout_estoque %}
+            <tr>
+                <!-- Inputs ocultos para enviar os dados de localização que o usuário não edita -->
+                <input type="hidden" name="rua[]" value="{{ layout.rua }}">
+                <input type="hidden" name="bloco[]" value="{{ layout.bloco }}">
+                <input type="hidden" name="coluna[]" value="{{ layout.coluna }}">
+                <input type="hidden" name="nivel[]" value="{{ layout.nivel }}">
+
+                <td>{{ layout.rua }}</td>
+                <td>{{ layout.bloco }}</td>
+                <td>{{ layout.coluna }}</td>
+                <td>{{ layout.nivel }}</td>
+                <td>
+                    <!-- O 'name' termina com [] para enviar como uma lista/array para o Flask -->
+                    <select class="form-control" name="produto[]" required>
+                        <option value="" disabled selected>Selecione um produto...</option>
+                        {% for produto in lista_produtos %}
+                            <option value="{{ produto.nome }}">{{ produto.nome }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <!-- Adicionado o atributo name="data[]" -->
+                    <input type="date" class="form-control" name="data[]">
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar Contagem</button>
+        <br><br><br>
+    </form>
+    
+</body>
+</html>
