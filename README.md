@@ -121,6 +121,7 @@ Ele disponibiliza uma forma de contar o estoque e depois posteriormente usá-lo 
 ## **Autoria**
 - Lucas Pereira Silva Mello
 
+
 <br>
 
 Fique à vontade para contribuir!
