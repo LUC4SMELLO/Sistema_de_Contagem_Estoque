@@ -1,14 +1,11 @@
-import sqlite3
+from database.banco_dados_principal import conectar_banco_dados_principal
 
-from backend.constantes.bancos_dados import BANCO_DADOS_USUARIOS, TABELA_USUARIOS
+from constantes.bancos_dados import TABELA_USUARIOS
 
-def conectar_banco_dados_usuarios():
 
-    return sqlite3.connect(BANCO_DADOS_USUARIOS)
+def criar_tabela_usuarios():
 
-def criar_banco_dados_usuarios():
-
-    conexao = conectar_banco_dados_usuarios()
+    conexao = conectar_banco_dados_principal()
     cursor = conexao.cursor()
 
     cursor.execute(
