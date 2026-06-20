@@ -1,8 +1,8 @@
 from flask import Blueprint, request, flash, redirect, url_for, render_template, session
 
-from backend.models.usuarios import Usuario
+from models.usuarios import Usuario
 
-from backend.validadores.validar_cadastro import validar_cadastro
+from validadores.validar_cadastro import validar_cadastro
 
 
 cadastro_bp = Blueprint("cadastro", __name__)
@@ -29,9 +29,5 @@ def cadastro():
 
             session["username"] = nome_completo
             return redirect(url_for("selecionar_contagem.selecionar_contagem"))
-
-
-
-
 
     return render_template("cadastro.html")

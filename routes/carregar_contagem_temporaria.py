@@ -4,7 +4,8 @@ from datetime import date
 
 from scripts.processar_arquivo_parametro import lista_produtos
 
-from backend.models.contagem_temporaria import ContagemTemporaria
+from models.contagem_temporaria import ContagemTemporaria
+
 
 carregar_contagem_temporaria_bp = Blueprint("carregar_contagem_temporaria", __name__)
 

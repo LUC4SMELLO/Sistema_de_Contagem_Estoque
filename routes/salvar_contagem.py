@@ -3,9 +3,9 @@ from flask import Blueprint, render_template, request, session
 from scripts.processar_arquivo_parametro import lista_produtos
 from scripts.salvar_arquivo_contagem_estoque import salvar_arquivo_contagem_estoque
 
-from backend.models.contagem_temporaria import ContagemTemporaria
+from models.contagem_temporaria import ContagemTemporaria
 
-from backend.models.contagens import Contagens
+from models.contagens import Contagens
 
 from datetime import date
 

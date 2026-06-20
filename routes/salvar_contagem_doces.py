@@ -1,12 +1,13 @@
 from flask import Blueprint, render_template, request, session
 
-from backend.models.contagens import Contagens
-from backend.models.contagem_temporaria import ContagemTemporaria
+from models.contagens import Contagens
+from models.contagem_temporaria import ContagemTemporaria
 
 from datetime import date
 
 from scripts.processar_arquivo_parametro_doces import lista_doces
 from scripts.salvar_arquivo_contagem_doces import salvar_arquivo_contagem_doces
+
 
 salvar_contagem_doces_bp = Blueprint("salvar_contagem_doces", __name__)
 

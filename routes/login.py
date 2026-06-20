@@ -1,8 +1,8 @@
 from flask import Blueprint, request, flash, redirect, url_for, render_template, session
 
-from backend.validadores.validar_login import validar_login
+from validadores.validar_login import validar_login
 
-from backend.models.usuarios import Usuario
+from models.usuarios import Usuario
 
 
 login_bp = Blueprint("login", __name__)

@@ -2,10 +2,10 @@ from flask import Blueprint, request, session, jsonify
 from datetime import date
 import pandas as pd
 
-from backend.models.contagem_temporaria import ContagemTemporaria
+from models.contagem_temporaria import ContagemTemporaria
+
 
 salvar_contagem_geladeiras_bp = Blueprint("salvar_contagem_geladeiras", __name__)
-
 
 @salvar_contagem_geladeiras_bp.route("/salvar_contagem_geladeiras", methods=["GET", "POST"])
 def salvar_contagem_geladeiras():
