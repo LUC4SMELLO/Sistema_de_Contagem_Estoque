@@ -4,6 +4,8 @@ from models.contagens_datas import ContagensDatas
 
 from constantes.lista_produtos import bebidas
 
+from scripts.salvar_arquivo_contagem_datas import salvar_arquivo_contagem_datas
+
 
 salvar_contagem_datas_bp = Blueprint("salvar_contagem_datas", __name__)
 
@@ -40,6 +42,8 @@ def salvar_contagem_datas():
             "nome": produtos_dict.get(prod),
             "data_contada": dt
         })
+
+    salvar_arquivo_contagem_datas(contagens)
             
     ContagensDatas.inserir_contagens(usuario_id, contagens)
 
