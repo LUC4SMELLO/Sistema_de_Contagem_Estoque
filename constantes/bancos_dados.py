@@ -10,3 +10,5 @@ TABELA_PRODUTOS = "produtos"
 TABELA_CONTAGENS = "contagens"
 
 TABELA_CONTAGENS_TEMPORARIAS = "contagens_temporarias"
+
+TABELA_CONTAGENS_DATAS = "contagens_datas"
