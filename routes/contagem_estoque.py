@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-from scripts.processar_arquivo_parametro import lista_produtos
+from constantes.lista_produtos import lista_produtos
 
 contagem_estoque_bp = Blueprint("contagem_estoque", __name__)
 
