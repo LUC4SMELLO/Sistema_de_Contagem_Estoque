@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, session
 
-from scripts.processar_arquivo_parametro import lista_produtos
+from constantes.lista_produtos import bebidas
 from scripts.salvar_arquivo_contagem_estoque import salvar_arquivo_contagem_estoque
 
 from models.contagem_temporaria import ContagemTemporaria
@@ -23,15 +23,15 @@ def salvar_contagem():
 
     contagens = []
 
-    for produto in lista_produtos:
-        campo = f"produto_{produto['id']}"
+    for produto in bebidas:
+        campo = f"produto_{produto['codigo']}"
         quantidade = request.form.get(campo)
 
         if not quantidade:
             quantidade = 0
 
         contagens.append({
-            "codigo": produto["id"],
+            "codigo": produto["codigo"],
             "nome": produto["nome"],
             "quantidade": int(quantidade)
         })

@@ -5,7 +5,7 @@ from models.contagem_temporaria import ContagemTemporaria
 
 from datetime import date
 
-from scripts.processar_arquivo_parametro_doces import lista_doces
+from constantes.lista_produtos import doces
 from scripts.salvar_arquivo_contagem_doces import salvar_arquivo_contagem_doces
 
 
@@ -22,15 +22,15 @@ def salvar_contagem_doces():
 
     contagens = []
 
-    for produto in lista_doces:
-        campo = f"produto_{produto['id']}"
+    for produto in doces:
+        campo = f"produto_{produto['codigo']}"
         quantidade = request.form.get(campo)
 
         if not quantidade:
             quantidade = 0
 
         contagens.append({
-            "codigo": produto["id"],
+            "codigo": produto["codigo"],
             "nome": produto["nome"],
             "quantidade": int(quantidade)
         })

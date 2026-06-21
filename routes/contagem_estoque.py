@@ -1,9 +1,10 @@
 from flask import Blueprint, render_template
 
-from constantes.lista_produtos import lista_produtos
+from constantes.lista_produtos import bebidas
+
 
 contagem_estoque_bp = Blueprint("contagem_estoque", __name__)
 
 @contagem_estoque_bp.route("/contagem_estoque", methods=["GET"])
 def contagem_estoque():
-    return render_template("contagem_estoque.html", produtos=lista_produtos)
+    return render_template("contagem_estoque.html", produtos=bebidas)
