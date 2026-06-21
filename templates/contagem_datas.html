@@ -56,7 +56,7 @@
                     <select class="form-control" name="produto[]" required>
                         <option value="" disabled selected>Selecione um produto...</option>
                         {% for produto in lista_produtos %}
-                            <option value="{{ produto.nome }}">{{ produto.nome }}</option>
+                            <option value="{{ produto.codigo }}">{{ produto.nome }}</option>
                         {% endfor %}
                     </select>
                 </td>
