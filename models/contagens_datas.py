@@ -64,3 +64,47 @@ class ContagensDatas():
 
         conexao.commit()
         conexao.close()
+
+
+    @staticmethod
+    def buscar_ultima_contagem():
+
+        conexao = conectar_banco_dados_principal()
+        cursor = conexao.cursor()
+
+        cursor.execute(
+            f"""
+            SELECT *
+            FROM {TABELA_CONTAGENS_DATAS}
+            WHERE data = (
+                SELECT MAX(data)
+                FROM {TABELA_CONTAGENS_DATAS}
+                ORDER BY rua, bloco, coluna, nivel
+            )
+            """
+        )
+
+        ultima_contagem = cursor.fetchall()
+
+        conexao.close()
+
+
+        contagem_anterior = {}
+        for registro in ultima_contagem:
+            (
+                data,
+                usuario_id,
+                rua,
+                bloco,
+                coluna,
+                nivel,
+                codigo_produto,
+                data_contada
+            ) = registro
+
+            contagem_anterior[(str(rua), str(bloco), str(coluna), str(nivel))] = {
+                "codigo": codigo_produto,
+                "data": data_contada
+            }
+
+        return contagem_anterior
