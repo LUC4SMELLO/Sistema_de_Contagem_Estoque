@@ -31,16 +31,20 @@ header img {
     margin: 20px auto;   /* Centraliza o container na tela */
     overflow-x: auto;    /* Cria uma barra de rolagem horizontal se a tabela for maior que a tela */
     -webkit-overflow-scrolling: touch; /* Melhora a rolagem em telas de toque (iOS) */
+    
+    /* ADICIONADO PARA O CABEÇALHO FIXO FUNCIONAR VERTICALMENTE */
+    max-height: 450px;   /* Define a altura máxima antes de começar a rolar a tabela */
+    overflow-y: auto;    /* Ativa a rolagem vertical para o corpo da tabela */
 }
 
-/* Tabela Modificada (Substitua a sua por esta) */
+/* Tabela Modificada */
 table {
     width: 100%;         /* Agora ela ocupa 100% do container, não da tela inteira */
     min-width: 500px;    /* Impede os dados de ficarem espremidos em telas muito pequenas */
     background: #fff;
     border-radius: 10px;
-    border-collapse: collapse; /* Remove espaçamentos duplos nas bordas */
-    overflow: hidden;
+    border-collapse: separate; /* MODIFICADO: 'collapse' pode sumir com as bordas ao usar sticky */
+    border-spacing: 0;         /* Mantém o visual limpo sem os espaçamentos duplos */
     box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
 }
 
@@ -49,11 +53,17 @@ table th {
     color: #fff;
     text-align: center;
     padding: 10px;
+    
+    /* ADICIONADO PARA TRANCAR O CABEÇALHO NO TOPO */
+    position: sticky;    /* Gruda o elemento no contêiner de rolagem */
+    top: 0;              /* Define o ponto de parada exatamente no topo */
+    z-index: 10;         /* Garante que fique por cima do conteúdo que está rolando */
 }
 
 table td {
     padding: 10px;
     vertical-align: middle;
+    border-bottom: 1px solid #dee2e6; /* Adicionado para compensar o 'border-collapse' desativado */
 }
 
 table tr:nth-child(even) {
