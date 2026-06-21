@@ -79,8 +79,8 @@ class ContagensDatas():
             WHERE data = (
                 SELECT MAX(data)
                 FROM {TABELA_CONTAGENS_DATAS}
-                ORDER BY rua, bloco, coluna, nivel
             )
+            ORDER BY data, rua, bloco, coluna, nivel
             """
         )
 
