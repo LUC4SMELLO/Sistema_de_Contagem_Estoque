@@ -41,6 +41,14 @@
             <tbody id="tabelaProdutos">
             {% for layout in layout_estoque %}
             <tr>
+
+                {% set chave = (
+                    layout.rua|string,
+                    layout.bloco|string,
+                    layout.coluna|string,
+                    layout.nivel|string
+                ) %}
+                
                 <!-- Inputs ocultos para enviar os dados de localização que o usuário não edita -->
                 <input type="hidden" name="rua[]" value="{{ layout.rua }}">
                 <input type="hidden" name="bloco[]" value="{{ layout.bloco }}">
@@ -54,15 +62,27 @@
                 <td>
                     <!-- O 'name' termina com [] para enviar como uma lista/array para o Flask -->
                     <select class="form-control" name="produto[]" required>
-                        <option value="" disabled selected>Selecione um produto...</option>
+                        <option value="" disabled>Selecione um produto...</option>
                         {% for produto in lista_produtos %}
-                            <option value="{{ produto.codigo }}">{{ produto.nome }}</option>
+                            <option
+                                value="{{ produto.codigo }}"
+                                {% if chave in contagem_anterior and
+                                    contagem_anterior[chave]['codigo']|string == produto.codigo|string %}
+                                    selected
+                                {% endif %}
+                            >
+                                {{ produto.nome }}
+                            </option>
                         {% endfor %}
                     </select>
                 </td>
                 <td>
                     <!-- Adicionado o atributo name="data[]" -->
-                    <input type="date" class="form-control" name="data[]">
+                    <input
+                        type="date"
+                        name="data[]"
+                        value="{% if chave in contagem_anterior %}{{ contagem_anterior[chave]['data'][:10] }}{% endif %}"
+                    >
                 </td>
             </tr>
             {% endfor %}
