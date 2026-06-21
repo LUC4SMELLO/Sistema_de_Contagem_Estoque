@@ -2,8 +2,6 @@ from flask import Blueprint, request, flash, redirect, url_for, render_template,
 
 from datetime import date
 
-from scripts.processar_arquivo_parametro import lista_produtos
-
 from models.contagem_temporaria import ContagemTemporaria
 
 
