@@ -19,8 +19,11 @@ def salvar_arquivo_contagem_datas(contagens: List[Tuple]) -> None:
 
     contagem_data = pd.DataFrame(contagens)
 
-    contagem_data["data_contada"] = pd.to_datetime(contagem_data["data_contada"])
-    contagem_data["data_contada"] = contagem_data["data_contada"].dt.strftime('%d/%m/%Y')
+    contagem_data["data_validade"] = pd.to_datetime(contagem_data["data_validade"])
+    contagem_data["data_fabricacao"] = pd.to_datetime(contagem_data["data_fabricacao"])
+
+    contagem_data["data_validade"] = contagem_data["data_validade"].dt.strftime('%d/%m/%Y')
+    contagem_data["data_fabricacao"] = contagem_data["data_fabricacao"].dt.strftime('%d/%m/%Y')
 
 
     contagem_data.to_csv(f"arquivos/contagem_datas.csv", index=False)
