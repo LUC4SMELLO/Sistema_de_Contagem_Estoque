@@ -41,7 +41,7 @@
 
             <tbody id="tabelaProdutos">
             {% for layout in layout_estoque %}
-            <tr>
+            <tr data-id="{{ layout.id }}">
 
                 {% set chave = (
                     layout.rua|string,
@@ -105,3 +105,60 @@
     
 </body>
 </html>
+
+<!-- TRECHO PARA SALVAR CONTAGEM DATAS TEMPORÁRIAS -->
+<script>
+    let timeout;
+
+    document.addEventListener("change", (e) => {
+
+        if (
+            e.target.name === "produto[]" ||
+            e.target.name === "data_fabricacao[]" ||
+            e.target.name === "data_validade[]"
+        ) {
+
+            clearTimeout(timeout);
+
+            timeout = setTimeout(() => {
+
+                const linha = e.target.closest("tr");
+
+                const id = linha.dataset.id;
+                const rua = linha.querySelector('[name="rua[]"]').value;
+                const bloco = linha.querySelector('[name="bloco[]"]').value;
+                const coluna = linha.querySelector('[name="coluna[]"]').value;
+                const nivel = linha.querySelector('[name="nivel[]"]').value;
+
+                const codigo_produto = linha.querySelector('[name="produto[]"]').value;
+                const dataFabricacao = linha.querySelector('[name="data_fabricacao[]"]').value;
+                const dataValidade = linha.querySelector('[name="data_validade[]"]').value;
+
+                const formData = new FormData();
+
+                formData.append("id", id);
+                formData.append("rua", rua);
+                formData.append("bloco", bloco);
+                formData.append("coluna", coluna);
+                formData.append("nivel", nivel);
+
+                formData.append("codigo_produto", codigo_produto);
+                formData.append("data_fabricacao", dataFabricacao);
+                formData.append("data_validade", dataValidade);
+
+                fetch("/salvar_contagem_datas_temporaria", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao salvar");
+                    }
+                    console.log("Salvo automaticamente");
+                })
+                .catch(error => console.error(error));
+
+            }, 500);
+        }
+    });
+</script>
