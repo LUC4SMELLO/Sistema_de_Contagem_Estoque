@@ -10,7 +10,7 @@ header {
     display: flex;
     align-items: center;   /* centraliza verticalmente */
     justify-content: center; /* centraliza horizontalmente */
-    gap: 15px; /* espaço entre logo e texto */
+    gap: 8px; /* espaço entre logo e texto */
     margin-top: 20px;
 }
 
