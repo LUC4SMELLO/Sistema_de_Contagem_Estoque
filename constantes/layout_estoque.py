@@ -14,6 +14,7 @@ estrutura = {
     }
 }
 
+id = 1
 enderecos = []
 for rua, blocos in estrutura.items():
 
@@ -24,8 +25,11 @@ for rua, blocos in estrutura.items():
             for nivel in range(1, qtd_niveis + 1):
 
                 enderecos.append({
+                    "id": id,
                     "rua": rua,
                     "bloco": bloco,
                     "coluna": coluna,
                     "nivel": nivel
                 })
+
+                id += 1
