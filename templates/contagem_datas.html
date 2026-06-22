@@ -34,7 +34,8 @@
                     <th>Coluna</th>
                     <th>Nível</th>
                     <th>Produto</th>
-                    <th>Data</th>
+                    <th>Data Fabricação</th>
+                    <th>Data Validade</th>
                 </tr>
             </thead>
 
@@ -50,6 +51,7 @@
                 ) %}
                 
                 <!-- Inputs ocultos para enviar os dados de localização que o usuário não edita -->
+                <input type="hidden" name="id[]" value="{{ layout.id}}">
                 <input type="hidden" name="rua[]" value="{{ layout.rua }}">
                 <input type="hidden" name="bloco[]" value="{{ layout.bloco }}">
                 <input type="hidden" name="coluna[]" value="{{ layout.coluna }}">
@@ -77,13 +79,20 @@
                     </select>
                 </td>
                 <td>
-                    <!-- Adicionado o atributo name="data[]" -->
                     <input
                         type="date"
-                        name="data[]"
-                        value="{% if chave in contagem_anterior %}{{ contagem_anterior[chave]['data'][:10] }}{% endif %}"
+                        name="data_fabricacao[]"
+                        value="{% if chave in contagem_anterior %}{{ contagem_anterior[chave]['data_fabricacao'][:10] }}{% endif %}"
                     >
                 </td>
+                <td>
+                    <input
+                        type="date"
+                        name="data_validade[]"
+                        value="{% if chave in contagem_anterior %}{{ contagem_anterior[chave]['data_validade'][:10] }}{% endif %}"
+                    >
+                </td>
+
             </tr>
             {% endfor %}
             </tbody>
