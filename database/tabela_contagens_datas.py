@@ -11,14 +11,15 @@ def criar_tabela_contagens_datas():
     cursor.execute(
         f"""
         CREATE TABLE IF NOT EXISTS {TABELA_CONTAGENS_DATAS} (
-        data TEXT,
+        data_contagem TEXT,
         usuario_id VARCHAR(50),
         rua INTEGER,
         bloco INTEGER,
         coluna TEXT,
         nivel INTEGER,
         codigo_produto VARCHAR(10),
-        data_contada TEXT
+        data_fabricacao TEXT,
+        data_validade TEXT
         )
         """
     )

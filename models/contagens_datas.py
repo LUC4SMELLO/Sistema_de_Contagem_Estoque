@@ -39,16 +39,17 @@ class ContagensDatas():
             cursor.execute(
                 f"""
                 INSERT INTO {TABELA_CONTAGENS_DATAS} (
-                data,
+                data_contagem,
                 usuario_id,
                 rua,
                 bloco,
                 coluna,
                 nivel,
                 codigo_produto,
-                data_contada
+                data_fabricacao,
+                data_validade
                 )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (  
                     data_atual_formatada,
@@ -58,7 +59,8 @@ class ContagensDatas():
                     contagens[i]["coluna"],
                     contagens[i]["nivel"],
                     contagens[i]["codigo_produto"],
-                    contagens[i]["data_contada"]
+                    contagens[i]["data_fabricacao"],
+                    contagens[i]["data_validade"]
                 )
             )
 
@@ -76,11 +78,11 @@ class ContagensDatas():
             f"""
             SELECT *
             FROM {TABELA_CONTAGENS_DATAS}
-            WHERE data = (
-                SELECT MAX(data)
+            WHERE data_contagem = (
+                SELECT MAX(data_contagem)
                 FROM {TABELA_CONTAGENS_DATAS}
             )
-            ORDER BY data, rua, bloco, coluna, nivel
+            ORDER BY data_contagem, rua, bloco, coluna, nivel
             """
         )
 
@@ -92,19 +94,21 @@ class ContagensDatas():
         contagem_anterior = {}
         for registro in ultima_contagem:
             (
-                data,
+                data_contagem,
                 usuario_id,
                 rua,
                 bloco,
                 coluna,
                 nivel,
                 codigo_produto,
-                data_contada
+                data_fabricacao,
+                data_validade
             ) = registro
 
             contagem_anterior[(str(rua), str(bloco), str(coluna), str(nivel))] = {
                 "codigo": codigo_produto,
-                "data": data_contada
+                "data_fabricacao": data_fabricacao,
+                "data_validade": data_validade
             }
 
         return contagem_anterior
