@@ -2,8 +2,8 @@ from flask import Blueprint, render_template, session
 
 from services.contagem_datas import selecionar_contagem_datas_para_carregar
 
-from constantes.layout_estoque import enderecos
-from constantes.lista_produtos import bebidas
+from constants.layout_estoque import enderecos
+from constants.lista_produtos import bebidas
 
 
 contagem_datas_bp = Blueprint("contagem_datas", __name__)

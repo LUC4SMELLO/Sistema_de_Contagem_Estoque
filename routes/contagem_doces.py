@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-from constantes.lista_produtos import doces
+from constants.lista_produtos import doces
 
 
 contagem_doces_bp = Blueprint("contagem_doces", __name__)

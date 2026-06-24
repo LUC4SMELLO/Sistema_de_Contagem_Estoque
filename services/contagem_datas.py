@@ -2,7 +2,7 @@ from datetime import date
 
 from database.banco_dados_principal import conectar_banco_dados_principal
 
-from constantes.bancos_dados import TABELA_CONTAGENS_DATAS_TEMPORARIAS, TABELA_CONTAGENS_DATAS
+from constants.bancos_dados import TABELA_CONTAGENS_DATAS_TEMPORARIAS, TABELA_CONTAGENS_DATAS
 
 
 def indexar_contagem_datas(contagem_datas):

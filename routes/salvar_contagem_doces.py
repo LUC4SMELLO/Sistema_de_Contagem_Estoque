@@ -5,7 +5,7 @@ from models.contagem_temporaria import ContagemTemporaria
 
 from datetime import date
 
-from constantes.lista_produtos import doces
+from constants.lista_produtos import doces
 from scripts.salvar_arquivo_contagem_doces import salvar_arquivo_contagem_doces
 
 

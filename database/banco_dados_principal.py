@@ -1,6 +1,6 @@
 import sqlite3
 
-from constantes.bancos_dados import BANCO_DADOS_PRINCIPAL
+from constants.bancos_dados import BANCO_DADOS_PRINCIPAL
 
 
 def conectar_banco_dados_principal():

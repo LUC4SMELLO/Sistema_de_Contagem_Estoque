@@ -4,7 +4,7 @@ from models.contagens_datas import ContagensDatas
 
 from models.contagens_datas_temporaria import ContagensDatasTemporaria
 
-from constantes.lista_produtos import bebidas
+from constants.lista_produtos import bebidas
 
 from scripts.salvar_arquivo_contagem_datas import salvar_arquivo_contagem_datas
 

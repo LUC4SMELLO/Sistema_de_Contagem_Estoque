@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, session
 
-from constantes.lista_produtos import bebidas
+from constants.lista_produtos import bebidas
 from scripts.salvar_arquivo_contagem_estoque import salvar_arquivo_contagem_estoque
 
 from models.contagem_temporaria import ContagemTemporaria

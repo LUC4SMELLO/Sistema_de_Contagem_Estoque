@@ -1,4 +1,4 @@
-from constantes.paths import DATABASE_DIR
+from constants.paths import DATABASE_DIR
 
 
 BANCO_DADOS_PRINCIPAL = DATABASE_DIR / "app.db"

@@ -1,6 +1,6 @@
 from database.banco_dados_principal import conectar_banco_dados_principal
 
-from constantes.bancos_dados import TABELA_CONTAGENS_TEMPORARIAS
+from constants.bancos_dados import TABELA_CONTAGENS_TEMPORARIAS
 
 
 def criar_tabela_contagens_temporarias():

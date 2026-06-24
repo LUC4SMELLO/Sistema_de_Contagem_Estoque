@@ -1,6 +1,6 @@
 from database.banco_dados_principal import conectar_banco_dados_principal
 
-from constantes.bancos_dados import TABELA_USUARIOS
+from constants.bancos_dados import TABELA_USUARIOS
 
 
 class Usuario:
