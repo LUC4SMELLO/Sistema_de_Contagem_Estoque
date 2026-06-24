@@ -1,6 +1,10 @@
 from typing import List, Tuple
 
+from datetime import datetime
+
 import pandas as pd
+
+from constants.paths import EXPORT_CONTAGEM_DATAS
 
 
 def salvar_arquivo_contagem_datas(contagens: List[Tuple]) -> None:
@@ -17,6 +21,10 @@ def salvar_arquivo_contagem_datas(contagens: List[Tuple]) -> None:
         None
     """
 
+    data_atual = datetime.now()
+    data_atual_formatada = data_atual.strftime("%d-%m-%Y %H:%M:%S")
+    data_atual_formatada = data_atual_formatada.replace(":", "-")
+
     contagem_data = pd.DataFrame(contagens)
 
     contagem_data["data_validade"] = pd.to_datetime(contagem_data["data_validade"])
@@ -26,4 +34,4 @@ def salvar_arquivo_contagem_datas(contagens: List[Tuple]) -> None:
     contagem_data["data_fabricacao"] = contagem_data["data_fabricacao"].dt.strftime('%d/%m/%Y')
 
 
-    contagem_data.to_csv(f"arquivos/contagem_datas.csv", index=False)
+    contagem_data.to_csv(EXPORT_CONTAGEM_DATAS / f"contagem_datas_{data_atual_formatada}.csv", index=False)

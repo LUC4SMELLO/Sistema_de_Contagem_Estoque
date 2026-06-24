@@ -4,6 +4,8 @@ import pandas as pd
 
 from models.contagem_temporaria import ContagemTemporaria
 
+from scripts.salvar_arquivo_contagem_geladeiras import salvar_arquivo_contagem_geladeiras
+
 
 salvar_contagem_geladeiras_bp = Blueprint("salvar_contagem_geladeiras", __name__)
 
@@ -30,9 +32,7 @@ def salvar_contagem_geladeiras():
             "quantidade": 1
         })
 
-    contagem_estoque = pd.DataFrame(contagens)
-
-    contagem_estoque.to_csv(f"arquivos/contagem_geladeiras.csv", index=False)
+    salvar_arquivo_contagem_geladeiras(contagens)
 
     ContagemTemporaria.excluir_contagem(usuario_id, data_formatada)
 

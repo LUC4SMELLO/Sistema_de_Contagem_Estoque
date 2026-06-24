@@ -2,6 +2,8 @@ from typing import List, Tuple
 
 import pandas as pd
 
+from constants.paths import EXPORT_CONTAGEM_ESTOQUE
+
 
 def salvar_arquivo_contagem_estoque(contagens: List[Tuple]) -> None:
     """
@@ -19,4 +21,4 @@ def salvar_arquivo_contagem_estoque(contagens: List[Tuple]) -> None:
 
     contagem_estoque = pd.DataFrame(contagens)
 
-    contagem_estoque.to_csv(f"arquivos/contagem_estoque.csv", index=False)
+    contagem_estoque.to_csv(EXPORT_CONTAGEM_ESTOQUE / "contagem_estoque.csv", index=False)
