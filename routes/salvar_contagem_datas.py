@@ -2,6 +2,8 @@ from flask import Blueprint, request, session, render_template
 
 from models.contagens_datas import ContagensDatas
 
+from models.contagens_datas_temporaria import ContagensDatasTemporaria
+
 from constantes.lista_produtos import bebidas
 
 from scripts.salvar_arquivo_contagem_datas import salvar_arquivo_contagem_datas
@@ -13,8 +15,6 @@ salvar_contagem_datas_bp = Blueprint("salvar_contagem_datas", __name__)
 def salvar_contagem_datas():
 
     usuario_id = session.get("usuario_id")
-
-    contagens = []
 
     # Captura as listas de cada coluna enviada pelo formulário
     id = request.form.getlist('id[]')
@@ -33,6 +33,7 @@ def salvar_contagem_datas():
     }
 
 
+    contagens = []
     # Processa os dados linha por linha usando o zip do Python
     for id, rua, bloco, coluna, nivel, codigo, data_fabricacao, data_validade, in zip(id, ruas, blocos, colunas, niveis, produtos, data_fabricacao, data_validade):
 
@@ -51,6 +52,8 @@ def salvar_contagem_datas():
     salvar_arquivo_contagem_datas(contagens)
             
     ContagensDatas.inserir_contagens(usuario_id, contagens)
+
+    ContagensDatasTemporaria.excluir_contagem(usuario_id)
 
     return render_template("salvar_contagem.html")
 

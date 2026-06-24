@@ -71,3 +71,32 @@ class ContagensDatasTemporaria():
 
         conexao.commit()
         conexao.close()
+
+    @staticmethod
+    def excluir_contagem(usuario_id):
+        """
+        Exclui uma contagem do banco de dados.
+        """
+
+        conexao = None
+
+        try:
+            conexao = conectar_banco_dados_principal()
+            cursor = conexao.cursor()
+
+            cursor.execute(
+                f"""
+                DELETE FROM {TABELA_CONTAGENS_DATAS_TEMPORARIAS}
+                WHERE usuario_id = ?
+                """, (usuario_id,)
+            )
+
+            conexao.commit()
+
+        except Exception as erro:
+            print("Erro ao excluir contagem data temporária: ", erro)
+            return
+        
+        finally:
+            if conexao:
+                conexao.close()
