@@ -29,6 +29,7 @@ def indexar_contagem_datas(contagem_datas):
 
     return contagem_para_carregar
 
+
 def mesclar_contagens(contagem_base_lista, contagem_nova_lista):
     """
     Recebe duas listas do banco de dados, indexa os registros por posição
@@ -55,8 +56,6 @@ def mesclar_contagens(contagem_base_lista, contagem_nova_lista):
         }
         
     return resultado
-
-
 
 
 def buscar_contagem_datas_temporarias(usuario_id: int):
@@ -109,9 +108,9 @@ def buscar_ultima_contagem_datas():
     return ultima_contagem
 
 
-def selecionar_contagem_datas_para_carregar(usuario_id, data):
+def selecionar_contagem_datas_para_carregar(usuario_id):
 
-    contagem_datas_temporarias = buscar_contagem_datas_temporarias(usuario_id, data)
+    contagem_datas_temporarias = buscar_contagem_datas_temporarias(usuario_id)
     ultima_contagem_datas = buscar_ultima_contagem_datas()
 
     if contagem_datas_temporarias and ultima_contagem_datas:
