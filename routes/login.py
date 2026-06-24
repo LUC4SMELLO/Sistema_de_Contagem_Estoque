@@ -24,7 +24,7 @@ def login():
         
         else:
             session["username"] = nome_completo
-            session["usuario_id"] = usuario_buscado[0]
+            session["usuario_id"] = str(usuario_buscado[0])
             return redirect(url_for("selecionar_contagem.selecionar_contagem"))
         
 
