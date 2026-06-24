@@ -1,5 +1,5 @@
 bebidas = [
-    {"codigo": " ", "nome": " "},
+    {"codigo": "", "nome": ""},
     {"codigo": "120121", "nome": "CO2 GAS-DIOXIDO DE CARBONO 9KG"},
     {"codigo": "120120", "nome": "TANQUE GAS CO2 6KG"},
     {"codigo": "55202", "nome": "CC BAG 10L"},
