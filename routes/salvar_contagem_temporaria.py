@@ -11,7 +11,7 @@ salvar_contagem_temporaria_bp = Blueprint("contagem_temporaria", __name__)
 def salvar_contagem_temporaria():
 
     data_atual = date.today()
-    data_atual_formatada = data_atual.strftime("%d/%m/%Y")
+    data_atual_formatada = data_atual.strftime("%Y-%m-%d")
 
     usuario_id = session.get("usuario_id")
 

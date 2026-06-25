@@ -11,7 +11,7 @@ def criar_tabela_contagens_temporarias():
     cursor.execute(
     f"""
     CREATE TABLE IF NOT EXISTS {TABELA_CONTAGENS_TEMPORARIAS} (
-    data VARCHAR(10),
+    data TEXT,
     usuario_id VARCHAR(50),
     codigo_produto VARCHAR(10),
     quantidade_contada INT(8)

@@ -15,9 +15,6 @@ salvar_contagem_bp = Blueprint("salvar_contagem", __name__)
 @salvar_contagem_bp.route("/salvar_contagem", methods=["POST"])
 def salvar_contagem():
 
-    data_atual = date.today()
-    data_atual_formatada = data_atual.strftime("%d/%m/%Y")
-
     usuario_id = session.get("usuario_id")
     
 
@@ -37,11 +34,7 @@ def salvar_contagem():
         })
 
         
-    salvar_arquivo_contagem_estoque(contagens)
-
-    Contagens.inserir_contagens(usuario_id, contagens)
-    
-    ContagemTemporaria.excluir_contagem(usuario_id, data_atual_formatada)
+    salvar_arquivo_contagem_estoque(contagens, usuario_id)
 
 
     return render_template("salvar_contagem.html")
