@@ -85,7 +85,7 @@ class Contagens():
         """
         
         data_atual = datetime.now()
-        data_atual_formatada = data_atual.strftime("%d/%m/%Y, %H:%M")
+        data_atual_formatada = data_atual.strftime("%Y-%m-%d %H:%M")
 
         conexao = conectar_banco_dados_principal()
         cursor = conexao.cursor()
