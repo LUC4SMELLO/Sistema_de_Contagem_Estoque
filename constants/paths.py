@@ -9,6 +9,8 @@ ARCHIVES = BASE_DIR / "archives"
 
 EXPORTS = ARCHIVES / "exports"
 
+IMPORTS = ARCHIVES / "imports"
+
 
 EXPORT_CONTAGEM_ESTOQUE = EXPORTS / "contagem_estoque"
 

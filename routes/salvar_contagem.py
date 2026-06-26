@@ -3,12 +3,6 @@ from flask import Blueprint, render_template, request, session
 from constants.lista_produtos import bebidas
 from scripts.salvar_arquivo_contagem_estoque import salvar_arquivo_contagem_estoque
 
-from models.contagem_temporaria import ContagemTemporaria
-
-from models.contagens import Contagens
-
-from datetime import date
-
 
 salvar_contagem_bp = Blueprint("salvar_contagem", __name__)
 
@@ -34,7 +28,9 @@ def salvar_contagem():
         })
 
         
-    salvar_arquivo_contagem_estoque(contagens, usuario_id)
+    resultado, mensagem, erro = salvar_arquivo_contagem_estoque(contagens, usuario_id)
 
+    if not resultado:
+        return render_template("salvar_contagem.html", mensagem=mensagem, erro=erro)
 
-    return render_template("salvar_contagem.html")
+    return render_template("salvar_contagem.html", mensagem=mensagem, erro=erro)

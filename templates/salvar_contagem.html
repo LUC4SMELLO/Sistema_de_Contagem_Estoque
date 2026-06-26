@@ -19,7 +19,19 @@
 
     <hr>
 
-    <h2>Contagem Enviada com Sucesso!</h2>
-    
+    {% if mensagem %}
+        <h2 class="texto-adicional-mensagem">
+            {{ mensagem | safe }}
+        </h2>
+    {% endif %}
+
+    {% if erro %}
+        <p class="texto-adicional-erro">
+            {{ erro | safe }}
+        </p>
+        <h2 class="texto-adicional-mensagem">Contate um Administrador.</h2>
+    {% endif %}
+        
+
 </body>
 </html>

@@ -20,3 +20,39 @@ header img {
 hr{
     border: 2px solid silver;
 }
+
+/* Estilo comum para ambas as mensagens (Garante alinhamento e leitura) */
+.texto-adicional-mensagem, 
+.texto-adicional-erro {
+    padding: 15px 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 6px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */
+}
+
+/* Estilização exclusiva para SUCESSO (Verde) */
+.texto-adicional-mensagem {
+    background-color: #ffffff; /* Fundo verde claro */
+    color: #000000;            /* Texto verde escuro */
+}
+
+/* Estilização exclusiva para ERRO (Vermelho) */
+.texto-adicional-erro {
+    background-color: #f8d7da; /* Fundo vermelho claro */
+    color: #721c24;            /* Texto vermelho escuro */
+    border: 1px solid #f5c6cb; /* Borda vermelha sutil */
+    font-weight: bold;         /* Destaca o texto do erro */
+}
+
+.mensagem-sucesso {
+    color: #118d2e;
+    font-weight: bold; /* Deixa a palavra em negrito para destacar */
+}
+
+.mensagem-erro {
+    color: #dc3545;
+    font-weight: bold; /* Deixa a palavra em negrito para destacar */
+}

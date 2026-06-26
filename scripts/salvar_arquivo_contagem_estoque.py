@@ -1,11 +1,17 @@
+import os
 from typing import List, Tuple
+
+from datetime import date
 
 import pandas as pd
 
 from constants.paths import EXPORT_CONTAGEM_ESTOQUE
 
+from models.contagens import Contagens
+from models.contagem_temporaria import ContagemTemporaria
 
-def salvar_arquivo_contagem_estoque(contagens: List[Tuple]) -> None:
+
+def salvar_arquivo_contagem_estoque(contagens: List[Tuple], usuario_id) -> None:
     """
     Salva um arquivo .csv com a contagem feita pelo usuário.
 
@@ -18,7 +24,27 @@ def salvar_arquivo_contagem_estoque(contagens: List[Tuple]) -> None:
     ----------
         None
     """
+    try:
+            
+        data_atual = date.today()
+        data_atual_formatada = data_atual.strftime("%Y-%m-%d")
+        data_atual_formatada_arquivo = data_atual.strftime("%d-%m-%Y")
 
-    contagem_estoque = pd.DataFrame(contagens)
+        CAMINHO_SALVAR_ARQUIVO_CSV = EXPORT_CONTAGEM_ESTOQUE / f"contagem_estoque_{data_atual_formatada_arquivo}.csv"
 
-    contagem_estoque.to_csv(EXPORT_CONTAGEM_ESTOQUE / "contagem_estoque.csv", index=False)
+        contagem_estoque = pd.DataFrame(contagens)
+        contagem_estoque.to_csv(CAMINHO_SALVAR_ARQUIVO_CSV, index=False)
+
+
+        if not os.path.exists(CAMINHO_SALVAR_ARQUIVO_CSV) or os.path.getsize(CAMINHO_SALVAR_ARQUIVO_CSV) == 0:
+            raise FileNotFoundError("Falha crítica: O arquivo não foi criado ou está vazio.")
+
+
+        Contagens.inserir_contagens(usuario_id, contagens)
+        
+        ContagemTemporaria.excluir_contagem(usuario_id, data_atual_formatada)
+
+        return True, "<span class='mensagem-sucesso'>Sucesso ao Enviar a Contagem!</span>", ""
+
+    except Exception as erro:
+        return False, "<span class='mensagem-erro'>Erro ao Enviar a Contagem!</span>", erro
