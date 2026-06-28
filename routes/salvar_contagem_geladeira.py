@@ -34,7 +34,7 @@ def salvar_contagem_geladeiras():
 
     salvar_arquivo_contagem_geladeiras(contagens)
 
-    ContagemTemporaria.excluir_contagem(usuario_id, data_formatada)
+    ContagemTemporaria.excluir_contagem(usuario_id)
 
 
     return jsonify({"status": "ok"})

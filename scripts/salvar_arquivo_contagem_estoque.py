@@ -27,7 +27,6 @@ def salvar_arquivo_contagem_estoque(contagens: List[Tuple], usuario_id) -> None:
     try:
             
         data_atual = datetime.now()
-        data_atual_formatada = data_atual.strftime("%Y-%m-%d")
         data_atual_formatada_arquivo = data_atual.strftime("%d-%m-%Y_%H-%M-%S")
 
         CAMINHO_SALVAR_ARQUIVO_CSV = EXPORT_CONTAGEM_ESTOQUE / f"contagem_estoque_{data_atual_formatada_arquivo}.csv"
@@ -42,7 +41,7 @@ def salvar_arquivo_contagem_estoque(contagens: List[Tuple], usuario_id) -> None:
 
         Contagens.inserir_contagens(usuario_id, contagens)
         
-        ContagemTemporaria.excluir_contagem(usuario_id, data_atual_formatada)
+        ContagemTemporaria.excluir_contagem(usuario_id)
 
 
         return True, "<span class='mensagem-sucesso'>Sucesso ao Enviar a Contagem!</span>", ""

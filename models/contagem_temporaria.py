@@ -64,7 +64,7 @@ class ContagemTemporaria:
         conexao.close()
 
     @staticmethod
-    def excluir_contagem(usuario_id, data):
+    def excluir_contagem(usuario_id):
         """
         Exclui a contagem temporária do banco de dados.
 
@@ -82,8 +82,8 @@ class ContagemTemporaria:
         cursor.execute(
         f"""
         DELETE FROM {TABELA_CONTAGENS_TEMPORARIAS}
-        WHERE usuario_id = ? AND data = ?
-        """, (usuario_id, data)
+        WHERE usuario_id = ?
+        """, (usuario_id,)
         )
 
         conexao.commit()
