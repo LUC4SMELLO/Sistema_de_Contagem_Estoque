@@ -1,9 +1,5 @@
 from flask import Blueprint, request, session, render_template
 
-from models.contagens_datas import ContagensDatas
-
-from models.contagens_datas_temporaria import ContagensDatasTemporaria
-
 from constants.lista_produtos import bebidas
 
 from scripts.salvar_arquivo_contagem_datas import salvar_arquivo_contagem_datas
@@ -49,11 +45,7 @@ def salvar_contagem_datas():
             "data_validade": data_validade
         })
 
-    salvar_arquivo_contagem_datas(contagens)
-            
-    ContagensDatas.inserir_contagens(usuario_id, contagens)
+    resultado, mensagem, erro = salvar_arquivo_contagem_datas(contagens, usuario_id)
 
-    ContagensDatasTemporaria.excluir_contagem(usuario_id)
-
-    return render_template("salvar_contagem.html")
+    return render_template("salvar_contagem.html", mensagem=mensagem, erro=erro)
 
