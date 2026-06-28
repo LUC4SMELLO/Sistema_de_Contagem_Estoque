@@ -30,7 +30,4 @@ def salvar_contagem():
         
     resultado, mensagem, erro = salvar_arquivo_contagem_estoque(contagens, usuario_id)
 
-    if not resultado:
-        return render_template("salvar_contagem.html", mensagem=mensagem, erro=erro)
-
     return render_template("salvar_contagem.html", mensagem=mensagem, erro=erro)
