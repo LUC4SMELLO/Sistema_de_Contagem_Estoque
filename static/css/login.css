@@ -19,7 +19,7 @@ header img {
 }
 
 main {
-    margin-top: 40px;
+    margin-top: 25px;
 }
 
 .form-style {
@@ -31,6 +31,11 @@ main {
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
     margin: 0 auto;   
+}
+
+.input-style {
+    width: 155px;
+    background-color: #ffffff;
 }
 
 .button-submit {
