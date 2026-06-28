@@ -36,11 +36,6 @@ def salvar_contagem_doces():
         })
 
         
-    salvar_arquivo_contagem_doces(contagens)
+    resultado, mensagem, erro = salvar_arquivo_contagem_doces(contagens, usuario_id)
 
-    Contagens.inserir_contagens(usuario_id, contagens)
-    
-    ContagemTemporaria.excluir_contagem(usuario_id, data_atual_formatada)
-
-
-    return render_template("salvar_contagem.html")
+    return render_template("salvar_contagem.html", mensagem=mensagem, erro=erro)
