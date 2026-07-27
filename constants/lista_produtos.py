@@ -6,7 +6,7 @@ bebidas = [
     {"codigo": "56103", "nome": "FTA GUA BAG 5L 1U"},
     {"codigo": "55729", "nome": "SPRITE SA LIM BAG 5L"},
     {"codigo": "56861", "nome": "BAG 10L CC ZERO"},
-    {"codigo": "55720", "nome": "CC ZERO BAG 5L"},
+    {"codigo": "55464", "nome": "BAG FANTA LARANJA 5L"},
     {"codigo": "119166", "nome": "DV LARANJA 200ML C/18UND"},
     {"codigo": "119165", "nome": "DV PESSEGO 200ML C18UND"},
     {"codigo": "119164", "nome": "DV UVA TP 200ML (18U) CP"},
