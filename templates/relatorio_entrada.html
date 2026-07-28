@@ -14,5 +14,79 @@
     </header>
 
     <hr>
+
+    <div class="container-carga">
+        <div class="selecionar-carga">
+            <p>Selecionar Carga:</p>
+            <select class="select-carga" id="cargas" name="cargas">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <button>Buscar</button>
+        </div>
+
+        <div class="informacoes-carga">
+            <p>Motorista:<p1>{{ nota.motorista }}</p1></p>
+            <p>Placa: <p1>{{ nota.placa }}</p1></p>
+            <p>Origem: <p1>{{ nota.local }}</p1></p>
+            <p>Data Emissão: <p1>{{ nota.data_emissao }}</p1></p>
+            <p>Notas Fiscais: <p1>{{ nota.numero_nota }}</p1></p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="table-container">
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Código</th>
+                    <th>Descrição</th>
+                    <th>Quant</th>
+                    <th>Data Estoque</th>
+                    <th>Fabricação</th>
+                    <th>Vencimento</th>
+                    <th>Alterar FEFO</th>
+                    <th>Pallet Danificado</th>
+                    <th>Vazamento</th>
+                    <th>Observação</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for item in nota.itens %}
+                <tr>
+                    <td>{{ item.item }}</td>
+                    <td>{{ item.codigo}}</td>
+                    <td>{{ item.descricao }}</td>
+                    <td>{{ item.quantidade }}</td>
+                    <td>""</td>
+                    <td>
+                        <input type="date">
+                    </td>
+                    <td>
+                        <input type="date">
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
 </body>
 </html>
