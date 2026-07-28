@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-from teste_xml import ler_arquivo_xml
+from scripts.ler_arquivo_xml import ler_arquivo_xml
 from constants.paths import IMPORTS
 
 CAMINHO_XML = IMPORTS / "50_13633613_Luis_FDB7977_Betim.xml"
