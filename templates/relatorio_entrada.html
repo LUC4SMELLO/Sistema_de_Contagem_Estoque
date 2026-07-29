@@ -43,9 +43,7 @@
 
                 <p>Data Emissão:
                     <p1>
-                        {% for nota in notas %}
-                            {{ nota.data_emissao }}{% if not loop.last %}, {% endif %}
-                        {% endfor %}
+                        {{ notas[0].data_emissao }}
                     </p1>
                 </p>
 
@@ -71,7 +69,6 @@
                     <th>Código</th>
                     <th>Descrição</th>
                     <th>Quant</th>
-                    <th>Data Estoque</th>
                     <th>Fabricação</th>
                     <th>Vencimento</th>
                     <th>Alterar FEFO</th>
@@ -93,19 +90,18 @@
                     </tr>
 
                         {% for item in nota.itens %}
-                        <tr>
-                            <td>{{ item.item }}</td>
-                            <td>{{ item.codigo }}</td>
-                            <td>{{ item.descricao }}</td>
-                            <td>{{ item.quantidade }}</td>
-                            <td></td>
-                            <td><input type="date"></td>
-                            <td><input type="date"></td>
-                            <td><input type="checkbox"></td>
-                            <td><input type="checkbox"></td>
-                            <td><input type="checkbox"></td>
-                            <td><input type="text"></td>
-                        </tr>
+                            <tr>
+                                <td>{{ item.item }}</td>
+                                <td>{{ item.codigo }}</td>
+                                <td>{{ item.descricao }}</td>
+                                <td>{{ item.quantidade }}</td>
+                                <td><input type="date"></td>
+                                <td><input type="date"></td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="text"></td>
+                            </tr>
                         {% endfor %}
 
                     {% endfor %}
