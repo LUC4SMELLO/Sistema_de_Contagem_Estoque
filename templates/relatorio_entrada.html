@@ -16,16 +16,24 @@
     <hr>
 
     <div class="container-carga">
-        <div class="selecionar-carga">
-            <p>Selecionar Carga:</p>
-            <select class="select-carga" id="cargas" name="cargas">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
 
-            <button>Buscar</button>
-        </div>
+        <form method="POST">
+            <div class="selecionar-carga">
+
+                <p>Selecionar Carga:</p>
+                <select class="select-carga" id="cargas" name="carga">
+                    {% for numero_carga, caminho_xml in cargas.items() %}
+                        <option value="{{ numero_carga }}"
+                            {% if numero_carga|string == carga_selecionada %}selected{% endif %}>
+                            {{ numero_carga }}
+                        </option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">Buscar</button>
+                
+            </div>
+        </form>
 
         <div class="informacoes-carga">
             <p>Motorista:<p1>{{ nota.motorista }}</p1></p>
@@ -34,6 +42,7 @@
             <p>Data Emissão: <p1>{{ nota.data_emissao }}</p1></p>
             <p>Notas Fiscais: <p1>{{ nota.numero_nota }}</p1></p>
         </div>
+
     </div>
 
     <hr>
