@@ -1,7 +1,11 @@
 import re
 from datetime import datetime
+from collections import defaultdict
+from pathlib import Path
 
 import xml.etree.ElementTree as ET
+
+from constants.paths import IMPORTS
 
 
 def ler_arquivo_xml(caminho_xml):
@@ -86,3 +90,23 @@ def ler_arquivo_xml(caminho_xml):
     }
 
     return nota
+
+
+def ler_varios_arquivos_xml(numero_carga):
+
+    notas = {}
+    pasta = IMPORTS
+    for arquivo in pasta.glob(f"{numero_carga}*.xml"):
+        nota = ler_arquivo_xml(arquivo)
+
+        numero = nota["numero_nota"]
+
+        if numero not in notas:
+            notas[numero] = nota
+        else:
+            # JUNTA APENAS OS ITENS
+            notas[numero]["itens"].extend(nota["itens"])
+
+    lista_notas = list(notas.values())
+
+    return lista_notas
