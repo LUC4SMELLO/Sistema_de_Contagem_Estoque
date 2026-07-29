@@ -169,3 +169,7 @@ td input[type="checkbox"] {
     margin: 0 auto;
     transform: scale(1.8);
 }
+
+.linha-nota {
+  background-color: rgba(227, 37, 43, 0.486);
+}

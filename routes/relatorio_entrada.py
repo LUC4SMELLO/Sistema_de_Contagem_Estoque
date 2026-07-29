@@ -1,12 +1,12 @@
 from flask import Blueprint, render_template, request
 
-from scripts.ler_arquivo_xml import ler_arquivo_xml
+from scripts.ler_arquivo_xml import ler_varios_arquivos_xml
 from constants.paths import IMPORTS
 
 
 cargas = {
-    1: IMPORTS / "1_13633613_Luís_FDB7977_Betim.xml",
-    2: IMPORTS / "2_97190_André_FHW5858_Itabirito.xml",
+    1: IMPORTS / "1_97190_André_FHW5858_Itabirito.xml",
+    2: IMPORTS / "1_13633613_André_FHW5858_Itabirito.xml",
 }
 
 
@@ -21,7 +21,6 @@ def relatorio_entrada():
     if request.method == "POST":
         carga_selecionada = request.form["carga"]
 
-        caminho_xml = cargas[int(carga_selecionada)]
-        dados = ler_arquivo_xml(caminho_xml)
+        dados = ler_varios_arquivos_xml(carga_selecionada)
 
-    return render_template("relatorio_entrada.html", cargas=cargas, nota=dados, carga_selecionada=carga_selecionada)
+    return render_template("relatorio_entrada.html", cargas=cargas, notas=dados, carga_selecionada=carga_selecionada)
