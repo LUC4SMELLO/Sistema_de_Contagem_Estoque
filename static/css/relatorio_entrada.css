@@ -91,7 +91,7 @@ hr{
 
 /* Efeito ao passar o mouse no botão */
 .selecionar-carga button:hover {
-  background-color: #333333; /* Azul mais escuro */
+  background-color: #333333;
 }
 
 .informacoes-carga {
@@ -172,4 +172,23 @@ td input[type="checkbox"] {
 
 .linha-nota {
   background-color: rgba(227, 37, 43, 0.486);
+}
+
+
+/* Estilo do Botão Buscar */
+.botao-salvar {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #000000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* Efeito ao passar o mouse no botão */
+.botao-salvar:hover {
+  background-color: #333333;
 }

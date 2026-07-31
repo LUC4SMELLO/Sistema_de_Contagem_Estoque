@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/relatorio_entrada.css') }}">
 </head>
+
 <body>
     <header>
         <h1>Relatório Entrada</h1>
@@ -23,23 +25,25 @@
                 <p>Selecionar Carga:</p>
                 <select class="select-carga" id="cargas" name="carga">
                     {% for numero_carga, caminho_xml in cargas.items() %}
-                        <option value="{{ numero_carga }}"
-                            {% if numero_carga|string == carga_selecionada %}selected{% endif %}>
-                            {{ numero_carga }}
-                        </option>
+                    <option value="{{ numero_carga }}" {% if numero_carga|string==carga_selecionada %}selected{% endif
+                        %}>
+                        {{ numero_carga }}
+                    </option>
                     {% endfor %}
                 </select>
 
-                <button type="submit">Buscar</button>
-                
-            </div>
-        </form>
+                <button type="submit" name="acao" value="buscar">Buscar</button>
 
-        <div class="informacoes-carga">
-            {% if notas %}
-                <p>Motorista: <p1>{{ notas[0].motorista }}</p1></p>
-                <p>Placa: <p1>{{ notas[0].placa }}</p1></p>
-                <p>Origem: <p1>{{ notas[0].local }}</p1></p>
+            </div>
+
+            <div class="informacoes-carga">
+                {% if notas %}
+                <p>Motorista: <p1>{{ notas[0].motorista }}</p1>
+                </p>
+                <p>Placa: <p1>{{ notas[0].placa }}</p1>
+                </p>
+                <p>Origem: <p1>{{ notas[0].local }}</p1>
+                </p>
 
                 <p>Data Emissão:
                     <p1>
@@ -50,12 +54,12 @@
                 <p>Notas Fiscais:
                     <p1>
                         {% for nota in notas %}
-                            {{ nota.numero_nota }}{% if not loop.last %}, {% endif %}
+                        {{ nota.numero_nota }}{% if not loop.last %}, {% endif %}
                         {% endfor %}
                     </p1>
                 </p>
-            {% endif %}
-        </div>
+                {% endif %}
+            </div>
 
     </div>
 
@@ -80,31 +84,36 @@
 
             <tbody>
                 {% if notas %}
-                    {% for nota in notas %}
+                {% for nota in notas %}
 
-                    <tr class="linha-nota">
-                        <td colspan="11">
-                            <strong>Nota Fiscal {{ nota.numero_nota }}</strong> -
-                            Emitida em {{ nota.data_emissao }}
-                        </td>
-                    </tr>
+                <tr class="linha-nota">
+                    <td colspan="11">
+                        <strong>Nota Fiscal {{ nota.numero_nota }}</strong> -
+                        Emitida em {{ nota.data_emissao }}
+                    </td>
+                </tr>
 
-                        {% for item in nota.itens %}
-                            <tr>
-                                <td>{{ item.item }}</td>
-                                <td>{{ item.codigo }}</td>
-                                <td>{{ item.descricao }}</td>
-                                <td>{{ item.quantidade }}</td>
-                                <td><input type="date"></td>
-                                <td><input type="date"></td>
-                                <td><input type="checkbox"></td>
-                                <td><input type="checkbox"></td>
-                                <td><input type="checkbox"></td>
-                                <td><input type="text"></td>
-                            </tr>
-                        {% endfor %}
+                {% for item in nota.itens %}
+                <tr>
+                    <td>{{ item.item }}</td>
+                    <td>{{ item.codigo }}</td>
+                    <td>{{ item.descricao }}</td>
+                    <td>{{ item.quantidade }}</td>
 
-                    {% endfor %}
+                    <input type="hidden" name="codigo[]" value="{{ item.codigo }}">
+                    <input type="hidden" name="descricao[]" value="{{ item.descricao }}">
+
+                    <td><input type="date" name="fabricacao[]"></td>
+                    <td><input type="date" name="vencimento[]"></td>
+                    <td><input type="checkbox" name="fefo[]" value="{{ item.codigo }}"></td>
+                    <td><input type="checkbox" name="pallet_danificado[]" value="{{ item.codigo }}"></td>
+                    <td><input type="checkbox" name="vazamento[]" value="{{ item.codigo }}"></td>
+                    <td><input type="text" name="obs[]"></td>
+
+                </tr>
+                {% endfor %}
+
+                {% endfor %}
 
                 {% endif %}
 
@@ -113,5 +122,12 @@
         </table>
     </div>
 
+    <input type="hidden" name="total_itens" value="{{ total_itens }}">
+
+    <button class="botao-salvar" type="submit" name="acao" value="salvar">Salvar</button>
+
+    </form>
+
 </body>
+
 </html>

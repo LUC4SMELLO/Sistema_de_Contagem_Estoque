@@ -17,10 +17,63 @@ def relatorio_entrada():
 
     dados = None
     carga_selecionada = None
+    total_itens = 0
 
     if request.method == "POST":
-        carga_selecionada = request.form["carga"]
 
-        dados = ler_varios_arquivos_xml(carga_selecionada)
+        acao = request.form.get("acao")
+        carga_selecionada = request.form.get("carga")
 
-    return render_template("relatorio_entrada.html", cargas=cargas, notas=dados, carga_selecionada=carga_selecionada)
+        # CARREGA OS DADOS PARA EXIBIÇÃO
+        if carga_selecionada:
+            dados = ler_varios_arquivos_xml(carga_selecionada)
+            total_itens = sum(len(nota["itens"]) for nota in dados)
+
+        # SALVAR RELATÓRIO
+        if acao == "salvar":
+
+            codigos = request.form.getlist("codigo[]")
+            descricoes = request.form.getlist("descricao[]")
+            fabricacoes = request.form.getlist("fabricacao[]")
+            vencimentos = request.form.getlist("vencimento[]")
+            observacoes = request.form.getlist("obs[]")
+
+            # CHECKBOXES MARCADOS
+            fefo = set(request.form.getlist("fefo[]"))
+            pallet_danificado = set(request.form.getlist("pallet_danificado[]"))
+            vazamento = set(request.form.getlist("vazamento[]"))
+
+            relatorio = []
+
+            for codigo, descricao, fabricacao, vencimento, obs in zip(
+                codigos,
+                descricoes,
+                fabricacoes,
+                vencimentos,
+                observacoes
+            ):
+
+                relatorio.append({
+                    "codigo": codigo,
+                    "descricao": descricao,
+                    "fabricacao": fabricacao,
+                    "vencimento": vencimento,
+                    "fefo": codigo in fefo,
+                    "pallet_danificado": codigo in pallet_danificado,
+                    "vazamento": codigo in vazamento,
+                    "observacao": obs
+                })
+
+            for item in relatorio:
+                print(item)
+
+            # BANCO DE DADOS
+
+
+    return render_template(
+        "relatorio_entrada.html",
+        cargas=cargas,
+        notas=dados,
+        carga_selecionada=carga_selecionada,
+        total_itens=total_itens
+    )
