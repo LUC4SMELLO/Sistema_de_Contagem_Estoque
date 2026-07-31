@@ -90,8 +90,10 @@
                     <td colspan="11">
                         <strong>Nota Fiscal {{ nota.numero_nota }}</strong> -
                         Emitida em {{ nota.data_emissao }}
+                        <input type="hidden" name="nota_fiscal[]" value="{{ nota.numero_nota }}">
                     </td>
                 </tr>
+
 
                 {% for item in nota.itens %}
                 <tr>

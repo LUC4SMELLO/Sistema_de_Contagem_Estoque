@@ -27,6 +27,8 @@ def relatorio_entrada():
         # SALVAR RELATÓRIO
         if acao == "salvar":
 
+            numero_carga = carga_selecionada
+            notas_fiscais = request.form.getlist("nota_fiscal[]")
             codigos = request.form.getlist("codigo[]")
             descricoes = request.form.getlist("descricao[]")
             fabricacoes = request.form.getlist("fabricacao[]")
@@ -49,6 +51,8 @@ def relatorio_entrada():
             ):
 
                 relatorio.append({
+                    "numero_carga": numero_carga,
+                    "nota_fiscal": notas_fiscais,
                     "codigo": codigo,
                     "descricao": descricao,
                     "fabricacao": fabricacao,
