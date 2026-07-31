@@ -186,6 +186,7 @@ td input[type="checkbox"] {
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s;
+  margin-bottom: 30px;
 }
 
 /* Efeito ao passar o mouse no botão */
