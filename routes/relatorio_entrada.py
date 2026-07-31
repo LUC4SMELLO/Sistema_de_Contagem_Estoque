@@ -1,12 +1,16 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, session
 
 from scripts.ler_arquivo_xml import ler_varios_arquivos_xml, retornar_numeros_das_cargas
+
+from models.relatorios_entradas import RelatoriosEntradas
 
 
 relatorio_entrada_bp = Blueprint("relatorio_entrada", __name__)
 
 @relatorio_entrada_bp.route("/relatorio_entrada", methods=["GET", "POST"])
 def relatorio_entrada():
+
+    usuario_id = session.get("usuario_id")
 
     cargas = retornar_numeros_das_cargas()
 
@@ -67,10 +71,11 @@ def relatorio_entrada():
                     "observacao": obs
                 })
 
-            for item in relatorio:
-                print(item)
 
             # BANCO DE DADOS
+
+
+            RelatoriosEntradas.inserir_relatorio(usuario_id, relatorio) # MODELO PROVISÓRIO NECESSÁRIO MELHORAR
 
 
     return render_template(
