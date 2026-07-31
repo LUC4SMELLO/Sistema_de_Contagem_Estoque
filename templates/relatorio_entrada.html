@@ -24,7 +24,7 @@
 
                 <p>Selecionar Carga:</p>
                 <select class="select-carga" id="cargas" name="carga">
-                    {% for numero_carga, caminho_xml in cargas.items() %}
+                    {% for numero_carga in cargas %}
                     <option value="{{ numero_carga }}" {% if numero_carga|string==carga_selecionada %}selected{% endif
                         %}>
                         {{ numero_carga }}
