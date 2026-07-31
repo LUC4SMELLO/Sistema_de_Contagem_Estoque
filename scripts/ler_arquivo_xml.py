@@ -1,4 +1,5 @@
 import re
+import os
 from datetime import datetime
 from collections import defaultdict
 from pathlib import Path
@@ -10,7 +11,7 @@ from constants.paths import IMPORTS
 
 def ler_arquivo_xml(caminho_xml):
 
-    padrao = r"^.*?(?P<carga>\d+)_(?P<nota_fiscal>\d+)_(?P<motorista>[^_]+)_(?P<placa>[A-Z0-9]+)_(?P<local>[^_]+).*\.xml$"
+    padrao = r"^.*?(?P<carga>\d+)_(?P<nota_fiscal>\d+)_(?P<motorista>[^_]+)_(?P<placa>[A-Z0-9]+)_(?P<local>.+).*\.xml$"
     resultado = re.match(padrao, str(caminho_xml))
 
     if resultado:
@@ -74,7 +75,7 @@ def ler_arquivo_xml(caminho_xml):
     nota = {
         "motorista": dados["motorista"],
         "placa": dados["placa"],
-        "local": dados["local"],
+        "local": str.replace(dados["local"], "_", " "),
         "chave_acesso": chave_acesso,
         "numero_nota": numero_nota,
         "data_emissao": data_formatada,
@@ -110,3 +111,20 @@ def ler_varios_arquivos_xml(numero_carga):
     lista_notas = list(notas.values())
 
     return lista_notas
+
+
+def retornar_numeros_das_cargas():
+    caminho = IMPORTS
+    arquivos = os.listdir(caminho)
+
+    numeros_cargas = []
+    for arquivo in arquivos:
+        encontrado = re.findall(r"\d+", arquivo[:2])
+
+        if encontrado:
+            numero = str(encontrado[0])
+
+            if numero not in numeros_cargas:
+                numeros_cargas.append(numero)
+
+    return numeros_cargas
