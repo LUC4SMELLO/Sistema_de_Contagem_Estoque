@@ -46,8 +46,8 @@ def ler_arquivo_xml(caminho_xml):
         
         # DADOS DOS PRODUTOS
         prod = det.find("nfe:prod", ns)
-        codigo = prod.find("nfe:cProd", ns).text
-        nome = prod.find("nfe:xProd", ns).text
+        codigo_produto = prod.find("nfe:cProd", ns).text
+        descricao = prod.find("nfe:xProd", ns).text
         qtd = prod.find("nfe:qCom", ns).text
         valor_total_prod = prod.find("nfe:vProd", ns).text
 
@@ -61,8 +61,8 @@ def ler_arquivo_xml(caminho_xml):
 
         item = {
             "item": item_num,
-            "codigo":codigo,
-            "descricao": nome,
+            "codigo_produto":codigo_produto,
+            "descricao": descricao,
             "quantidade": qtd,
             "valor_total": valor_total_prod,
             "pis": v_pis,
