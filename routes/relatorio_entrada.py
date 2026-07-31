@@ -27,9 +27,10 @@ def relatorio_entrada():
         # SALVAR RELATÓRIO
         if acao == "salvar":
 
+            itens = request.form.getlist("item[]")
             numero_carga = carga_selecionada
             notas_fiscais = request.form.getlist("nota_fiscal[]")
-            codigos = request.form.getlist("codigo[]")
+            codigos_produtos = request.form.getlist("codigo_produto[]")
             descricoes = request.form.getlist("descricao[]")
             fabricacoes = request.form.getlist("fabricacao[]")
             vencimentos = request.form.getlist("vencimento[]")
@@ -42,8 +43,10 @@ def relatorio_entrada():
 
             relatorio = []
 
-            for codigo, descricao, fabricacao, vencimento, obs in zip(
-                codigos,
+            for item, nota_fiscal, codigo_produto, descricao, fabricacao, vencimento, obs in zip(
+                itens,
+                notas_fiscais,
+                codigos_produtos,
                 descricoes,
                 fabricacoes,
                 vencimentos,
@@ -52,14 +55,15 @@ def relatorio_entrada():
 
                 relatorio.append({
                     "numero_carga": numero_carga,
-                    "nota_fiscal": notas_fiscais,
-                    "codigo": codigo,
+                    "nota_fiscal": nota_fiscal,
+                    "item": item,
+                    "codigo_produto": codigo_produto,
                     "descricao": descricao,
                     "fabricacao": fabricacao,
                     "vencimento": vencimento,
-                    "fefo": codigo in fefo,
-                    "pallet_danificado": codigo in pallet_danificado,
-                    "vazamento": codigo in vazamento,
+                    "fefo": codigo_produto in fefo,
+                    "pallet_danificado": codigo_produto in pallet_danificado,
+                    "vazamento": codigo_produto in vazamento,
                     "observacao": obs
                 })
 

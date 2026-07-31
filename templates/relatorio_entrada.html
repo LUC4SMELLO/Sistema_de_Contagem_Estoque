@@ -90,26 +90,27 @@
                     <td colspan="11">
                         <strong>Nota Fiscal {{ nota.numero_nota }}</strong> -
                         Emitida em {{ nota.data_emissao }}
-                        <input type="hidden" name="nota_fiscal[]" value="{{ nota.numero_nota }}">
                     </td>
                 </tr>
-
-
+                
+                
                 {% for item in nota.itens %}
                 <tr>
                     <td>{{ item.item }}</td>
                     <td>{{ item.codigo }}</td>
                     <td>{{ item.descricao }}</td>
                     <td>{{ item.quantidade }}</td>
-
-                    <input type="hidden" name="codigo[]" value="{{ item.codigo }}">
+                    
+                    <input type="hidden" name="item[]" value="{{ item.item }}">
+                    <input type="hidden" name="nota_fiscal[]" value="{{ nota.numero_nota }}">
+                    <input type="hidden" name="codigo_produto[]" value="{{ item.codigo_produto }}">
                     <input type="hidden" name="descricao[]" value="{{ item.descricao }}">
 
                     <td><input type="date" name="fabricacao[]"></td>
                     <td><input type="date" name="vencimento[]"></td>
-                    <td><input type="checkbox" name="fefo[]" value="{{ item.codigo }}"></td>
-                    <td><input type="checkbox" name="pallet_danificado[]" value="{{ item.codigo }}"></td>
-                    <td><input type="checkbox" name="vazamento[]" value="{{ item.codigo }}"></td>
+                    <td><input type="checkbox" name="fefo[]" value="{{ item.codigo_produto }}"></td>
+                    <td><input type="checkbox" name="pallet_danificado[]" value="{{ item.codigo_produto }}"></td>
+                    <td><input type="checkbox" name="vazamento[]" value="{{ item.codigo_produto }}"></td>
                     <td><input type="text" name="obs[]"></td>
 
                 </tr>
