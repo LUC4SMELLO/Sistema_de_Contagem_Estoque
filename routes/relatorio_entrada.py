@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, session
 
 from scripts.ler_arquivo_xml import ler_varios_arquivos_xml, retornar_numeros_das_cargas
 
-from models.relatorios_entradas import RelatoriosEntradas
+from scripts.salvar_relatorio_entrada import salvar_relatorio_entrada
 
 
 relatorio_entrada_bp = Blueprint("relatorio_entrada", __name__)
@@ -75,7 +75,10 @@ def relatorio_entrada():
             # BANCO DE DADOS
 
 
-            RelatoriosEntradas.inserir_relatorio(usuario_id, relatorio) # MODELO PROVISÓRIO NECESSÁRIO MELHORAR
+            resultado, mensagem, erro = salvar_relatorio_entrada(relatorio, usuario_id)
+
+
+            return render_template("salvar_contagem.html", mensagem=mensagem, erro=erro)
 
 
     return render_template(
