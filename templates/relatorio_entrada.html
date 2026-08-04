@@ -95,7 +95,7 @@
                 
                 
                 {% for item in nota.itens %}
-                <tr class="linha-item" data-id-item="{{ item.item }}">
+                <tr class="linha-item" data-id-item="{{ item.item }}" data-chave="{{ nota.numero_nota }}_{{ item.item }}">
                     <td>
                         {{ item.item }}
                         <input type="hidden" name="item[]" value="{{ item.item }}">
@@ -213,6 +213,45 @@
     });
 </script>
 
+
+<!-- TRECHO PARA CARREGAR RELATÓRIO DE ENTRADAS TEMPORÁRIAS -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+    fetch("/carregar_relatorio_entrada_temporario")
+        .then(res => res.json())
+        .then(dados => {
+
+            dados.forEach(registro => {
+
+                const linha = document.querySelector(
+                    `tr[data-chave="${registro.chave}"]`
+                );
+
+                if (!linha) return;
+
+                linha.querySelector('[name="fabricacao[]"]').value =
+                    registro.fabricacao || "";
+
+                linha.querySelector('[name="vencimento[]"]').value =
+                    registro.vencimento || "";
+
+                linha.querySelector('[name="fefo[]"]').checked =
+                    registro.fefo == 1;
+
+                linha.querySelector('[name="pallet_danificado[]"]').checked =
+                    registro.pallet_danificado == 1;
+
+                linha.querySelector('[name="vazamento[]"]').checked =
+                    registro.vazamento == 1;
+
+                linha.querySelector('[name="obs[]"]').value =
+                    registro.observacao || "";
+            });
+
+        });
+    });
+</script>
 
 </body>
 
