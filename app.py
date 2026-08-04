@@ -23,6 +23,7 @@ from routes.salvar_contagem_datas import salvar_contagem_datas_bp
 from routes.salvar_contagem_datas_temporaria import salvar_contagem_datas_temporaria_bp
 
 from routes.relatorio_entrada import relatorio_entrada_bp
+from routes.salvar_relatorio_entrada_temporarios import salvar_relatorio_entrada_temporario_bp
 
 
 app = Flask(__name__)
@@ -52,6 +53,7 @@ app.register_blueprint(salvar_contagem_datas_bp)
 app.register_blueprint(salvar_contagem_datas_temporaria_bp)
 
 app.register_blueprint(relatorio_entrada_bp)
+app.register_blueprint(salvar_relatorio_entrada_temporario_bp)
 
 
 if __name__ == "__main__":
