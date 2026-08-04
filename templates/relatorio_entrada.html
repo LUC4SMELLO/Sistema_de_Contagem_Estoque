@@ -95,16 +95,20 @@
                 
                 
                 {% for item in nota.itens %}
-                <tr>
-                    <td>{{ item.item }}</td>
-                    <td>{{ item.codigo }}</td>
+                <tr class="linha-item" data-id-item="{{ item.item }}">
+                    <td>
+                        {{ item.item }}
+                        <input type="hidden" name="item[]" value="{{ item.item }}">
+                        <input type="hidden" name="nota_fiscal[]" value="{{ nota.numero_nota }}">
+                        <input type="hidden" name="codigo_produto[]" value="{{ item.codigo_produto }}">
+                        <input type="hidden" name="descricao[]" value="{{ item.descricao }}">
+                        <input type="hidden" name="numero_carga_linha[]" value="{{ carga_selecionada }}">
+                    </td>
+                    <td>{{ item.codigo_produto }}</td>
                     <td>{{ item.descricao }}</td>
                     <td>{{ item.quantidade }}</td>
                     
-                    <input type="hidden" name="item[]" value="{{ item.item }}">
-                    <input type="hidden" name="nota_fiscal[]" value="{{ nota.numero_nota }}">
-                    <input type="hidden" name="codigo_produto[]" value="{{ item.codigo_produto }}">
-                    <input type="hidden" name="descricao[]" value="{{ item.descricao }}">
+
 
                     <td><input type="date" name="fabricacao[]"></td>
                     <td><input type="date" name="vencimento[]"></td>
@@ -130,6 +134,85 @@
     <button class="botao-salvar" type="submit" name="acao" value="salvar">Salvar Relatório</button>
 
     </form>
+
+<!-- TRECHO PARA SALVAR RELATÓRIO DE ENTRADAS TEMPORÁRIAS -->
+<script>
+    let timeoutRelatorio;
+
+    document.addEventListener("change", (e) => {
+
+        // Verifica se o elemento alterado pertence à linha do relatório de entrada
+        if (
+            e.target.name === "fabricacao[]" ||
+            e.target.name === "vencimento[]" ||
+            e.target.name === "fefo[]" ||
+            e.target.name === "pallet_danificado[]" ||
+            e.target.name === "vazamento[]" ||
+            e.target.name === "obs[]"
+        ) {
+
+            clearTimeout(timeoutRelatorio);
+
+            timeoutRelatorio = setTimeout(() => {
+
+                // Encontra a linha (TR) que contém o input alterado
+                const linha = e.target.closest("tr");
+
+                // Captura os valores dos inputs ocultos da mesma linha
+                const item = linha.querySelector('[name="item[]"]').value;
+                const notaFiscal = linha.querySelector('[name="nota_fiscal[]"]').value;
+                const codigoProduto = linha.querySelector('[name="codigo_produto[]"]').value;
+                const descricao = linha.querySelector('[name="descricao[]"]').value;
+                const numeroCarga = linha.querySelector('[name="numero_carga_linha[]"]').value;
+
+                // Captura as entradas do usuário na linha específica
+                const fabricacao = linha.querySelector('[name="fabricacao[]"]').value;
+                const vencimento = linha.querySelector('[name="vencimento[]"]').value;
+                
+                // Tratamento para checkboxes (envia 1 se marcado, 0 se desmarcado)
+                const fefo = linha.querySelector('[name="fefo[]"]').checked ? 1 : 0;
+                const palletDanificado = linha.querySelector('[name="pallet_danificado[]"]').checked ? 1 : 0;
+                const vazamento = linha.querySelector('[name="vazamento[]"]').checked ? 1 : 0;
+                
+                const observacao = linha.querySelector('[name="obs[]"]').value;
+
+                const formData = new FormData();
+
+                formData.append("numero_carga", numeroCarga);
+                formData.append("nota_fiscal", notaFiscal);
+                formData.append("item", item);
+                formData.append("codigo_produto", codigoProduto);
+                formData.append("descricao", descricao);
+                formData.append("fabricacao", fabricacao);
+                formData.append("vencimento", vencimento);
+                formData.append("fefo", fefo);
+                formData.append("pallet_danificado", palletDanificado);
+                formData.append("vazamento", vazamento);
+                formData.append("observacao", observacao);
+                
+                // Cria a chave composta (Nota Fiscal + Item) usada para o ON CONFLICT do banco de dados
+                formData.append("chave", `${notaFiscal}_${item}`);
+
+                // Envia os dados assincronamente para a nova rota temporária
+                fetch("/salvar_relatorio_entrada_temporario", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(async response => {
+                    const dados = await response.json();
+
+                    if (!response.ok) {
+                        console.error(dados);
+                        throw new Error(dados.mensagem);
+                    }
+                })
+                .catch(error => console.error(error));
+
+            }, 500); // Aguarda 500ms após o usuário parar de interagir para enviar
+        }
+    });
+</script>
+
 
 </body>
 
