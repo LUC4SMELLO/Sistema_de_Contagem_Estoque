@@ -102,3 +102,38 @@ class RelatoriosEntradasTemporarios():
 
         conexao.commit()
         conexao.close()
+
+    @staticmethod
+    def buscar_relatorio_temporarios(usuario_id: int):
+
+        conexao = conectar_banco_dados_principal()
+        cursor = conexao.cursor()
+
+        cursor.execute(
+            f"""
+            SELECT
+                chave,
+                nota_fiscal,
+                item,
+                fabricacao,
+                vencimento,
+                fefo,
+                pallet_danificado,
+                vazamento,
+                observacao
+            FROM {TABELA_RELATORIOS_ENTRADAS_TEMPORARIOS}
+            WHERE usuario_id = ?
+            """,(usuario_id,)
+        )
+
+        dados = cursor.fetchall()
+
+        conexao.close()
+    
+        colunas = [coluna[0] for coluna in cursor.description]
+    
+
+
+        relatorios_temporarios = [dict(zip(colunas, linha)) for linha in dados]
+
+        return relatorios_temporarios
