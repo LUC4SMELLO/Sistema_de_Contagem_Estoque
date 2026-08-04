@@ -1,5 +1,7 @@
 from models.relatorios_entradas import RelatoriosEntradas
 
+from models.relatorios_entradas_temporarios import RelatoriosEntradasTemporarios
+
 
 def salvar_relatorio_entrada(dados_relatorio: dict, usuario_id: int):
     """
@@ -26,7 +28,8 @@ def salvar_relatorio_entrada(dados_relatorio: dict, usuario_id: int):
         
         RelatoriosEntradas.inserir_relatorio(usuario_id, dados_relatorio)
 
-        # LÓGICA PARA EXCLUIR CONTAGEM TEMPORÁRIA AQUI
+        RelatoriosEntradasTemporarios.excluir_relatorio_temporario(usuario_id)
+
 
         return True, "<span class='mensagem-sucesso'>Sucesso ao Enviar o Relatório!</span>", ""
 

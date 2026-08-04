@@ -12,6 +12,9 @@ class RelatoriosEntradasTemporarios():
 
     @staticmethod
     def inserir_relatorio_temporario(usuario_id: int, dados_relatorio: dict):
+        """
+        Insere uma nova contagem temporária no banco de dados.
+        """
 
         data_atual = datetime.now()
         data_atual_formatada = data_atual.strftime("%Y-%m-%d")
@@ -71,6 +74,30 @@ class RelatoriosEntradasTemporarios():
                     dados_relatorio["vazamento"],
                     dados_relatorio["observacao"]
                 )
+        )
+
+        conexao.commit()
+        conexao.close()
+
+    @staticmethod
+    def excluir_relatorio_temporario(usuario_id: int):
+        """
+        Exclui o relatorio entrada temporário.
+
+        Parameters
+        ----------
+            usuario_id
+                O id do usuário.
+        """
+
+        conexao = conectar_banco_dados_principal()
+        cursor = conexao.cursor()
+
+        cursor.execute(
+            f"""
+            DELETE FROM {TABELA_RELATORIOS_ENTRADAS_TEMPORARIOS}
+            WHERE usuario_id = ?
+            """, (usuario_id,)
         )
 
         conexao.commit()
