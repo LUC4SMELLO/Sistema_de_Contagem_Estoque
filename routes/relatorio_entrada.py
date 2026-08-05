@@ -39,6 +39,7 @@ def relatorio_entrada():
             notas_fiscais = request.form.getlist("nota_fiscal[]")
             codigos_produtos = request.form.getlist("codigo_produto[]")
             descricoes = request.form.getlist("descricao[]")
+            quantidades = request.form.getlist("quantidade[]")
             fabricacoes = request.form.getlist("fabricacao[]")
             vencimentos = request.form.getlist("vencimento[]")
             observacoes = request.form.getlist("obs[]")
@@ -50,13 +51,14 @@ def relatorio_entrada():
 
             relatorio = []
 
-            for item, motorista, local, nota_fiscal, codigo_produto, descricao, fabricacao, vencimento, obs in zip(
+            for item, motorista, local, nota_fiscal, codigo_produto, descricao, quantidade, fabricacao, vencimento, obs in zip(
                 itens,
                 motoristas,
                 locais,
                 notas_fiscais,
                 codigos_produtos,
                 descricoes,
+                quantidades,
                 fabricacoes,
                 vencimentos,
                 observacoes
@@ -70,6 +72,7 @@ def relatorio_entrada():
                     "item": item,
                     "codigo_produto": codigo_produto,
                     "descricao": descricao,
+                    "quantidade": int(float(quantidade)),
                     "fabricacao": fabricacao,
                     "vencimento": vencimento,
                     "fefo": codigo_produto in fefo,

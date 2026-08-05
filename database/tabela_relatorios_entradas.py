@@ -20,6 +20,7 @@ def criar_tabela_relatorios_entrada():
         item INTEGER,
         codigo_produto VARCHAR(10),
         descricao VARCHAR(150),
+        quantidade INTEGER,
         fabricacao TEXT,
         vencimento TEXT,
         fefo INTEGER,

@@ -32,6 +32,7 @@ class RelatoriosEntradas():
                 item,
                 codigo_produto,
                 descricao,
+                quantidade,
                 fabricacao,
                 vencimento,
                 fefo,
@@ -39,7 +40,7 @@ class RelatoriosEntradas():
                 vazamento,
                 observacao
                 )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                     (
                         usuario_id,
@@ -51,6 +52,7 @@ class RelatoriosEntradas():
                         dados_relatorio[i]["item"],
                         dados_relatorio[i]["codigo_produto"],
                         dados_relatorio[i]["descricao"],
+                        dados_relatorio[i]["quantidade"],
                         dados_relatorio[i]["fabricacao"],
                         dados_relatorio[i]["vencimento"],
                         dados_relatorio[i]["fefo"],
