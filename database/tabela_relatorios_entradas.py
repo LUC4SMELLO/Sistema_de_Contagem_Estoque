@@ -15,6 +15,8 @@ def criar_tabela_relatorios_entrada():
         data_chegada TEXT,
         numero_carga INTEGER,
         nota_fiscal VARCHAR(50),
+        motorista VARCHAR(50),
+        local VARCHAR(50),
         item INTEGER,
         codigo_produto VARCHAR(10),
         descricao VARCHAR(150),

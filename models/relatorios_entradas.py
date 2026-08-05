@@ -27,6 +27,8 @@ class RelatoriosEntradas():
                 data_chegada,
                 numero_carga,
                 nota_fiscal,
+                motorista,
+                local,
                 item,
                 codigo_produto,
                 descricao,
@@ -37,13 +39,15 @@ class RelatoriosEntradas():
                 vazamento,
                 observacao
                 )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                     (
                         usuario_id,
                         data_atual_formatada,
                         dados_relatorio[i]["numero_carga"],
                         dados_relatorio[i]["nota_fiscal"],
+                        dados_relatorio[i]["motorista"],
+                        dados_relatorio[i]["local"],
                         dados_relatorio[i]["item"],
                         dados_relatorio[i]["codigo_produto"],
                         dados_relatorio[i]["descricao"],

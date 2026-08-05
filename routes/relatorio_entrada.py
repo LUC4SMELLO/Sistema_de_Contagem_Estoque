@@ -31,6 +31,9 @@ def relatorio_entrada():
         # SALVAR RELATÓRIO
         if acao == "salvar":
 
+            motoristas = request.form.getlist("motorista[]")
+            locais = request.form.getlist("local[]")
+
             itens = request.form.getlist("item[]")
             numero_carga = carga_selecionada
             notas_fiscais = request.form.getlist("nota_fiscal[]")
@@ -47,8 +50,10 @@ def relatorio_entrada():
 
             relatorio = []
 
-            for item, nota_fiscal, codigo_produto, descricao, fabricacao, vencimento, obs in zip(
+            for item, motorista, local, nota_fiscal, codigo_produto, descricao, fabricacao, vencimento, obs in zip(
                 itens,
+                motoristas,
+                locais,
                 notas_fiscais,
                 codigos_produtos,
                 descricoes,
@@ -60,6 +65,8 @@ def relatorio_entrada():
                 relatorio.append({
                     "numero_carga": numero_carga,
                     "nota_fiscal": nota_fiscal,
+                    "motorista": motorista,
+                    "local": local,
                     "item": item,
                     "codigo_produto": codigo_produto,
                     "descricao": descricao,
