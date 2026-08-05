@@ -26,6 +26,8 @@ from routes.relatorio_entrada import relatorio_entrada_bp
 from routes.salvar_relatorio_entrada_temporarios import salvar_relatorio_entrada_temporario_bp
 from routes.carregar_relatorio_entrada_temporarios import carregar_relatorio_entrada_temporario_bp
 
+from routes.visualizar_relatorio_entrada import visualizar_relatorio_entrada_bp
+
 
 app = Flask(__name__)
 app.secret_key = "secret_key"
@@ -57,6 +59,7 @@ app.register_blueprint(relatorio_entrada_bp)
 app.register_blueprint(salvar_relatorio_entrada_temporario_bp)
 app.register_blueprint(carregar_relatorio_entrada_temporario_bp)
 
+app.register_blueprint(visualizar_relatorio_entrada_bp)
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True, use_reloader=False)
