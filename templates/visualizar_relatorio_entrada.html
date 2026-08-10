@@ -51,7 +51,7 @@
 
 
     <div class="table-container">
-        <table class="table">
+        <table class="table" id="tabelaRelatorio">
             <!-- Primeira linha: Cabeçalho -->
             <thead>
                 <tr>
@@ -100,6 +100,34 @@
             </tbody>
         </table>
     </div>
+
+
+
+<script>
+    // Seleciona todas as linhas de dados dentro do corpo da tabela
+    const linhas = document.querySelectorAll("#tabelaRelatorio tbody tr");
+
+    linhas.forEach(linha => {
+    // Pega apenas a segunda célula (coluna do valor)
+    const celulaValor = linha.querySelector("td:nth-child(13)");
+    
+    if (celulaValor) {
+        // Converte o texto da célula para um número
+        const valor = parseFloat(celulaValor.textContent.trim());
+        
+        if (!isNaN(valor)) {
+        if (valor > 90) {
+            celulaValor.classList.add("celula-verde"); // Aplica na célula
+        } else if (valor >= 70 && valor <= 90) {
+            celulaValor.classList.add("celula-amarelo"); // Aplica na célula
+        } else if (valor < 70) {
+            celulaValor.classList.add("celula-vermelha"); // Aplica na célula
+        }
+        }
+    }
+    });
+</script>
+
 
 </body>
 </html>
