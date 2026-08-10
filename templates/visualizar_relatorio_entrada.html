@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/visualizar_relatorio_entrada.css') }}">
+
+    <title>Visualizar Relatório Entrada</title>
+</head>
+<body>
+    <header>
+        <h1>Visualizar<br>Relatório Entrada</h1>
+        <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+    </header>
+
+    <hr>
+
+    <form method="POST">
+        <div class="container-carga">
+            <div class="selecionar-carga">
+                <p>Selecionar Carga:</p>
+                <select class="select-carga" id="cargas" name="carga">
+                    {% for numero_carga, data_chegada in cargas %}
+                    <option value="{{ numero_carga }} {{ data_chegada}}" {% if numero_carga|string == carga_selecionada %}selected{% endif %}>
+                        Carga {{ numero_carga }} - Chegada {{ data_chegada }}
+                    </option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit" name="acao" value="buscar">Buscar</button>
+
+            </div>
+
+            <div class="informacoes-carga">
+                {% if dados_carga %}
+                <p>Motorista: <p1>{{ dados_carga.motorista }}</p1>
+                </p>
+                <p>Placa: <p1>{{ dados_carga.placa }}</p1>
+                </p>
+                <p>Origem: <p1>{{ dados_carga.origem }}</p1>
+                </p>
+                <p>Data Chegada:  <p1>{{ dados_carga.data_chegada }}</p1>
+                </p>
+                {% endif %}
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+
+    <div class="table-container">
+        <table class="table">
+            <!-- Primeira linha: Cabeçalho -->
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Código</th>
+                    <th class="coluna-descricao">Descrição</th>
+                    <th>Quant</th>
+                    <th class="coluna-data">Data Estoque</th>
+                    <th class="coluna-data">Fabricação</th>
+                    <th class="coluna-data">Vencimento</th>
+                    <th>Alterar FEFO</th>
+                    <th>Pallet Danificado</th>
+                    <th>Vazamento</th>
+                    <th>Observação</th>
+                    <th>Shelf Life</th>
+                    <th>Dias Para Vencimento</th>
+                    <th>% Dias Para Vencimento</th>
+
+                </tr>
+            </thead>
+
+            <!-- Segunda linha: Dados -->
+            <tbody>
+                {% if dados_produtos %}
+                {% for dado in dados_produtos %}
+
+                <tr>
+                    <td>{{ dado.item }}</td>
+                    <td>{{ dado.codigo_produto }}</td>
+                    <td>{{ dado.descricao }}</td>
+                    <td>{{ dado.quantidade }}</td>
+                    <td>{{ dado.data_estoque }}</td>
+                    <td>{{ dado.data_fabricacao }}</td>
+                    <td>{{ dado.data_vencimento }}</td>
+                    <td><input type="checkbox" name="fefo" value="1" {% if dado.fefo %}checked{% endif %} disabled></td>
+                    <td><input type="checkbox" name="pallet_danificado" value="1" {% if dado.pallet_danificado %}checked{% endif %} disabled></td>
+                    <td><input type="checkbox" name="vazamento" value="1" {% if dado.vazamento %}checked{% endif %} disabled></td>
+                    <td>{{ dado.observacao }}</td>
+                    <td>{{ dado.shelf_life }}</td>
+                    <td>{{ dado.dias_para_vencimento }}</td>
+                    <td>{{ dado.dias_para_vencimento_porcentagem }}</td>
+                </tr>
+
+                {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

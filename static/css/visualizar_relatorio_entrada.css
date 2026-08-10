@@ -1,0 +1,188 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    justify-content: center;   /* Centraliza horizontalmente */
+    align-items: center;       /* Centraliza verticalmente */
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+header img {
+    height: 70px;
+}
+
+hr{
+    width: 100%;
+    border: 2px solid silver;
+}
+
+.container-carga {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha pelo topo */
+}
+
+.informacoes-carga {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  justify-content: center;
+  font-family: sans-serif;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.informacoes-carga p {
+  margin: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.informacoes-carga p1 {
+  margin: 4px;
+  font-size: 16px;
+  font-weight: normal;
+  color: #000000;
+}
+
+
+/* Container principal - Alinha os elementos em linha */
+.selecionar-carga {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: sans-serif;
+  margin-top: 10px;
+}
+
+/* Estilo do texto "Selecionar Carga:" */
+.selecionar-carga p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* Estilo do texto "Selecionar Carga:" */
+.selecionar-carga p1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+}
+
+
+/* Estilo do Select (Lista Suspensa) */
+.select-carga {
+  padding: 5px 32px 5px 12px;
+  font-size: 16px;
+  color: #333333;
+  background-color: #ffffff;
+  border: 2px solid #dddddd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+
+  /* Remove a seta padrão do navegador */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Efeito de foco no Select */
+.select-carga:focus {
+  outline: none;
+  border-color: #dddddd; /* Azul comercial */
+}
+
+/* Estilo do Botão Buscar */
+.selecionar-carga button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #000000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* Efeito ao passar o mouse no botão */
+.selecionar-carga button:hover {
+  background-color: #333333;
+}
+
+.table-container {
+    width: 90%;          /* Define a largura máxima do bloco na tela */
+    margin: 20px auto;   /* Centraliza o container na tela */
+    overflow-x: auto;    /* Cria uma barra de rolagem horizontal se a tabela for maior que a tela */
+    -webkit-overflow-scrolling: touch; /* Melhora a rolagem em telas de toque (iOS) */
+    
+    /* ADICIONADO PARA O CABEÇALHO FIXO FUNCIONAR VERTICALMENTE */
+    max-height: 450px;   /* Define a altura máxima antes de começar a rolar a tabela */
+    overflow-y: auto;    /* Ativa a rolagem vertical para o corpo da tabela */
+}
+
+/* Tabela Modificada */
+table {
+    width: 100%;         /* Agora ela ocupa 100% do container, não da tela inteira */
+    min-width: 1300px;    /* Impede os dados de ficarem espremidos em telas muito pequenas */
+    background: #fff;
+    border-radius: 10px;
+    border-collapse: separate; /* MODIFICADO: 'collapse' pode sumir com as bordas ao usar sticky */
+    border-spacing: 0;         /* Mantém o visual limpo sem os espaçamentos duplos */
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+table th {
+    background: black;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    vertical-align: middle;
+    
+    /* ADICIONADO PARA TRANCAR O CABEÇALHO NO TOPO */
+    position: sticky;    /* Gruda o elemento no contêiner de rolagem */
+    top: 0;              /* Define o ponto de parada exatamente no topo */
+    z-index: 10;         /* Garante que fique por cima do conteúdo que está rolando */
+}
+
+table td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #dee2e6; /* Adicionado para compensar o 'border-collapse' desativado */
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+td input[type="checkbox"] {
+    display: block;
+    margin: 0 auto;
+    transform: scale(1.8);
+}
+
+.coluna-descricao {
+  width: 200px;
+}
+.coluna-data {
+  width: 120px;
+}
