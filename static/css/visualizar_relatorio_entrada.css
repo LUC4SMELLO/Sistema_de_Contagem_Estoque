@@ -32,6 +32,7 @@ hr{
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Alinha pelo topo */
+    padding: 0 10px;
 }
 
 .informacoes-carga {
@@ -89,7 +90,7 @@ hr{
 
 /* Estilo do Select (Lista Suspensa) */
 .select-carga {
-  padding: 5px 32px 5px 12px;
+  padding: 5px 32px 15px 12px;
   font-size: 16px;
   color: #333333;
   background-color: #ffffff;
@@ -97,6 +98,7 @@ hr{
   border-radius: 6px;
   cursor: pointer;
   transition: border-color 0.2s;
+  box-sizing: border-box;
 
   /* Remove a seta padrão do navegador */
   appearance: none;
@@ -126,6 +128,28 @@ hr{
 /* Efeito ao passar o mouse no botão */
 .selecionar-carga button:hover {
   background-color: #333333;
+}
+
+
+
+/* --- REGRAS EXCLUSIVAS PARA CELULAR (Telas até 768px) --- */
+@media (max-width: 768px) {
+  .selecionar-carga {
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    align-items: stretch;   /* Faz os itens esticarem até as bordas */
+    width: 100%;
+    gap: 10px;              /* Espaço vertical entre texto, select e botão */
+  }
+
+  .selecionar-carga p,
+  .selecionar-carga p1 {
+    text-align: left;       /* Alinha o texto à esquerda no celular */
+  }
+
+  .select-carga,
+  .selecionar-carga button {
+    width: 100%;            /* Ocupa toda a largura disponível da tela */
+  }
 }
 
 .table-container {
@@ -185,6 +209,9 @@ td input[type="checkbox"] {
 }
 .coluna-data {
   width: 120px;
+}
+.coluna-observacao {
+  width: 300px;
 }
 
 
