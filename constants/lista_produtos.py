@@ -75,6 +75,7 @@ bebidas = [
     {"codigo": "56335", "nome": "LATA 220ML CC SEM ACUCAR C/6"},
     {"codigo": "139753", "nome": "LATA 269ML ABSOLUT VODKA SPRIT"},
     {"codigo": "143010", "nome": "LATA269ML JACK E COKE C/6"},
+    {"codigo": "139796", "nome": "ABSOLUTE VODKA FRUTAS VERMELHAS"},
     {"codigo": "119181", "nome": "DV LT290ML CLASSIC LIMONADA"},
     {"codigo": "119182", "nome": "DV LT290ML PINK LIMONADA"},
     {"codigo": "119183", "nome": "DV LT290ML TROPICAL"},
