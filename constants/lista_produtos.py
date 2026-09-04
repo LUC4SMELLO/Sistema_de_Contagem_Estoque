@@ -10,6 +10,7 @@ bebidas = [
     {"codigo": "119166", "nome": "DV LARANJA 200ML C/18UND"},
     {"codigo": "119165", "nome": "DV PESSEGO 200ML C18UND"},
     {"codigo": "119164", "nome": "DV UVA TP 200ML (18U) CP"},
+    {"codigo": "119116", "nome": "ICE TEA LATA 290ML"},
     {"codigo": "139561", "nome": "SKYY GAR VD 980ML(1)"},
     {"codigo": "139437", "nome": "VODKA SMIRNOFF RED GAR VD 998M"},
     {"codigo": "139560", "nome": "CYNAR GARRAFA VD 900ML UN"},
