@@ -19,7 +19,8 @@ class ContagensDatasTemporaria():
         chave,
         codigo_produto,
         data_fabricacao,
-        data_validade
+        data_validade,
+        quantidade
     ):
         """
         Insere uma nova contagem temporária no banco de dados.
@@ -40,9 +41,10 @@ class ContagensDatasTemporaria():
             chave,
             codigo_produto,
             data_fabricacao,
-            data_validade
+            data_validade,
+            quantidade
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(chave)
             DO UPDATE SET
                 data_contagem    = excluded.data_contagem,
@@ -53,7 +55,8 @@ class ContagensDatasTemporaria():
                 nivel            = excluded.nivel,
                 codigo_produto   = excluded.codigo_produto,
                 data_fabricacao  = excluded.data_fabricacao,
-                data_validade    = excluded.data_validade
+                data_validade    = excluded.data_validade,
+                quantidade       = excluded.quantidade
 
             """,
                 (
@@ -67,6 +70,7 @@ class ContagensDatasTemporaria():
                     codigo_produto,
                     data_fabricacao,
                     data_validade,
+                    quantidade
                 )
         )
 

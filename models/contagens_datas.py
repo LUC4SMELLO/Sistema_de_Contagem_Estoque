@@ -47,9 +47,10 @@ class ContagensDatas():
                 nivel,
                 codigo_produto,
                 data_fabricacao,
-                data_validade
+                data_validade,
+                quantidade
                 )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (  
                     data_atual_formatada,
@@ -60,7 +61,8 @@ class ContagensDatas():
                     contagens[i]["nivel"],
                     contagens[i]["codigo_produto"],
                     contagens[i]["data_fabricacao"],
-                    contagens[i]["data_validade"]
+                    contagens[i]["data_validade"],
+                    contagens[i]["quantidade"]
                 )
             )
 
@@ -102,13 +104,15 @@ class ContagensDatas():
                 nivel,
                 codigo_produto,
                 data_fabricacao,
-                data_validade
+                data_validade,
+                quantidade
             ) = registro
 
             contagem_anterior[(str(rua), str(bloco), str(coluna), str(nivel))] = {
                 "codigo": codigo_produto,
                 "data_fabricacao": data_fabricacao,
-                "data_validade": data_validade
+                "data_validade": data_validade,
+                "quantidade": quantidade
             }
 
         return contagem_anterior
