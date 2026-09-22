@@ -91,3 +91,7 @@ button:hover {
 hr{
     border: 2px solid silver;
 }
+
+.esconder {
+    display: none;
+}

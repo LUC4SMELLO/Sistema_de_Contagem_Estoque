@@ -22,6 +22,9 @@
 
     <hr> <br>
 
+    <label>
+        <input type="checkbox" id="meuCheckbox"> Contagem Simples
+    </label>
 
     <!-- FORMULÁRIO DE CONTAGEM -->
     <form id="formulario-contagem" method="POST" action="/salvar_contagem_datas">
@@ -29,13 +32,14 @@
             <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Rua</th>
-                    <th>Bloco</th>
-                    <th>Coluna</th>
-                    <th>Nível</th>
+                    <th class="coluna-ocultavel">Rua</th>
+                    <th class="coluna-ocultavel">Bloco</th>
+                    <th class="coluna-ocultavel">Coluna</th>
+                    <th class="coluna-ocultavel">Nível</th>
                     <th>Produto</th>
-                    <th>Data Fabricação</th>
+                    <th class="coluna-ocultavel">Data Fabricação</th>
                     <th>Data Validade</th>
+                    <th>Quantidade</th>
                 </tr>
             </thead>
 
@@ -57,10 +61,10 @@
                 <input type="hidden" name="coluna[]" value="{{ layout.coluna }}">
                 <input type="hidden" name="nivel[]" value="{{ layout.nivel }}">
 
-                <td>{{ layout.rua }}</td>
-                <td>{{ layout.bloco }}</td>
-                <td>{{ layout.coluna }}</td>
-                <td>{{ layout.nivel }}</td>
+                <td class="coluna-ocultavel">{{ layout.rua }}</td>
+                <td class="coluna-ocultavel">{{ layout.bloco }}</td>
+                <td class="coluna-ocultavel">{{ layout.coluna }}</td>
+                <td class="coluna-ocultavel">{{ layout.nivel }}</td>
                 <td>
                     <!-- O 'name' termina com [] para enviar como uma lista/array para o Flask -->
                     <select class="form-control" name="produto[]" required>
@@ -78,7 +82,7 @@
                         {% endfor %}
                     </select>
                 </td>
-                <td>
+                <td class="coluna-ocultavel">
                     <input
                         type="date"
                         name="data_fabricacao[]"
@@ -90,6 +94,13 @@
                         type="date"
                         name="data_validade[]"
                         value="{% if chave in contagem_anterior %}{{ contagem_anterior[chave]['data_validade'][:10] }}{% endif %}"
+                    >
+                </td>
+                <td>
+                    <input
+                        type="number"
+                        name="quantidade[]"
+                        value="{% if chave in contagem_anterior %}{{ contagem_anterior[chave]['quantidade']}}{% endif %}"
                     >
                 </td>
 
@@ -115,7 +126,8 @@
         if (
             e.target.name === "produto[]" ||
             e.target.name === "data_fabricacao[]" ||
-            e.target.name === "data_validade[]"
+            e.target.name === "data_validade[]" ||
+            e.target.name == "quantidade[]"
         ) {
 
             clearTimeout(timeout);
@@ -133,6 +145,7 @@
                 const codigo_produto = linha.querySelector('[name="produto[]"]').value;
                 const dataFabricacao = linha.querySelector('[name="data_fabricacao[]"]').value;
                 const dataValidade = linha.querySelector('[name="data_validade[]"]').value;
+                const quantidade = linha.querySelector('[name="quantidade[]"]').value;
 
                 const formData = new FormData();
 
@@ -145,6 +158,7 @@
                 formData.append("codigo_produto", codigo_produto);
                 formData.append("data_fabricacao", dataFabricacao);
                 formData.append("data_validade", dataValidade);
+                formData.append("quantidade", quantidade);
 
                 fetch("/salvar_contagem_datas_temporaria", {
                     method: "POST",
@@ -160,5 +174,23 @@
 
             }, 500);
         }
+    });
+</script>
+<script>
+    // Seleciona o checkbox e todas as células que podem ser ocultadas
+    const checkbox = document.getElementById('meuCheckbox');
+    const colunasOcultaveis = document.querySelectorAll('.coluna-ocultavel');
+
+    // Escuta o clique no checkbox
+    checkbox.addEventListener('change', function() {
+        colunasOcultaveis.forEach(celula => {
+            if (checkbox.checked) {
+                // Se estiver marcado, esconde as colunas extras (sobrando apenas 3)
+                celula.classList.add('esconder');
+            } else {
+                // Se desmarcado, mostra todas de volta ao normal
+                celula.classList.remove('esconder');
+            }
+        });
     });
 </script>
