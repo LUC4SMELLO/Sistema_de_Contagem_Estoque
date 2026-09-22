@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Datas</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/relatorio_datas.css') }}">
+
+</head>
+<body>
+        
+    <header>
+        <h1>Relatório de Datas</h1>
+        <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+    </header>
+
+    <hr>
+
+    <br>
+
+    <!-- ESTRUTURA HTML DO CARTÃO -->
+    {% for produto in produtos %}
+        <div class="container-cartao">
+            <div class="cartao-box">
+                
+                <div class="cartao-linha-superior">
+                    <p class="cartao-produto">{{ produto.descricao }}</p>
+                </div>
+
+                <div class="cartao-linha-codigo">
+                    <p class="cartao-codigo">{{ produto.codigo_produto }}</p>
+                    <p class="cartao-quantidade">{{ produto.quantidade }} caixas</p>
+                </div>
+
+                <div class="cartao-linha-inferior">
+                    <p class="cartao-vencimento">Vence em {{ produto.dias_vencimento }} dias, {{ produto.data_validade }}</p>
+                </div>
+
+            </div>
+        </div>
+    {% endfor %}
+    <br>
+
+</body>
+</html>
