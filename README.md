@@ -12,6 +12,13 @@ Este software foi desenvolvido para ajudar a ter o controle das operações de u
 
 * **`Contagem Datas`**: Possibilita o usuário contar o todas as datas de todos os pallets do estoque, e depois enviar um arquivo csv com a contagem.
 
+* **`Relatório Entrada`**: Permite que o usuário preencha um relatório das carretas que chegam no depósito, com base no arquivo xml da nota fiscal.
+
+* **`Visualizar Relatório Entrada`**: Possibilita que o usuário visualize os relatórios de entrada já preenchidos e enviados.
+
+* **`Relatório Datas`**: Permite que o usuário visualize os 20 produtos com data curta e suas quantidades.
+
+
 ## **Estrutura do Arquivo CSV**
 
 ### Contagem Estoque
@@ -98,12 +105,14 @@ Este software foi desenvolvido para ajudar a ter o controle das operações de u
 |   ├── __init__.py
 |   ├── cadastro.py
 |   ├── carregar_contagem_temporaria.py
+|   ├── carregar_relatorio_entrada_temporarios.py
 |   ├── contagem_datas.py
 |   ├── contagem_doces.py
 |   ├── contagem_estoque.py
 |   ├── contagem_geladeira.py
 |   ├── homepage.py
 |   ├── login.py
+|   ├── relatorio_datas.py
 |   ├── relatorio_entrada.py
 |   ├── salvar_contagem_datas_temporaria.py
 |   ├── salvar_contagem_datas.py
@@ -111,7 +120,9 @@ Este software foi desenvolvido para ajudar a ter o controle das operações de u
 |   ├── salvar_contagem_geladeira.py
 |   ├── salvar_contagem_temporaria.py
 |   ├── salvar_contagem.py
+|   ├── salvar_relatorio_entrada_temporarios.py
 |   ├── selecionar_contagem.py
+|   ├── visualizar_relatorio_entrada.py
 |
 ├── scripts/
 |   ├── __init__.py
@@ -121,10 +132,12 @@ Este software foi desenvolvido para ajudar a ter o controle das operações de u
 |   ├── salvar_arquivo_contagem_doces.py
 |   ├── salvar_arquivo_contagem_estoque.py
 |   ├── salvar_arquivo_contagem_geladeiras.py
+|   ├── salvar_relatorio_entrada.py
 |
 ├── services/
 |   ├── __init__.py
 |   ├── contagem_datas.py
+|   ├── relatorio_entrada.py
 │   
 ├── static/
 |   ├── css/
@@ -135,9 +148,11 @@ Este software foi desenvolvido para ajudar a ter o controle das operações de u
 |   |   ├── contagem_geladeira.css
 |   |   ├── homepage.css
 |   |   ├── login.css
+|   |   ├── relatorio_datas.css
 |   |   ├── relatorio_entrada.css
 |   |   ├── salvar_contagem.css
 |   |   ├── selecionar_contagem.css
+|   |   ├── visualizar_relatorio_entrada.css
 |   |
 |   ├── images/
 |   |   ├── cabeçalho.png
@@ -156,6 +171,7 @@ Este software foi desenvolvido para ajudar a ter o controle das operações de u
 |   ├── relatorio_entrada.html
 |   ├── salvar_contagem.html
 |   ├── selecionar_contagem.html
+|   ├── visualizar_relatorio_entrada.html
 |
 │   ├── validadores/
 |   │   ├── __init__.py
@@ -178,8 +194,3 @@ Este software foi desenvolvido para ajudar a ter o controle das operações de u
 
 ## **Autoria**
 - Lucas Pereira Silva Mello
-
-
-<br>
-
-Fique à vontade para contribuir!
