@@ -304,3 +304,1276 @@ doces = [
     {"codigo": "141044", "nome": "PETTIZ AMENDOIM JAPONES SPECIA"},
     {"codigo": "141045", "nome": "PETTIZ AMEND TOR E SALG SPECIA"},
 ]
+
+venda_diaria = [
+    {
+        "codigo": "56885",
+        "descricao": "FANTA MISTÉRIO GHOST 350ML",
+        "venda_diaria": 10
+    },
+    {
+        "codigo": "55286",
+        "descricao": "LATA 350ML C/6 FTA UVA",
+        "venda_diaria": 72
+    },
+    {
+        "codigo": "55860",
+        "descricao": "KS SPRITE ORIGINAL NORDIC",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "55957",
+        "descricao": "KS COCA COLA ORIGINAL ULTRA",
+        "venda_diaria": 85
+    },
+    {
+        "codigo": "56010",
+        "descricao": "LATA 350ML C/6 GUAR,KUAT",
+        "venda_diaria": 19
+    },
+    {
+        "codigo": "56016",
+        "descricao": "KS CC S ACUCAR ULTRA",
+        "venda_diaria": 30
+    },
+    {
+        "codigo": "56741",
+        "descricao": "LATA 350ML C/6 COCA COLA PROMO",
+        "venda_diaria": 48
+    },
+    {
+        "codigo": "56754",
+        "descricao": "RETORNAVEL 2L COCA COLA",
+        "venda_diaria": 199
+    },
+    {
+        "codigo": "56756",
+        "descricao": "RETORNAVEL 2L CC SEM ACUCAR",
+        "venda_diaria": 65
+    },
+    {
+        "codigo": "56760",
+        "descricao": "LATA 350ML C/6 FTA MARACUJA",
+        "venda_diaria": 16
+    },
+    {
+        "codigo": "56476",
+        "descricao": "PET 3L CC MENOS ACUCAR C/6",
+        "venda_diaria": 64
+    },
+    {
+        "codigo": "55707",
+        "descricao": "PET 600ML GUAR,KUAT",
+        "venda_diaria": 14
+    },
+    {
+        "codigo": "55934",
+        "descricao": "PET 600ML CC SEM ACUCAR",
+        "venda_diaria": 260
+    },
+    {
+        "codigo": "55935",
+        "descricao": "PET 600ML COCA COLA ORIGINAL",
+        "venda_diaria": 463
+    },
+    {
+        "codigo": "55990",
+        "descricao": "PET 600ML FANTA UVA",
+        "venda_diaria": 30
+    },
+    {
+        "codigo": "56102",
+        "descricao": "PET 600ML FANTA LARANJA",
+        "venda_diaria": 51
+    },
+    {
+        "codigo": "56350",
+        "descricao": "PET 600ML SPRITE ORIGINAL",
+        "venda_diaria": 46
+    },
+    {
+        "codigo": "55993",
+        "descricao": "PET 1L COCA-COLA ORIGINAL",
+        "venda_diaria": 81
+    },
+    {
+        "codigo": "55994",
+        "descricao": "PET 1L CC S ACUCAR",
+        "venda_diaria": 25
+    },
+    {
+        "codigo": "56840",
+        "descricao": "LS 1L COCA COLA ROTULADA",
+        "venda_diaria": 73
+    },
+    {
+        "codigo": "3212",
+        "descricao": "PET 1,500ML CC S ACUCAR",
+        "venda_diaria": 8
+    },
+    {
+        "codigo": "6060",
+        "descricao": "PET 1,500ML COCA COLA ORIGINAL",
+        "venda_diaria": 22
+    },
+    {
+        "codigo": "56314",
+        "descricao": "PET 1,5ML SCHW CITRUS ORIGINAL",
+        "venda_diaria": 29
+    },
+    {
+        "codigo": "56419",
+        "descricao": "PET 1,5ML SPRITE FRESH LIMÃO",
+        "venda_diaria": 15
+    },
+    {
+        "codigo": "56255",
+        "descricao": "PET 200ML SPRITE ZERO ACUCAR",
+        "venda_diaria": 7
+    },
+    {
+        "codigo": "56298",
+        "descricao": "PET 200ML COCA COLA",
+        "venda_diaria": 771
+    },
+    {
+        "codigo": "56443",
+        "descricao": "PET 200ML CC S ACUCAR",
+        "venda_diaria": 497
+    },
+    {
+        "codigo": "56560",
+        "descricao": "PET 200ML FTA GUARANA",
+        "venda_diaria": 30
+    },
+    {
+        "codigo": "56561",
+        "descricao": "PET 200ML FTA LAR",
+        "venda_diaria": 106
+    },
+    {
+        "codigo": "56568",
+        "descricao": "PET 200ML SPRITE",
+        "venda_diaria": 17
+    },
+    {
+        "codigo": "55789",
+        "descricao": "PET 2L G,KUAT",
+        "venda_diaria": 114
+    },
+    {
+        "codigo": "55817",
+        "descricao": "PET 2L FANTA LARANJA",
+        "venda_diaria": 98
+    },
+    {
+        "codigo": "55818",
+        "descricao": "PET 2L CC SEM ACUCAR",
+        "venda_diaria": 429
+    },
+    {
+        "codigo": "55819",
+        "descricao": "PET 2L FANTA UVA",
+        "venda_diaria": 78
+    },
+    {
+        "codigo": "55823",
+        "descricao": "PET 2L FTA LAR ZERO",
+        "venda_diaria": 14
+    },
+    {
+        "codigo": "56100",
+        "descricao": "PET 2L FANTA GUARANA",
+        "venda_diaria": 21
+    },
+    {
+        "codigo": "56199",
+        "descricao": "PET 2L SPRITE SEM ACUCAR",
+        "venda_diaria": 58
+    },
+    {
+        "codigo": "56273",
+        "descricao": "PET 2L SPRITE ORIGINAL",
+        "venda_diaria": 100
+    },
+    {
+        "codigo": "56320",
+        "descricao": "RETORNAVEL 2L FTA UVA",
+        "venda_diaria": 5
+    },
+    {
+        "codigo": "56600",
+        "descricao": "PET 2L COCA COLA ORIGINAL",
+        "venda_diaria": 836
+    },
+    {
+        "codigo": "56602",
+        "descricao": "PET 2L BIPACK CC+FTA GUARANA",
+        "venda_diaria": 77
+    },
+    {
+        "codigo": "56604",
+        "descricao": "PET 2L BIPACK CCO+FTA LARANJA",
+        "venda_diaria": 231
+    },
+    {
+        "codigo": "56606",
+        "descricao": "PET 2L BIPACK CC+SPRITE",
+        "venda_diaria": 51
+    },
+    {
+        "codigo": "56867",
+        "descricao": "PET 2L BIPACK SEM ACUCAR CC+SP",
+        "venda_diaria": 25
+    },
+    {
+        "codigo": "8533",
+        "descricao": "LATA 350ML C/12 COCA COLA ORIG",
+        "venda_diaria": 566
+    },
+    {
+        "codigo": "8678",
+        "descricao": "LATA 350ML C/12 FANTA LARANJA",
+        "venda_diaria": 69
+    },
+    {
+        "codigo": "9334",
+        "descricao": "LATA 350ML C/12 CC ZERO ACUCAR",
+        "venda_diaria": 278
+    },
+    {
+        "codigo": "9390",
+        "descricao": "LATA 350ML C/6 SCHW TONICA",
+        "venda_diaria": 24
+    },
+    {
+        "codigo": "55247",
+        "descricao": "LATA 350ML C/6 SPRITE S ACUCAR",
+        "venda_diaria": 21
+    },
+    {
+        "codigo": "55445",
+        "descricao": "LATA 350ML C/6 FTA LARANJA",
+        "venda_diaria": 9
+    },
+    {
+        "codigo": "56074",
+        "descricao": "LATA 350ML C/6 FTA GUARANA",
+        "venda_diaria": 19
+    },
+    {
+        "codigo": "56267",
+        "descricao": "LATA 350ML C/6 SPRITE ORIGINAL",
+        "venda_diaria": 98
+    },
+    {
+        "codigo": "56292",
+        "descricao": "LATA 350ML C/6 SC,TONIC,S,ACUC",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "56312",
+        "descricao": "LATA 350ML C/6 SCHW CITRUS OR,",
+        "venda_diaria": 76
+    },
+    {
+        "codigo": "56053",
+        "descricao": "LATA 220ML COCA COLA ORIGINAL",
+        "venda_diaria": 75
+    },
+    {
+        "codigo": "56287",
+        "descricao": "LATA 220ML CC CAFE ESPRESSO",
+        "venda_diaria": 56
+    },
+    {
+        "codigo": "56324",
+        "descricao": "LATA 220ML SPRITE ORIGINAL",
+        "venda_diaria": 17
+    },
+    {
+        "codigo": "56335",
+        "descricao": "LATA 220ML CC SEM ACUCAR",
+        "venda_diaria": 110
+    },
+    {
+        "codigo": "56337",
+        "descricao": "LATA 220ML FTA GUARANA",
+        "venda_diaria": 5
+    },
+    {
+        "codigo": "56339",
+        "descricao": "LATA 220ML FTA LARANJA",
+        "venda_diaria": 31
+    },
+    {
+        "codigo": "56341",
+        "descricao": "LATA 220ML FTA UVA",
+        "venda_diaria": 15
+    },
+    {
+        "codigo": "56343",
+        "descricao": "LATA 220ML GUAR,KUAT",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "55834",
+        "descricao": "KS FTA LARANJA NORDIC",
+        "venda_diaria": 5
+    },
+    {
+        "codigo": "55464",
+        "descricao": "BAG 5L FANTA LARANJA",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "55729",
+        "descricao": "BAG 5L SPRITE SEM ACUCAR",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "56103",
+        "descricao": "BAG 5L FANTA GUARANA",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "55202",
+        "descricao": "BAG 10L COCA COLA",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "56861",
+        "descricao": "BAG 10L CC ZERO",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "56353",
+        "descricao": "VIDRO 250ML COCA COLA ORIGINAL",
+        "venda_diaria": 16
+    },
+    {
+        "codigo": "56355",
+        "descricao": "VIDRO 250ML CC ZERO ACUCAR",
+        "venda_diaria": 9
+    },
+    {
+        "codigo": "56238",
+        "descricao": "PET 510ML C/6 SPRITE REFRESH",
+        "venda_diaria": 52
+    },
+    {
+        "codigo": "139649",
+        "descricao": "LN 355ML THEREZOP LAGER  C/6UN",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "139680",
+        "descricao": "LN 355ML E,GALICIA PILSEN C/6U",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "901781",
+        "descricao": "LN 355ML EISENBAHN C6UND",
+        "venda_diaria": 19
+    },
+    {
+        "codigo": "903741",
+        "descricao": "LN 355ML EIS AMERICAN IPA C/6",
+        "venda_diaria": 9
+    },
+    {
+        "codigo": "904771",
+        "descricao": "LN 355ML EIS UNFILTERED C/6UN",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "902391",
+        "descricao": "EISENBAHN LT 473ML 12U PILSEN",
+        "venda_diaria": 8
+    },
+    {
+        "codigo": "139589",
+        "descricao": "EST GALICIA 600ML RETORN C/24",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "139611",
+        "descricao": "THZ GOLD LAGER 600ML RETORNAVE",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "903024",
+        "descricao": "EISENBAHN 600ML RETORNAVEL C24",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "903401",
+        "descricao": "CERV KAISER 600ML RETORNAVEL",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "904701",
+        "descricao": "LN 330ML SOL PREMIUM C/6UND",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "905271",
+        "descricao": "SOL PREMIUM 0,0% LN 330ML 6UN",
+        "venda_diaria": 7
+    },
+    {
+        "codigo": "139421",
+        "descricao": "BAVARIA LATA 350ML 12UNID",
+        "venda_diaria": 45
+    },
+    {
+        "codigo": "139765",
+        "descricao": "LN 350ML CERPA EXPORT C6",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "903750",
+        "descricao": "LATA 350ML EISENBAHN PILSEN 12",
+        "venda_diaria": 42
+    },
+    {
+        "codigo": "139651",
+        "descricao": "THZ 500ML EBENHOLZ DUNKEL C/6U",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "7322",
+        "descricao": "CRYSTAL PET 1,5L COM GAS",
+        "venda_diaria": 78
+    },
+    {
+        "codigo": "7325",
+        "descricao": "CRYSTAL PET 500ML COM GAS",
+        "venda_diaria": 327
+    },
+    {
+        "codigo": "7331",
+        "descricao": "CRYSTAL PET 500ML SEM/G",
+        "venda_diaria": 214
+    },
+    {
+        "codigo": "92721",
+        "descricao": "C SPARKL, LIMAO PT510",
+        "venda_diaria": 5
+    },
+    {
+        "codigo": "92723",
+        "descricao": "C SPARKL,FRUTAS VERMELHA PT510",
+        "venda_diaria": 7
+    },
+    {
+        "codigo": "7323",
+        "descricao": "CRYSTAL PET 1,5L SEM / G",
+        "venda_diaria": 97
+    },
+    {
+        "codigo": "118614",
+        "descricao": "CHA 450ML ICE TEA LIMAO",
+        "venda_diaria": 8
+    },
+    {
+        "codigo": "118620",
+        "descricao": "CHA 450ML ICE TEA PESSEGO",
+        "venda_diaria": 5
+    },
+    {
+        "codigo": "118634",
+        "descricao": "CHA 450ML MATTE LEAO LIMAO",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "118637",
+        "descricao": "CHA 450ML MATTE LEAO NATURAL",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "119123",
+        "descricao": "CHA 450ML GUARANA POWER ACAI",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "119464",
+        "descricao": "CHA 450ML LEAO VERDE LIMAO ZER",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "119471",
+        "descricao": "CHA 450M LEAO BRANCO LICHIA ZR",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "119116",
+        "descricao": "CHA LT290ML ICE TEA LIMAO ZERO",
+        "venda_diaria": 8
+    },
+    {
+        "codigo": "118759",
+        "descricao": "CHA PET 1,5L M,LEAO NATURAL",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "118765",
+        "descricao": "CHA PET 1,5L L, LIMAO",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "119151",
+        "descricao": "CHA PET 1,5L M,L VERDE LIMAO Z",
+        "venda_diaria": 5
+    },
+    {
+        "codigo": "118469",
+        "descricao": "MONSTER E, ZERO ACUCAR 473ML6",
+        "venda_diaria": 102
+    },
+    {
+        "codigo": "118473",
+        "descricao": "MONSTER U FIESTA MANGO LT473ML",
+        "venda_diaria": 26
+    },
+    {
+        "codigo": "118650",
+        "descricao": "MONSTER KHAOTIC LT 473ML 06",
+        "venda_diaria": 18
+    },
+    {
+        "codigo": "119509",
+        "descricao": "MONSTER PIPELINE PUNCH LT 473M",
+        "venda_diaria": 21
+    },
+    {
+        "codigo": "119521",
+        "descricao": "MONSTER ULTRA WATERMELON LT 47",
+        "venda_diaria": 24
+    },
+    {
+        "codigo": "8463",
+        "descricao": "MONSTER ENERGY LATA",
+        "venda_diaria": 212
+    },
+    {
+        "codigo": "118461",
+        "descricao": "MONSTER ULTRA LT 473ML 6PACK F",
+        "venda_diaria": 95
+    },
+    {
+        "codigo": "118984",
+        "descricao": "MONSTER ABSOLUTELY ZERO LATA",
+        "venda_diaria": 30
+    },
+    {
+        "codigo": "118990",
+        "descricao": "MONSTER MANGO LOCO LATA 473ML",
+        "venda_diaria": 97
+    },
+    {
+        "codigo": "119026",
+        "descricao": "MONSTER ULTRA VIOLET LT 473ML",
+        "venda_diaria": 30
+    },
+    {
+        "codigo": "119142",
+        "descricao": "REIGN MELON MANIA LATA 473ML 6",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "119170",
+        "descricao": "MONSTER PACIFIC PUNCH LT 473ML",
+        "venda_diaria": 17
+    },
+    {
+        "codigo": "119586",
+        "descricao": "MONSTER U PEACHY KEEN LATA 473",
+        "venda_diaria": 25
+    },
+    {
+        "codigo": "119598",
+        "descricao": "MONSTER J RIO PUNCH LT 473ML F",
+        "venda_diaria": 11
+    },
+    {
+        "codigo": "119600",
+        "descricao": "MONSTER U STRWBRY DREAM LATA",
+        "venda_diaria": 71
+    },
+    {
+        "codigo": "6949",
+        "descricao": "POWERADE MOUNTAIN BLAST PT500",
+        "venda_diaria": 36
+    },
+    {
+        "codigo": "118200",
+        "descricao": "POWERADE UVA S,CAP PT500 06 CP",
+        "venda_diaria": 28
+    },
+    {
+        "codigo": "119512",
+        "descricao": "POWERADE LARANJA PET 500ML C/6",
+        "venda_diaria": 23
+    },
+    {
+        "codigo": "119513",
+        "descricao": "POWERADE LIMAO PET 500ML 06",
+        "venda_diaria": 21
+    },
+    {
+        "codigo": "119514",
+        "descricao": "POWERADE FRUTAS TROPICAIS PET",
+        "venda_diaria": 31
+    },
+    {
+        "codigo": "119555",
+        "descricao": "POWERADE TANGERINA PET 500ML 0",
+        "venda_diaria": 10
+    },
+    {
+        "codigo": "119601",
+        "descricao": "POWERADE ZERO MOUNT BLAST 500M",
+        "venda_diaria": 16
+    },
+    {
+        "codigo": "5849",
+        "descricao": "DV 1L UVA NECTEAR",
+        "venda_diaria": 54
+    },
+    {
+        "codigo": "118798",
+        "descricao": "DV 450ML FRUT UVA",
+        "venda_diaria": 22
+    },
+    {
+        "codigo": "118955",
+        "descricao": "DV 450ML FRUT LARANJA",
+        "venda_diaria": 15
+    },
+    {
+        "codigo": "5763",
+        "descricao": "DV 1L CAJU NECTEAR",
+        "venda_diaria": 11
+    },
+    {
+        "codigo": "5783",
+        "descricao": "DV 1L LARANJA NECTEAR",
+        "venda_diaria": 21
+    },
+    {
+        "codigo": "5793",
+        "descricao": "DV 1L MARACUJA NECTEAR",
+        "venda_diaria": 38
+    },
+    {
+        "codigo": "5814",
+        "descricao": "DV 1L PESSEGO NECTEAR",
+        "venda_diaria": 45
+    },
+    {
+        "codigo": "5815",
+        "descricao": "DV 1L UVA LIGHT NECTEAR",
+        "venda_diaria": 17
+    },
+    {
+        "codigo": "8812",
+        "descricao": "DV 1L 100% UVA NECTEAR",
+        "venda_diaria": 8
+    },
+    {
+        "codigo": "118783",
+        "descricao": "DV PET 1LITRO UVA",
+        "venda_diaria": 29
+    },
+    {
+        "codigo": "118795",
+        "descricao": "DV PET 1LITRO FRUT LARANJA",
+        "venda_diaria": 15
+    },
+    {
+        "codigo": "119167",
+        "descricao": "DV 1L ABACAXI NECTEAR",
+        "venda_diaria": 16
+    },
+    {
+        "codigo": "119168",
+        "descricao": "DV 1L MANGA NECTEAR",
+        "venda_diaria": 15
+    },
+    {
+        "codigo": "119568",
+        "descricao": "PET 1,5L DV F,FRUTAS CITRICAS",
+        "venda_diaria": 13
+    },
+    {
+        "codigo": "119571",
+        "descricao": "PET 1,5L DV FRUT LARANJA C6",
+        "venda_diaria": 24
+    },
+    {
+        "codigo": "119574",
+        "descricao": "PET 1,5L DV FRUT UVA C6",
+        "venda_diaria": 49
+    },
+    {
+        "codigo": "119588",
+        "descricao": "PET 1,5L DV FRUT LIMAO C6",
+        "venda_diaria": 10
+    },
+    {
+        "codigo": "5118",
+        "descricao": "KAPO UVA TP 200ML",
+        "venda_diaria": 79
+    },
+    {
+        "codigo": "5119",
+        "descricao": "KAPO MORANGO TP 200ML",
+        "venda_diaria": 98
+    },
+    {
+        "codigo": "5120",
+        "descricao": "KAPO MARACUJA TP 200ML",
+        "venda_diaria": 39
+    },
+    {
+        "codigo": "5122",
+        "descricao": "KAPO LARANJA TP 200ML",
+        "venda_diaria": 30
+    },
+    {
+        "codigo": "119164",
+        "descricao": "DV 200ML UVA C18",
+        "venda_diaria": 16
+    },
+    {
+        "codigo": "119165",
+        "descricao": "DV 200ML PESSEGO C18UND",
+        "venda_diaria": 11
+    },
+    {
+        "codigo": "119166",
+        "descricao": "DV 200ML LARANJA  C/18UND",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "118878",
+        "descricao": "DV LT290ML GOIABA",
+        "venda_diaria": 33
+    },
+    {
+        "codigo": "118880",
+        "descricao": "DV LT290ML MARACUJA",
+        "venda_diaria": 77
+    },
+    {
+        "codigo": "118882",
+        "descricao": "DV LT290ML PESSEGO",
+        "venda_diaria": 106
+    },
+    {
+        "codigo": "118884",
+        "descricao": "DV LT290ML UVA",
+        "venda_diaria": 114
+    },
+    {
+        "codigo": "119169",
+        "descricao": "DV LT290ML MANGA",
+        "venda_diaria": 31
+    },
+    {
+        "codigo": "119182",
+        "descricao": "DV LT290ML PINK LIMONADA",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "119183",
+        "descricao": "DV LT290ML TROPICAL LIMONADA",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "119156",
+        "descricao": "ADES 200ML MACA C/6UN",
+        "venda_diaria": 24
+    },
+    {
+        "codigo": "119158",
+        "descricao": "ADES 200ML UVA C/6UN",
+        "venda_diaria": 22
+    },
+    {
+        "codigo": "119159",
+        "descricao": "ADES 200ML MORANGO C/6UN",
+        "venda_diaria": 13
+    },
+    {
+        "codigo": "118953",
+        "descricao": "ADES 1L SEEDS AMENDOAS BAUNILH",
+        "venda_diaria": 10
+    },
+    {
+        "codigo": "119144",
+        "descricao": "ADES 1L LARANJA",
+        "venda_diaria": 8
+    },
+    {
+        "codigo": "119145",
+        "descricao": "ADES 1L MACA",
+        "venda_diaria": 25
+    },
+    {
+        "codigo": "119146",
+        "descricao": "ADES 1L ORIGINAL",
+        "venda_diaria": 19
+    },
+    {
+        "codigo": "119149",
+        "descricao": "ADES 1L UVA",
+        "venda_diaria": 20
+    },
+    {
+        "codigo": "139675",
+        "descricao": "DREHER GAR VD 900ML 1UN",
+        "venda_diaria": 13
+    },
+    {
+        "codigo": "139561",
+        "descricao": "SKYY GAR VD 980ML(1)",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "139663",
+        "descricao": "VINHO 3 MEDALLAS CABERNET SAUV",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "139664",
+        "descricao": "VINHO 120 CABERNET SAUV 750ML",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "139665",
+        "descricao": "VINHO 120 CARMENERE 750ML",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "139666",
+        "descricao": "VINHO 3 MEDALLAS MERLOT 750ML",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "139667",
+        "descricao": "VINHO 3 MEDALLAS SAUV BLANC",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "141003",
+        "descricao": "MENTOS PURE FRUIT 3 CAMADAS 5P",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "141012",
+        "descricao": "MENTOS PF FRESH MINT 3 CAMADAS",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "141013",
+        "descricao": "MENTOS PF SPEARMINT 3 CAMADAS",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "141057",
+        "descricao": "HALLS MORANGO 28G CX21",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "141006",
+        "descricao": "MENTOS FRUTAS STICK 14P",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "141007",
+        "descricao": "MENTOS MINT STICK",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "141011",
+        "descricao": "MENTOS RAINBOW STICK",
+        "venda_diaria": 5
+    },
+    {
+        "codigo": "141014",
+        "descricao": "FRUITTELLA MASTIG MORANGO VITA",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "141015",
+        "descricao": "FRUITTELLA SWIRL MORANGO VITA",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "141019",
+        "descricao": "MENTOS MORANGO IOGURTE STICK",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "141020",
+        "descricao": "MENTOS FRUTAS VERMELHA STICK C",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "142153",
+        "descricao": "MENTOS WILD STICK 14P CX16 600",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "141009",
+        "descricao": "MENTOS PF WINTERGREEN GARRAFA",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "141016",
+        "descricao": "MENTOS PF UP2U GARRAFA",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "141028",
+        "descricao": "FINI TUBES MORANGO 15G (12)",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "141029",
+        "descricao": "FINI DENTADURAS 15G CX12",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "141030",
+        "descricao": "FINI MINHOCAS 15G CX12",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "141031",
+        "descricao": "FINI BEIJOS 15G CX12",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "141032",
+        "descricao": "FINI BANANAS 15G CX12 180G",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "141033",
+        "descricao": "FINI TUBES PINTA LINGUA 15G (1",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "141034",
+        "descricao": "FINI TUBES TRES CORES 15G (12)",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "141036",
+        "descricao": "FINI TUBES TUTTI FRUTTI 15G (1",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "141037",
+        "descricao": "FINI CHICLE CLASSICOS 14G CX18",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "141039",
+        "descricao": "FINI CHICLE SALADA FRUTAS 14G",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "141175",
+        "descricao": "FINI AMORAS 15G CX12",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "141176",
+        "descricao": "FINI URSINHOS 15G CX12",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "141046",
+        "descricao": "TRIDENT HORTELA 8G CX21",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "141047",
+        "descricao": "TRIDENT MENTA 8G CX21",
+        "venda_diaria": 6
+    },
+    {
+        "codigo": "141048",
+        "descricao": "TRIDENT MELANCIA 8G CX21",
+        "venda_diaria": 5
+    },
+    {
+        "codigo": "141049",
+        "descricao": "TRIDENT TUTTI FRUTTI 8G CX21",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "141054",
+        "descricao": "HALLS CEREJA 28G CX21 588G",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "141056",
+        "descricao": "HALLS MENTA 28G CX21 588G",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "141059",
+        "descricao": "HALLS MELANCIA CX21 588G",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "141207",
+        "descricao": "HALLS EXTRA FORTE 27,5G CX21",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "139753",
+        "descricao": "LATA 269ML ABSOLUT VODKA SPRIT",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "143010",
+        "descricao": "LATA 269ML JACK E COKE C/6",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "141164",
+        "descricao": "PRINGLES BATATA CHURRAS 109G",
+        "venda_diaria": 8
+    },
+    {
+        "codigo": "141165",
+        "descricao": "PRINGLES BATATA CEBOLA 109Gr",
+        "venda_diaria": 10
+    },
+    {
+        "codigo": "141166",
+        "descricao": "PRINGLES BATATA ORIGINAL 104G",
+        "venda_diaria": 13
+    },
+    {
+        "codigo": "141167",
+        "descricao": "PRINGLES BATATA QUEIJO 109GR",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "141214",
+        "descricao": "PRINGLES BATATA ORIGINAL 35G 1",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "120120",
+        "descricao": "TANQUE GAS CO2 6KG",
+        "venda_diaria": 10
+    },
+    {
+        "codigo": "182890",
+        "descricao": "CAIXA PLASTICA LS",
+        "venda_diaria": 1
+    },
+    {
+        "codigo": "182935",
+        "descricao": "GARRAFA CC KS 24 ULTRA",
+        "venda_diaria": 20
+    },
+    {
+        "codigo": "183141",
+        "descricao": "GARRAFA REFPET 2L",
+        "venda_diaria": 6
+    },
+    {
+        "codigo": "183831",
+        "descricao": "GARRAFA LS ULTRA LISA 1L",
+        "venda_diaria": 5
+    },
+    {
+        "codigo": "0",
+        "descricao": "** TOTAL GERAL",
+        "venda_diaria": 10009
+    },
+    {
+        "codigo": "141023",
+        "descricao": "FINI TUBES MORANGO 27G (24)",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "141028",
+        "descricao": "FINI TUBES MORANGO 15G (12)",
+        "venda_diaria": 6
+    },
+    {
+        "codigo": "141029",
+        "descricao": "FINI DENTADURAS 15G CX12",
+        "venda_diaria": 12
+    },
+    {
+        "codigo": "141030",
+        "descricao": "FINI MINHOCAS 15G CX12",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "141031",
+        "descricao": "FINI BEIJOS 15G CX12",
+        "venda_diaria": 16
+    },
+    {
+        "codigo": "141032",
+        "descricao": "FINI BANANAS 15G CX12 180G",
+        "venda_diaria": 14
+    },
+    {
+        "codigo": "141033",
+        "descricao": "FINI TUBES PINTA LINGUA 15G (1",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "141034",
+        "descricao": "FINI TUBES TRES CORES 15G (12)",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "141036",
+        "descricao": "FINI TUBES TUTTI FRUTTI 15G (1",
+        "venda_diaria": 4
+    },
+    {
+        "codigo": "141037",
+        "descricao": "FINI CHICLE CLASSICOS 14G CX18",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "141039",
+        "descricao": "FINI CHICLE SALADA FRUTAS 14G",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "141175",
+        "descricao": "FINI AMORAS 15G CX12",
+        "venda_diaria": 9
+    },
+    {
+        "codigo": "141176",
+        "descricao": "FINI URSINHOS 15G CX12",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "141046",
+        "descricao": "TRIDENT HORTELA 8G CX21",
+        "venda_diaria": 17
+    },
+    {
+        "codigo": "141047",
+        "descricao": "TRIDENT MENTA 8G CX21",
+        "venda_diaria": 31
+    },
+    {
+        "codigo": "141048",
+        "descricao": "TRIDENT MELANCIA 8G CX21",
+        "venda_diaria": 23
+    },
+    {
+        "codigo": "141049",
+        "descricao": "TRIDENT TUTTI FRUTTI 8G CX21",
+        "venda_diaria": 10
+    },
+    {
+        "codigo": "141054",
+        "descricao": "HALLS CEREJA 28G CX21 588G",
+        "venda_diaria": 11
+    },
+    {
+        "codigo": "141056",
+        "descricao": "HALLS MENTA 28G CX21 588G",
+        "venda_diaria": 8
+    },
+    {
+        "codigo": "141059",
+        "descricao": "HALLS MELANCIA CX21 588G",
+        "venda_diaria": 13
+    },
+    {
+        "codigo": "141207",
+        "descricao": "HALLS EXTRA FORTE 27,5G CX21",
+        "venda_diaria": 28
+    },
+    {
+        "codigo": "139753",
+        "descricao": "LATA 269ML ABSOLUT VODKA SPRIT",
+        "venda_diaria": 2
+    },
+    {
+        "codigo": "139796",
+        "descricao": "LATA 269ML ABSOLUT SP FRUT VER",
+        "venda_diaria": 7
+    },
+    {
+        "codigo": "143010",
+        "descricao": "LATA 269ML JACK E COKE C/6",
+        "venda_diaria": 7
+    },
+    {
+        "codigo": "141164",
+        "descricao": "PRINGLES BATATA CHURRAS 109G",
+        "venda_diaria": 33
+    },
+    {
+        "codigo": "141165",
+        "descricao": "PRINGLES BATATA CEBOLA 109Gr",
+        "venda_diaria": 46
+    },
+    {
+        "codigo": "141166",
+        "descricao": "PRINGLES BATATA ORIGINAL 104G",
+        "venda_diaria": 88
+    },
+    {
+        "codigo": "141167",
+        "descricao": "PRINGLES BATATA QUEIJO 109GR",
+        "venda_diaria": 25
+    },
+    {
+        "codigo": "141214",
+        "descricao": "PRINGLES BATATA ORIGINAL 35G 1",
+        "venda_diaria": 16
+    },
+    {
+        "codigo": "120120",
+        "descricao": "TANQUE GAS CO2 6KG",
+        "venda_diaria": 32
+    },
+    {
+        "codigo": "120121",
+        "descricao": "CO2 GAS-DIOXIDO DE CARBONO 9KG",
+        "venda_diaria": 36
+    },
+    {
+        "codigo": "182935",
+        "descricao": "GARRAFA CC KS 24 ULTRA",
+        "venda_diaria": 5
+    },
+    {
+        "codigo": "183141",
+        "descricao": "GARRAFA REFPET 2L",
+        "venda_diaria": 128
+    },
+    {
+        "codigo": "183831",
+        "descricao": "GARRAFA LS ULTRA LISA 1L",
+        "venda_diaria": 3
+    },
+    {
+        "codigo": "183831",
+        "descricao": "GARRAFA LS ULTRA LISA 1L",
+        "venda_diaria": 20
+    }
+]
