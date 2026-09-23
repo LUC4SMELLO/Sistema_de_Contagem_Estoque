@@ -1,6 +1,6 @@
 import sqlite3 
 from datetime import date
-from constants.lista_produtos import bebidas
+from constants.lista_produtos import bebidas, venda_diaria
 
 from database.banco_dados_principal import conectar_banco_dados_principal
 
@@ -146,9 +146,12 @@ def buscar_produtos_com_data_curta():
         cursor = conexao.cursor()
         cursor.execute(
             f"""
-            SELECT  codigo_produto, data_validade, quantidade FROM {TABELA_CONTAGENS_DATAS}
+            SELECT codigo_produto, data_validade, quantidade, MAX(data_contagem)
+            FROM {TABELA_CONTAGENS_DATAS}
             WHERE codigo_produto <> ''
-            ORDER BY data_contagem DESC, data_validade ASC
+            GROUP BY codigo_produto
+            ORDER BY data_validade ASC
+            LIMIT 20
             """
             )
 
@@ -157,13 +160,14 @@ def buscar_produtos_com_data_curta():
         dicionario = [dict(linha) for linha in resultado]
 
 
-
         mapa_bebidas = {item["codigo"]: item["nome"] for item in bebidas if item["codigo"]}
+        mapa_venda_diaria = {item["codigo"]: item["venda_diaria"] for item in venda_diaria if item["codigo"]}
         for item in dicionario:
-            descricao = mapa_bebidas.get(item["codigo_produto"])
-            item["descricao"] = descricao
+            item["descricao"] = mapa_bebidas.get(item["codigo_produto"])
             item["dias_vencimento"] = contar_dias_ate(item["data_validade"])
             item["data_validade"] = formatar_data(item["data_validade"])
+            item["venda_diaria"] = mapa_venda_diaria.get(item["codigo_produto"])
+            item["dias_estoque"] = round(int(item["quantidade"]) / int(item["venda_diaria"]))
 
         return dicionario
 
