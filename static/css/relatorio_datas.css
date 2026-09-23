@@ -27,13 +27,14 @@ hr{
 .container-cartao {
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 8px;
+    margin: 8px;
 }
 
 .cartao-box {
     background-color: #ffffff;
     color: #000000;
-    border: 2px solid #555555;
+    border: 2px solid #000000;
     border-radius: 24px;
     width: 100%;
     max-width: 600px;
@@ -42,9 +43,7 @@ hr{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* Força o alinhamento do texto à esquerda dentro do cartão, anulando o 'text-align: center' do seu body */
-    text-align: left; 
-    /* Usa a fonte monoespaçada apenas dentro do cartão */
+    text-align: left;
     font-family: 'Courier New', Courier, monospace; 
 }
 
@@ -81,6 +80,18 @@ hr{
 }
 
 .cartao-vencimento {
+    font-size: 22px;
+    margin: 0;
+    word-spacing: 2px;
+}
+
+.cartao-venda-diaria {
+    font-size: 22px;
+    margin: 0;
+    word-spacing: 2px;
+}
+
+.cartao-dias-estoque {
     font-size: 22px;
     margin: 0;
     word-spacing: 2px;
