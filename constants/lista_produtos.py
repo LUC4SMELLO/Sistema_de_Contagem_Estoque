@@ -81,6 +81,7 @@ bebidas = [
     {"codigo": "119183", "nome": "DV LT290ML TROPICAL"},
     {"codigo": "56741", "nome": "COCA COLA 350ML C/6"},
     {"codigo": "56742", "nome": "COCA ZERO 350ML C/6"},
+    {"codigo": "56876", "nome": "FANTA UVA ZERO 350ML"},
     {"codigo": "56292", "nome": "TONICA SEM ACUCAR LATA 350MLC6"},
     {"codigo": "56051", "nome": "COCA COLA LATA 310ML MAINLINE"},
     {"codigo": "55247", "nome": "SPRITE SEM ACUCAR LAT 350ML C6"},
