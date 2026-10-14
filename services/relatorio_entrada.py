@@ -207,3 +207,25 @@ def formatar_data(data: str):
     
     except Exception:
         return ""
+
+def contar_dias_ate(data_destino):
+    """
+    Calcula quantos dias faltam para chegar na data especificada.
+    Aceita um objeto datetime/date ou uma string no formato 'AAAA-MM-DD'.
+    """
+    try:
+        hoje = datetime.now().date()
+        
+        if isinstance(data_destino, str):
+            data_final = datetime.strptime(data_destino, "%Y-%m-%d").date()
+        elif isinstance(data_destino, datetime):
+            data_final = data_destino.date()
+        else:
+            data_final = data_destino
+
+        diferenca = data_final - hoje
+        
+        return diferenca.days
+
+    except Exception:
+        return None

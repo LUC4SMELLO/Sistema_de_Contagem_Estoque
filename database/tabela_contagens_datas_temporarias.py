@@ -20,7 +20,8 @@ def criar_tabela_contagens_datas_temporarias():
             chave TEXT PRIMARY KEY,
             codigo_produto VARCHAR(10),
             data_fabricacao TEXT,
-            data_validade TEXT
+            data_validade TEXT,
+            quantidade INTEGER
         )
         """
     )

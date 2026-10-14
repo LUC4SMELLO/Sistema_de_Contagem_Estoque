@@ -21,6 +21,7 @@ def salvar_contagem_datas():
     produtos = request.form.getlist('produto[]')
     data_fabricacao = request.form.getlist('data_fabricacao[]')
     data_validade = request.form.getlist('data_validade[]')
+    quantidade = request.form.getlist('quantidade[]')
 
 
     produtos_dict = {
@@ -31,7 +32,7 @@ def salvar_contagem_datas():
 
     contagens = []
     # Processa os dados linha por linha usando o zip do Python
-    for id, rua, bloco, coluna, nivel, codigo, data_fabricacao, data_validade, in zip(id, ruas, blocos, colunas, niveis, produtos, data_fabricacao, data_validade):
+    for id, rua, bloco, coluna, nivel, codigo, data_fabricacao, data_validade, quantidade, in zip(id, ruas, blocos, colunas, niveis, produtos, data_fabricacao, data_validade, quantidade):
 
         contagens.append({
             "id": id,
@@ -42,7 +43,8 @@ def salvar_contagem_datas():
             "codigo_produto": codigo,
             "nome": produtos_dict.get(codigo),
             "data_fabricacao": data_fabricacao,
-            "data_validade": data_validade
+            "data_validade": data_validade,
+            "quantidade": quantidade
         })
 
     resultado, mensagem, erro = salvar_arquivo_contagem_datas(contagens, usuario_id)

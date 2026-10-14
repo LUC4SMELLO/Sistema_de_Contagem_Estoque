@@ -26,6 +26,7 @@ def salvar_contagem_datas_temporaria():
     codigo_produto = request.form.get('codigo_produto')
     data_fabricacao = request.form.get('data_fabricacao')
     data_validade = request.form.get('data_validade')
+    quantidade = request.form.get('quantidade')
 
 
     ContagensDatasTemporaria.inserir_contagem(
@@ -38,7 +39,8 @@ def salvar_contagem_datas_temporaria():
         chave,
         codigo_produto,
         data_fabricacao,
-        data_validade
+        data_validade,
+        quantidade
     )
 
 
