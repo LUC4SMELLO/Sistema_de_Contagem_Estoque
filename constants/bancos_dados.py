@@ -15,3 +15,5 @@ TABELA_CONTAGENS_DATAS_TEMPORARIAS = "contagens_datas_temporarias"
 
 TABELA_RELATORIOS_ENTRADAS = "relatorios_entradas"
 TABELA_RELATORIOS_ENTRADAS_TEMPORARIOS = "relatorios_entradas_temporarios"
+
+TABELA_TROCAS = "trocas"
