@@ -36,22 +36,26 @@
         {% endwith %}
         
 
-        <form action="/cadastro" method="post" class="form-style">
-
-            <label class="nome_completo" for="nome_completo">Nome Completo:</label> <br>
-            <input class="input-style" type="text" id="nome_completo" name="nome_completo">
-
-            <br><br>
-
-            <label class="senha" for="senha">Senha:</label> <br>
-            <input class="input-style" type="password" class="senha" id="senha" name="senha">
-
-            <br><br><br>
-
-            <button class="button-reset" type="reset">Cancelar</button>
-
-            <button class="button-submit" type="submit">Cadastrar</button>
+        <form action="/cadastro" method="post" class="form-cadastro">
             
+            <!-- Grupo do campo: Nome -->
+            <div class="form-group">
+                <label for="nome_completo" class="form-label">Nome Completo</label>
+                <input type="text" id="nome_completo" name="nome_completo" class="form-input" placeholder="Digite seu nome completo" required>
+            </div>
+
+            <!-- Grupo do campo: Senha -->
+            <div class="form-group">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" id="senha" name="senha" class="form-input" placeholder="Crie uma senha forte" required>
+            </div>
+
+            <!-- Grupo dos Botões -->
+            <div class="form-actions">
+                <button type="reset" class="btn btn-secondary">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+
         </form>
 
     </main>

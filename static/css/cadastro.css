@@ -22,47 +22,71 @@ main {
     margin-top: 25px;
 }
 
-.form-style {
-    text-align: center;
-    width: 175px;
-    height: 150px;
-    border: 2px solid rgb(0, 0, 0);
-    padding: 25px;
-    border-radius: 5px;
-    background-color: rgb(255, 255, 255);
-    margin: 0 auto;   
-}
 
-.input-style {
-    width: 155px;
-    background-color: #ffffff;
-}
-
-.button-submit {
-    font-weight: bold;
-    width: 80px;
-    height: 22px;
-}
-
-.button-reset {
-    font-weight: bold;
-    width: 80px;
-    height: 22px;
-}
 
 hr {
     border: 2px solid #ccc;
 }
 
-.nome_completo {
-    margin-left: -50px;
+
+
+
+
+/* Estrutura do formulário */
+.form-cadastro {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 20px; /* Controla o espaçamento entre os blocos */
+  max-width: 400px;
+  margin: 0 auto;
 }
 
-.senha {
-    margin-left: -120px;
+/* Blocos de campos */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Espaço entre a label e o input */
 }
 
+.form-label {
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+}
 
+.form-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Alinhamento dos botões lado a lado */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+/* Botões */
+.btn {
+    width: 210px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    cursor: pointer;
+    
+    /* Cores e Estilo do Botão */
+    border: 1px solid #cacaca;
+    background-color: #efefef;
+    color: #000000;
+}
 
 .alert {
     padding: 12px;

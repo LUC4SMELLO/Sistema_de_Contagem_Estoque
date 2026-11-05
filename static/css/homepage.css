@@ -17,14 +17,25 @@ header img {
     height: 70px;
 }
 
-.botao_cadastro {
+.botao {
+    width: 210px;
+    font-size: 16px;
     font-weight: bold;
-    padding: 5px 30px;
+    padding: 12px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    cursor: pointer;
+    
+    /* Cores e Estilo do Botão */
+    border: 1px solid #cacaca;
+    background-color: #efefef;
+    color: #000000;
 }
 
-.botao_login {
-    font-weight: bold;
-    padding: 5px 42px;
+p {
+    font-size: 16px
 }
 
 hr{
