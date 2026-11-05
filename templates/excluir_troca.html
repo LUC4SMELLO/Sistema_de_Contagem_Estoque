@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excluir Troca</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/excluir_troca.css') }}">
+
+</head>
+<body>
+    <header>
+        <h1>Excluir Troca</h1>
+        <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+    </header>
+
+    <hr>
+
+    <br>
+
+    {% with mensagens = get_flashed_messages(with_categories=true) %}
+        {% if mensagens %}
+            {% for categoria, mensagem in mensagens %}
+                <div class="alerta {{ categoria }}">
+                    {{ mensagem }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('excluir_troca.excluir_troca') }}">
+
+        <div class="formulario">
+            <div class="buscar">
+                <label for="id">Id</label>
+                <div class="input-group">
+                    <input type="number" id="id" name="id" min=1 value="{{ id }}" placeholder="O id da troca...">
+                    <button type="submit" name="acao" value="buscar" class="btn-buscar">Buscar</button>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="produto">Produto:</label>
+                <input type="text" id="produto" name="produto" value="{{ produto }}" readonly>
+            </div>
+
+            <div class="campo">
+                <label for="quantidade">Quantidade:</label>
+                <input type="text" id="quantidade" name="quantidade" value="{{ quantidade }}" readonly  >
+            </div>
+
+            <button type="submit" name="acao" value="confirmar" class="btn-confirmar">Confirmar</button> 
+        </div>
+    </form>
+
+
+    <br>
+    
+</body>
+</html>
+
+<script>
+    setTimeout(() => {
+        const alertas = document.querySelectorAll('.alerta');
+        alertas.forEach(alerta => {
+            alerta.style.opacity = '0';
+            setTimeout(() => alerta.remove(), 500);
+        });
+    }, 2000); // 2.5 segundos
+</script>
