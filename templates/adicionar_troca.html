@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Troca</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/adicionar_troca.css') }}">
+
+</head>
+<body>
+    <header>
+        <h1>Adicionar Troca</h1>
+        <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+    </header>
+
+    <hr>
+
+    <br>
+
+    <form method="POST" action="{{ url_for('adicionar_troca.adicionar_troca') }}">
+        
+        <div class="formulario">
+            <div class="campo">
+                <label>Produto:</label>
+                <select class="form-control" name="produto" required>
+                    <option value="" disabled selected>Selecione um produto...</option>
+                    {% for produto in lista_produtos %}
+                        <option value="{{ produto.codigo }}">
+                            {{ produto.nome }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" name="quantidade" min="1" required placeholder="Em caixas...">
+            </div>
+
+            <button type="submit" class="btn-confirmar">Confirmar</button>
+        </div>
+    </form>
+
+    
+</body>
+</html>
