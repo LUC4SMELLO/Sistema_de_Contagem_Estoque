@@ -126,11 +126,13 @@ class Trocas():
 
         cursor.execute(
             f"""
-            SELECT id, codigo_produto, quantidade, situacao
+            SELECT GROUP_CONCAT(id, "-") AS ids, codigo_produto, SUM(quantidade) AS quantidade, situacao
             FROM {TABELA_TROCAS}
             WHERE situacao = 0
+            GROUP BY codigo_produto
+            ORDER BY id ASC
             """
-        )
+        )   
 
         resultado = cursor.fetchall()
 
