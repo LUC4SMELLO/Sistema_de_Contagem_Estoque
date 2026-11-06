@@ -31,10 +31,6 @@ from routes.visualizar_relatorio_entrada import visualizar_relatorio_entrada_bp
 from routes.relatorio_datas import relatorio_datas_bp
 
 from routes.trocas import trocas_bp
-from routes.adicionar_troca import adicionar_troca_bp
-from routes.excluir_troca import excluir_troca_bp
-from routes.visualizar_trocas import visualizar_trocas_bp
-
 
 app = Flask(__name__)
 app.secret_key = "secret_key"
@@ -71,9 +67,6 @@ app.register_blueprint(visualizar_relatorio_entrada_bp)
 app.register_blueprint(relatorio_datas_bp)
 
 app.register_blueprint(trocas_bp)
-app.register_blueprint(adicionar_troca_bp)
-app.register_blueprint(excluir_troca_bp)
-app.register_blueprint(visualizar_trocas_bp)
 
 
 if __name__ == "__main__":
