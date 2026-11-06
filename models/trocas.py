@@ -1,8 +1,11 @@
+import sqlite3
 from datetime import datetime
 
 from database.banco_dados_principal import conectar_banco_dados_principal
 
 from constants.bancos_dados import TABELA_TROCAS
+
+from constants.lista_produtos import bebidas
 
 
 class Trocas():
@@ -111,3 +114,63 @@ class Trocas():
         codigo_produto, quantidade = resultado[0]
 
         return codigo_produto, quantidade
+
+
+    @staticmethod
+    def buscar_trocas():
+        """Busca todas as todas trocas com situação igual à 0 (Pendente)"""
+
+        conexao = conectar_banco_dados_principal()
+        conexao.row_factory = sqlite3.Row 
+        cursor = conexao.cursor()
+
+        cursor.execute(
+            f"""
+            SELECT id, codigo_produto, quantidade, situacao
+            FROM {TABELA_TROCAS}
+            WHERE situacao = 0
+            """
+        )
+
+        resultado = cursor.fetchall()
+
+        conexao.close()
+
+
+        colunas = [coluna[0] for coluna in cursor.description]
+        relatorio_completo = [dict(zip(colunas, linha)) for linha in resultado]
+
+        bebidas_indexada = {bebida["codigo"]: bebida["nome"] for bebida in bebidas}
+
+
+        for relatorio in relatorio_completo:
+            relatorio["descricao"] = bebidas_indexada.get(relatorio["codigo_produto"])
+            relatorio["situacao"] = "Pendente" if relatorio["situacao"] == 0 else "Concluído"
+
+        return relatorio_completo
+
+
+    @staticmethod
+    def concluir_troca(codigo_produto: str):
+        """
+        Concluí uma troca.
+
+        Parameters
+        ----------
+            codigo_produto:str
+                O código do produto.
+        """
+
+        conexao = conectar_banco_dados_principal()
+        cursor = conexao.cursor()
+
+        cursor.execute(
+            f"""
+            UPDATE {TABELA_TROCAS}
+            SET situacao = 1
+            WHERE codigo_produto = ? AND situacao = 0
+            """, (codigo_produto,)
+        )
+
+        conexao.commit()
+        conexao.close()
