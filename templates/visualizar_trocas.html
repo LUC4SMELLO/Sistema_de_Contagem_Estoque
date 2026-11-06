@@ -21,21 +21,20 @@
             <table class="table" id="tabelaTrocas">
                 <thead>
                     <tr>
-                        <th style="width: 5%;">Id</th>
-                        <th style="width: 20%;">Código Produto</th>
-                        <th style="width: 45%;">Descrição</th>
-                        <th style="width: 10%;">Quantidade</th>
-                        <th style="width: 10%;">Situação</th>
-                        <th style="width: 10%;"></th>
+                        <th>Id</th>
+                        <th>Código Produto</th>
+                        <th>Descrição</th>
+                        <th>Quantidade</th>
+                        <th>Situação</th>
+                        <th></th>
                     </tr>
                 </thead>
 
                 <tbody>
                     {% if dados_trocas %}
                     {% for dado in dados_trocas %}
-                    
                     <tr>
-                        <td>{{ dado.id }}</td>
+                        <td>{{ dado.ids }}</td>
                         <td>{{ dado.codigo_produto }}</td>
                         <td>{{ dado.descricao }}</td>
                         <td>{{ dado.quantidade }}</td>
@@ -44,7 +43,6 @@
                             <button type="submit" name="concluir" value="{{ dado.codigo_produto }}" class="btn-confirmar">Concluir</button>
                         </td>
                     </tr>
-
                     {% endfor %}
                     {% endif %}
                 </tbody>

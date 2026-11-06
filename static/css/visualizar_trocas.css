@@ -8,8 +8,14 @@ body {
     color: #000000;
     margin: 0;
     padding: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
+form {
+    width: 100%;
+    min-width: 0;
+}
 
 header {
     width: 100%;
@@ -25,97 +31,92 @@ header img {
 }
 
 
-.botao {
-    font-weight: bold;
-    padding: 5px 42px;
-    width: 210px;
-}
-
 hr{
     width: 100%;
     border: 2px solid silver;
 }
 
 .table-container {
+    display: block;
+
     width: 90%;
     max-width: 1200px;
 
     margin: 20px auto;
+
     overflow-x: auto;
+    overflow-y: auto;
+
     -webkit-overflow-scrolling: touch;
 
     max-height: 450px;
-    overflow-y: auto;
 }
 
-
-table {
+#tabelaTrocas {
     width: 100%;
-
-    table-layout: fixed; 
+    min-width: 750px;
 
     background: #fff;
     border-radius: 10px;
+
     border-collapse: separate;
     border-spacing: 0;
+
     box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
 }
 
-table th {
+#tabelaTrocas th {
     background: black;
-    color: #fff;
+    color: white;
     text-align: center;
     padding: 10px;
-    vertical-align: middle;
 
     position: sticky;
     top: 0;
     z-index: 10;
+
+    white-space: nowrap;
 }
 
-table td {
+#tabelaTrocas td {
     padding: 10px;
     text-align: center;
     vertical-align: middle;
+
     border-bottom: 1px solid #dee2e6;
-}
-
-table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-table th, table td {
-    width: inherit;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-.table-container button {
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    box-sizing: border-box;
-    transition: all 0.2s ease-in-out;
-    outline: none;
-    cursor: pointer;
-    border: none;
-    color: #ffffff;
+#tabelaTrocas tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#tabelaTrocas td:nth-child(3) {
+    min-width: 250px;
 }
 
 .btn-confirmar {
-    width: auto;
     padding: 12px;
     background-color: #1fa848;
-    margin-top: 10px;
-    margin-left: 15px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
-.btn-confirmar:hover {
-    background-color: #199415;
-}
+@media (max-width: 768px) {
+    .table-container {
+        width: 90%;
+        overflow-x: auto;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
 
-table td .btn-confirmar {
-    display: inline-block;
-    margin: 0 auto;
+    #tabelaTrocas {
+        width: 750px;
+        min-width: 750px;
+    }
 }
