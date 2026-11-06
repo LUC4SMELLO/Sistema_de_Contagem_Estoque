@@ -2,8 +2,8 @@ body {
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
-    justify-content: center;   /* Centraliza horizontalmente */
-    align-items: center;       /* Centraliza verticalmente */
+    justify-content: center;
+    align-items: center;
     background-color: #ffffff;
     color: #000000;
     margin: 0;
@@ -29,22 +29,18 @@ hr {
 }
 
 
-
-/* --- ESTILOS DO FORMULÁRIO --- */
-
 .formulario {
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* Faz os campos preencherem toda a largura */
+    align-items: stretch;
     font-family: sans-serif;
     width: 100%;      
     max-width: 500px;     
     padding: 0 20px;
     box-sizing: border-box;
-    gap: 16px; /* Substitui os <br> gerando espaçamento uniforme entre os blocos */
+    gap: 16px;
 }
 
-/* Estrutura para os blocos (Label acima do Input) */
 .campo, .buscar {
     display: flex;
     flex-direction: column;
@@ -59,7 +55,6 @@ hr {
     text-align: left;
 }
 
-/* Aplica o mesmo visual para Inputs e para a classe do Select (.form-control) */
 .formulario .form-control,
 .formulario input {
     width: 100%;
@@ -73,13 +68,6 @@ hr {
     background-color: #ffffff;
 }
 
-/* Efeito visual quando clica para digitar ou selecionar */
-.formulario .form-control:focus,
-.formulario input:focus {
-    border-color: #1fa848; /* Segue o tom verde do confirmar */
-}
-
-/* Estilo para campos desabilitados */
 .formulario input:disabled {
     background-color: #f8fafc;
     color: #94a3b8;
@@ -104,7 +92,7 @@ hr {
 .btn-confirmar {
     width: 100%;
     padding: 12px;
-    background-color: #1fa848; /* Verde do seu código original */
+    background-color: #1fa848;
     margin-top: 10px;
 }
 
