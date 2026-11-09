@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    justify-content: center;   /* Centraliza horizontalmente */
+    align-items: center;       /* Centraliza verticalmente */
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+header img {
+    height: 70px;
+}
+
+hr{
+    width: 100%;
+    border: 2px solid silver;
+}
+
+.botao {
+    font-weight: bold;
+    padding: 5px 42px;
+    width: 210px;
+}
+
+.botao {
+    width: 210px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    cursor: pointer;
+    
+    /* Cores e Estilo do Botão */
+    border: 1px solid #cacaca;
+    background-color: #efefef;
+    color: #000000;
+}

@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatório Entrada</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/relatorio_entrada.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/relatorio_entrada/preencher_relatorio_entrada.css') }}">
 </head>
 
 <body>
     <header>
-        <h1>Relatório Entrada</h1>
+        <h1>Preencher<br>Relatório Entrada</h1>
         <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
     </header>
 
@@ -197,7 +197,7 @@
                 formData.append("chave", `${notaFiscal}_${item}`);
 
                 // Envia os dados assincronamente para a nova rota temporária
-                fetch("/salvar_relatorio_entrada_temporario", {
+                fetch("{{ url_for('relatorio_entrada.salvar_relatorio_entrada_temporario') }}", {
                     method: "POST",
                     body: formData
                 })
@@ -221,7 +221,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", () => {
 
-    fetch("/carregar_relatorio_entrada_temporario")
+    fetch("{{ url_for('relatorio_entrada.carregar_relatorio_entrada_temporario') }}")
         .then(res => res.json())
         .then(dados => {
 
