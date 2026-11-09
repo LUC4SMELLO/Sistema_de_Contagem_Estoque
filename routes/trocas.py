@@ -11,7 +11,7 @@ trocas_bp = Blueprint("trocas", __name__, url_prefix="/trocas")
 
 @trocas_bp.route("/trocas", methods=["GET"])
 def trocas():
-    return render_template("trocas.html")
+    return render_template("troca/troca.html")
 
 
 @trocas_bp.route("/adicionar", methods=["GET", "POST"])
@@ -32,7 +32,7 @@ def adicionar():
 
         return render_template("salvar_contagem.html", mensagem=mensagem, erro=erro)
 
-    return render_template("adicionar_troca.html", lista_produtos=bebidas)
+    return render_template("troca/adicionar_troca.html", lista_produtos=bebidas)
 
 
 @trocas_bp.route("/excluir", methods=["GET", "POST"])
@@ -49,23 +49,23 @@ def excluir():
 
             if not id:
                 flash("Preencha o campo id.", "erro")
-                return render_template("excluir_troca.html")
+                return render_template("troca/excluir_troca.html")
 
             codigo_produto, quantidade = Trocas.buscar_troca(id)
             if not codigo_produto or not quantidade:
                 flash("Troca não encontrada.", "erro")
-                return render_template("excluir_troca.html", id="", produto="", quantidade="")
+                return render_template("troca/excluir_troca.html", id="", produto="", quantidade="")
 
             bebidas_indexada = {bebida["codigo"]: bebida["nome"] for bebida in bebidas}
             produto = bebidas_indexada.get(codigo_produto)
 
-            return render_template("excluir_troca.html", id=id, produto=produto, quantidade=quantidade)
+            return render_template("troca/excluir_troca.html", id=id, produto=produto, quantidade=quantidade)
 
         if acao == "confirmar":
 
             if not id or not produto or not quantidade:
                 flash("Busque a troca primeiro.", "aviso")
-                return render_template("excluir_troca.html")
+                return render_template("troca/excluir_troca.html")
 
             Trocas.excluir_troca(id)
 
@@ -74,7 +74,7 @@ def excluir():
             
             return render_template("salvar_contagem.html", mensagem=mensagem, erro=erro)
 
-    return render_template("excluir_troca.html")
+    return render_template("troca/excluir_troca.html")
 
 
 @trocas_bp.route("/visualizar", methods=["GET", "POST"])
@@ -90,4 +90,4 @@ def visualizar():
         return redirect(url_for("trocas.visualizar"))
 
     dados_trocas = Trocas.buscar_trocas()
-    return render_template("visualizar_trocas.html", dados_trocas=dados_trocas)
+    return render_template("troca/visualizar_trocas.html", dados_trocas=dados_trocas)
