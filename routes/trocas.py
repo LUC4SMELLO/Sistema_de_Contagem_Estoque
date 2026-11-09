@@ -7,7 +7,7 @@ from constants.lista_produtos import bebidas
 from scripts.salvar_trocas import salvar_troca
 
 
-trocas_bp = Blueprint("trocas", __name__)
+trocas_bp = Blueprint("trocas", __name__, url_prefix="/trocas")
 
 @trocas_bp.route("/trocas", methods=["GET"])
 def trocas():
