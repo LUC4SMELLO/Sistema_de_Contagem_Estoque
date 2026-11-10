@@ -95,7 +95,7 @@ hr{
     min-width: 250px;
 }
 
-.btn-confirmar {
+.btn-concluir {
     padding: 12px;
     background-color: #1fa848;
     color: white;
@@ -106,6 +106,25 @@ hr{
     cursor: pointer;
     white-space: nowrap;
 }
+
+.btn-exportar {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    cursor: pointer;
+    
+    /* Cores e Estilo do Botão */
+    border: none;
+    border-radius: 8px;
+    background-color: #0d64cc;
+    color: #ffffff;
+}
+
 
 @media (max-width: 768px) {
     .table-container {
@@ -119,4 +138,55 @@ hr{
         width: 750px;
         min-width: 750px;
     }
+}
+
+
+
+
+/* Remove a aparência nativa do checkbox do navegador */
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 26px;
+  height: 26px;
+  border: 0.125rem solid #ccc;
+  border-radius: 0.25rem;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  transition: 150ms ease-in-out;
+}
+
+/* Estilo quando o checkbox estiver marcado */
+input[type="checkbox"]:checked {
+  background-color: #0d64cc; /* Cor de fundo quando marcado */
+  border-color: #0d64cc;
+}
+
+/* Criação do ícone de "check" (✔) usando pseudo-elemento */
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.80rem;
+  height: 0.80rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em #fff; /* Cor do ícone ✔ */
+  /* Formato de 'check' */
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+/* Mostra o ícone quando estiver marcado */
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+/* Estilo para o estado de foco (acessibilidade) */
+input[type="checkbox"]:focus-visible {
+  outline: max(2px, 0.1em) solid #0d64cc;
+  outline-offset: max(2px, 0.1em);
 }

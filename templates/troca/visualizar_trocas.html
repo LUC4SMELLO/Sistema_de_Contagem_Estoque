@@ -21,6 +21,7 @@
             <table class="table" id="tabelaTrocas">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Id</th>
                         <th>Código Produto</th>
                         <th>Descrição</th>
@@ -34,13 +35,14 @@
                     {% if dados_trocas %}
                     {% for dado in dados_trocas %}
                     <tr>
+                        <td><input type="checkbox"></td>
                         <td>{{ dado.ids }}</td>
                         <td>{{ dado.codigo_produto }}</td>
                         <td>{{ dado.descricao }}</td>
                         <td>{{ dado.quantidade }}</td>
                         <td>{{ dado.situacao }}</td>
                         <td>
-                            <button type="submit" name="concluir" value="{{ dado.codigo_produto }}" class="btn-confirmar">Concluir</button>
+                            <button type="submit" name="concluir" value="{{ dado.codigo_produto }}" class="btn-concluir">Concluir</button>
                         </td>
                     </tr>
                     {% endfor %}
@@ -51,6 +53,61 @@
 
     </form>
 
+    <button type="button" id="btnExportarExcel" class="btn-exportar">Copiar Linhas Selecionadas para o Excel</button>
+
+
     
 </body>
 </html>
+
+<script>
+    document.getElementById('btnExportarExcel').addEventListener('click', function() {
+        // 1. Pega a tabela e todas as linhas do corpo (tbody)
+        const tabela = document.getElementById('tabelaTrocas');
+        const linhas = tabela.querySelectorAll('tbody tr');
+        
+        let dadosCopiados = "";
+
+        // 2. Monta o cabeçalho (opcional - remova se não quiser os títulos das colunas)
+        // Ignoramos a primeira coluna (checkbox) e a última (botão concluir)
+        dadosCopiados += "Código Produto\tDescrição\tQuantidade\n";
+
+        let linhasSelecionadas = 0;
+
+        // 3. Percorre cada linha da tabela
+        linhas.forEach(linha => {
+            // Verifica se o checkbox dessa linha está marcado
+            const checkbox = linha.querySelector('input[type="checkbox"]');
+            
+            if (checkbox && checkbox.checked) {
+                linhasSelecionadas++;
+                const colunas = linha.querySelectorAll('td');
+                
+                // Pega os textos das colunas corretas (ignora a col 0 do checkbox e col 6 do botão)
+                // const id = colunas[1].innerText.trim();
+                const codigo = colunas[2].innerText.trim();
+                const descricao = colunas[3].innerText.trim();
+                const quantidade = colunas[4].innerText.trim();
+                // const situacao = colunas[5].innerText.trim();
+
+                // O caractere '\t' representa o TAB (avança uma coluna no Excel)
+                // O caractere '\n' pula para a próxima linha
+                dadosCopiados += `${codigo}\t${descricao}\t${quantidade}\n`;
+            }
+        });
+
+        // 4. Validação caso o usuário não tenha marcado nada
+        if (linhasSelecionadas === 0) {
+            alert("Por favor, selecione ao menos uma linha para exportar!");
+            return;
+        }
+
+        // 5. Copia o texto formatado para a área de transferência do usuário
+        navigator.clipboard.writeText(dadosCopiados).then(() => {
+            alert(`${linhasSelecionadas} Linhas Copiadas!`);
+        }).catch(err => {
+            console.error('Erro ao copiar dados: ', err);
+            alert('Ocorreu um erro ao tentar copiar as linhas.');
+        });
+    });
+</script>
