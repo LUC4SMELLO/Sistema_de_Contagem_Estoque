@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contagem</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contagem/selecionar_contagem.css') }}">
+
+</head>
+<body>
+
+    <header>
+        <h1>Contagem</h1>
+        <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+    </header>
+
+    <hr>
+
+    <main>
+
+        <br>
+
+        <p>Selecione uma contagem.</p>
+
+        <br>
+        <a href="{{ url_for('contagem.bebidas')}}">
+            <button class="botao">Bebidas</button> <br><br>
+        </a>
+
+        <a href="{{ url_for('contagem.doces')}}">
+            <button class="botao">Doces </button> <br><br>
+        </a>
+
+        <a href="{{ url_for('contagem.geladeiras')}}">
+            <button class="botao">Geladeiras</button> <br><br>
+        </a>
+
+        <a href="{{ url_for('contagem.datas')}}">
+            <button class="botao">Datas</button> <br><br>
+        </a>
+
+    </main>
+
+</body>
+</html>

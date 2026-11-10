@@ -7,7 +7,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/contagem_datas.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contagem/contagem_datas.css') }}">
 </head>
 <body>
     <header>
@@ -27,7 +27,7 @@
     </label>
 
     <!-- FORMULÁRIO DE CONTAGEM -->
-    <form id="formulario-contagem" method="POST" action="/salvar_contagem_datas">
+    <form id="formulario-contagem" method="POST" action="{{ url_for('contagem.salvar_contagem_datas') }}">
         <div class="table-container"> 
             <table class="table table-bordered">
             <thead>
@@ -160,7 +160,7 @@
                 formData.append("data_validade", dataValidade);
                 formData.append("quantidade", quantidade);
 
-                fetch("/salvar_contagem_datas_temporaria", {
+                fetch("{{ url_for('contagem.salvar_contagem_datas_temporaria') }}", {
                     method: "POST",
                     body: formData
                 })

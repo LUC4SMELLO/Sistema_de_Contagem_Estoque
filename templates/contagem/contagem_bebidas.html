@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/contagem_estoque.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contagem/contagem_bebidas.css') }}">
 
   <script>
     function filtrarProdutos() {
@@ -44,7 +44,7 @@
   <br><br>
 
   <!-- FORMULÁRIO DE CONTAGEM -->
-  <form id="formulario-contagem" method="POST" action="/salvar_contagem">
+  <form id="formulario-contagem" method="POST" action="{{ url_for('contagem.salvar_contagem_bebidas') }}">
 
     <table class="table table-bordered">
 
@@ -90,7 +90,7 @@
   <!-- TRECHO PARA CARREGAR CONTAGENS TEMPORÁRIAS -->
   <script>  
     document.addEventListener("DOMContentLoaded", () => {
-    fetch("/carregar_contagem_temporaria")
+    fetch("{{ url_for('contagem.carregar_contagem_temporaria') }}")
       .then(res => res.json())
       .then(dados => {
         dados.forEach(item => {
@@ -116,7 +116,7 @@
       formData.append("produto_id", produto_id);
       formData.append("quantidade", quantidade);
 
-      fetch("/salvar_contagem_temporaria", {
+      fetch("{{ url_for('contagem.salvar_contagem_temporaria') }}", {
         method: "POST",
         body: formData
         });

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contagem Geladeiras</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/contagem_geladeira.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contagem/contagem_geladeira.css') }}">
 
 </head>
 <body class="p-3">
@@ -53,7 +53,7 @@
             formData.append("quantidade", 1); // sempre 1 geladeira por registro
 
             try {
-                await fetch("/salvar_contagem_temporaria", {
+                await fetch("{{ url_for('contagem.salvar_contagem_temporaria') }}", {
                     method: "POST",
                     body: formData
                 });
@@ -78,7 +78,7 @@
                 return;
             }
 
-            const resposta = await fetch('/salvar_contagem_geladeiras', {
+            const resposta = await fetch("{{ url_for('contagem.salvar_contagem_geladeiras') }}", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -102,7 +102,7 @@
 
         async function carregarContagemTemporaria() {
             try {
-                const resposta = await fetch("/carregar_contagem_temporaria");
+                const resposta = await fetch("{{ url_for('contagem.carregar_contagem_temporaria') }}");
                 const dados = await resposta.json();
 
                 if (!Array.isArray(dados)) return;
