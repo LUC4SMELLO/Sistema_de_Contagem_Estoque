@@ -23,20 +23,8 @@
 
         <p>Selecione um serviço.</p> <br>
 
-        <a href="{{ url_for('contagem_estoque.contagem_estoque')}}">
-            <button class="botao-contagem">Contagem Bebidas</button> <br><br>
-        </a>
-
-        <a href="{{ url_for('contagem_doces.contagem_doces')}}">
-            <button class="botao-contagem">Contagem Doces</button> <br><br>
-        </a>
-
-        <a href="{{ url_for('contagem_geladeira.contagem_geladeira')}}">
-            <button class="botao-contagem">Contagem Geladeiras</button> <br><br>
-        </a>
-
-        <a href="{{ url_for('contagem_datas.contagem_datas')}}">
-            <button class="botao-contagem">Contagem Datas</button> <br><br><br>
+        <a href="{{ url_for('contagem.selecionar_contagem')}}">
+            <button class="botao-contagem">Contagem</button> <br><br>
         </a>
 
         <a href="{{ url_for('relatorio_entrada.relatorio_entrada')}}"> 
@@ -44,7 +32,7 @@
         </a>
 
         <a href="{{ url_for('relatorio_datas.relatorio_datas') }}">
-            <button class="botao-contagem">Relatório de Datas</button> <br><br><br>
+            <button class="botao-contagem">Relatório de Datas</button> <br><br>
         </a>
 
         <a href="{{ url_for('trocas.trocas') }}">
